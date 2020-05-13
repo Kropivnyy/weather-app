@@ -1,0 +1,35 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $primary-font-family;
+  font-size: $primary-font-size;
+  line-height: $primary-line-height;
+  color: $primary-white-color;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: 280px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    width: 608px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1060px;
+  }
+}
