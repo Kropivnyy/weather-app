@@ -1,0 +1,73 @@
+.search{
+  padding: 18px 0 0 0;
+}
+.search--form{
+  position: relative;
+  margin-bottom: 13px;
+  &::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 18px;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    background: url(./images/sprite.svg#icon-location-searching) no-repeat;
+  }
+}
+.search--form__input{
+  width: 100%;
+  padding: 0 48px 0 59px;
+  font: 400 14px/48px $primary-font-family;
+  background-color: $primary-white-color;
+  border: none;
+  border-radius: 24px;
+  line-height: 48px;
+  &::placeholder{
+    color: $primary-black-color;
+  }
+  &:focus{
+    outline: none;
+  }
+}
+.search--form__add-to-favorites{
+  background: none;
+  padding: 0;
+  border: none;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  background: url(./images/sprite.svg#icon-icon-star) no-repeat;
+}
+.favorite-cities--list{
+  list-style-type: none;
+  display: flex;
+}
+.favorite-cities--item{
+  background-color: rgba(0,0,0,.3);
+  border-radius: 14px;
+  padding: 0 5px;
+  &:not(:last-child){
+    margin-right: 10px;
+  }
+}
+.favorite-cities--link{
+  font: 400 12px/27px $primary-font-family;
+  color: $primary-white-color;
+  padding: 0 5px;
+
+}
+.favorite-cities--remove{
+  width: 12px;
+  height: 12px;
+  background: url(./images/sprite.svg#icon-close) no-repeat;
+  border: none;
+  background: none;
+}
+.favorite-cities--arrow-left{
+  border: none;
+  background: none;
+}
