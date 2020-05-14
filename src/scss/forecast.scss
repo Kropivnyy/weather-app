@@ -7,14 +7,18 @@
   @include letter-spacing(30);
   font-size: 45px;
   font-weight: 300;
-  letter-spacing: 1.35px;
 }
 
 .today__main-info sup {
-    @include letter-spacing(30);
-  font-size: 22px;
+  @include letter-spacing(30);
+  font-size: 14px;
 }
 
 .today__secondary-info {
   @include letter-spacing(30);
+  font-size: 30px;
+}
+
+.today__month {
+  font-size: 1em;
 }
