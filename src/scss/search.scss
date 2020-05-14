@@ -2,35 +2,47 @@
   padding: 28px 0 48px;
   button{
     cursor: pointer;
+    border:none;
+    padding: 0;
+  }
+  .material-icons{
+    display: block;
   }
   @media screen and (min-width: 768px) {
-    padding: 62px 0 102px;
+    padding: 62px 0 104px;
   }
   @media screen and (min-width: 1280px) {
-    padding: 79px 0 91px;
+    padding: 79px 0 92px;
   }
 }
 
 .search__form{
   position: relative;
   margin-bottom: 13px;
-  &::before{
-    content: '';
-    position: absolute;
-    width: 22px;
-    height: 22px;
-    top: 50%;
-    left: 25px;
-    transform: translateY(-50%);
-    background: url(./images/sprite.svg#icon-location-searching) no-repeat;
-  }
   @media screen and (min-width: 768px) {
     width: 83%;
-    margin: 0 auto 13px;
+    margin: 0 auto 12px;
   }
   @media screen and (min-width: 1280px) {
     width: 48%;
   }
+}
+
+.form__icon--gps,
+.form__icon--star{
+  font-size: 22px;
+}
+
+.form__icon--gps{
+  position: absolute;
+  top:50%;
+  left: 25px;
+  transform: translateY(-50%);
+  color: rgba($background-blue-color,.4);
+}
+
+.form__icon--star{
+  padding: 4px;
 }
 
 .form__input{
@@ -53,18 +65,15 @@
 
 .form__add-to-favorites{
   position: absolute;
-  padding: 5px;
-  width: 30px;
-  height: 30px;
   top: 50%;
-  right: 21px;
+  right: 19px;
   transform: translateY(-50%);
-  border: none;
   border-radius: 50%;
-  background: url(./images/sprite.svg#icon-star) no-repeat;
+  background: transparent;
+  color:rgba($background-blue-color,.5);
   transition: $primary-transition;
   &:hover{
-    background: url(./images/sprite.svg#icon-star) no-repeat,$small-buttons-color;
+    background: $small-buttons-color;
   }
   @media screen and (min-width: 768px) {
     right: 25px;
@@ -90,7 +99,6 @@
   padding-left: 24px;
   @media screen and (min-width: 768px) {
     width: calc(87% - 27px);
-    padding-left: 25px;
   }
 }
 
@@ -99,37 +107,40 @@
   @include center-flex(ver);
   background-color: rgba($primary-black-color,.4);
   border-radius: 14px;
-  padding: 0 11px 0 13px;
+  padding: 0 9px 0 13px;
   &:not(:last-child){
     margin-right: 10px;
+  }
+  @media screen and (min-width: 768px) {
+    padding: 0 7px 0 13px;
   }
 }
 
 .favorites__link{
   font: 400 12px/27px $primary-font-family;
   color: $primary-white-color;
-  padding-right: 23px;
+  padding-right: 18px;
   @media screen and (min-width: 768px) {
     font-size: 14px;
     padding-right: 7px;
   }
-  @media screen and (min-width: 1280px) {
-    padding-right: 10px;
-  }
 }
 
 .favorites__remove{
-  width: 12px;
-  height: 12px;
-  background: url(./images/sprite.svg#icon-close) no-repeat;
-  border: none;
+  background: none;
+  color:rgba($primary-white-color,.6);
+  .material-icons{
+    font-size: 20px;
+    line-height: 27px;
+  }
 }
 
 .favorites__arrow-left{
-  padding: 0;
   width: 27px;
-  height: 27px;
-  border: none;
-  background: url(./images/sprite.svg#icon-star) no-repeat, rgba($small-buttons-color,.2);
+  background:rgba($small-buttons-color,.2);
   border-radius: 50%;
+  .material-icons{
+    font-size: 20px;
+    line-height: 27px;
+  }
 }
