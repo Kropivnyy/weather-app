@@ -1,17 +1,16 @@
 .buttons {
-  margin-top: 32px;
+  margin-bottom: 32px;
   text-align: center;
   font-size: 0;
 
   @media screen and (min-width: 768px) {
-    margin-top: 48px;
+    margin-bottom: 48px;
   }
 
   @media screen and (min-width: 1280px) {
-    margin-top: 28px;
+    margin-bottom: 56px;
     text-align: right;
   }
-
 }
 
 .buttons__set-day-btn {
@@ -30,11 +29,11 @@
     margin-right: 20px;
 
     @media screen and (min-width: 768px) {
-        margin-right: 16px;
-      }
+      margin-right: 16px;
+    }
   }
 
   &--active {
-    background-color: $primary-white-color
+    background-color: $primary-white-color;
   }
 }
