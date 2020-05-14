@@ -14,7 +14,7 @@
 
 }
 
-.set-days-btn {
+.buttons__set-day-btn {
   @extend %link;
   text-transform: uppercase;
   font: 700 14px/22px $primary-font-family;
@@ -34,7 +34,7 @@
       }
   }
 
-  &__active {
+  &--active {
     background-color: $primary-white-color
   }
 }
