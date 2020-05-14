@@ -1,7 +1,7 @@
 .search{
   padding: 18px 0 0 0;
 }
-.search--form{
+.search__form{
   position: relative;
   margin-bottom: 13px;
   &::before{
@@ -15,7 +15,7 @@
     background: url(./images/sprite.svg#icon-location-searching) no-repeat;
   }
 }
-.search--form__input{
+.form__input{
   width: 100%;
   padding: 0 48px 0 59px;
   font: 400 14px/48px $primary-font-family;
@@ -30,7 +30,7 @@
     outline: none;
   }
 }
-.search--form__add-to-favorites{
+.form__add-to-favorites{
   background: none;
   padding: 0;
   border: none;
@@ -40,13 +40,13 @@
   top: 50%;
   right: 16px;
   transform: translateY(-50%);
-  background: url(./images/sprite.svg#icon-icon-star) no-repeat;
+  background: url(./images/sprite.svg#icon-star) no-repeat;
 }
-.favorite-cities--list{
+.favorites__list{
   list-style-type: none;
   display: flex;
 }
-.favorite-cities--item{
+.favorites__item{
   background-color: rgba(0,0,0,.3);
   border-radius: 14px;
   padding: 0 5px;
@@ -54,20 +54,20 @@
     margin-right: 10px;
   }
 }
-.favorite-cities--link{
+.favorites__link{
   font: 400 12px/27px $primary-font-family;
   color: $primary-white-color;
   padding: 0 5px;
 
 }
-.favorite-cities--remove{
+.favorites__remove{
   width: 12px;
   height: 12px;
   background: url(./images/sprite.svg#icon-close) no-repeat;
   border: none;
   background: none;
 }
-.favorite-cities--arrow-left{
+.favorites__arrow-left{
   border: none;
   background: none;
 }
