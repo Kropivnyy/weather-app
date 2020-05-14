@@ -1,0 +1,40 @@
+.buttons {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 0;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 48px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 28px;
+    text-align: right;
+  }
+
+}
+
+.set-days-btn {
+  @extend %link;
+  text-transform: uppercase;
+  font: 700 14px/22px $primary-font-family;
+  color: $primary-black-color;
+  text-align: center;
+  background-color: rgba($primary-white-color, $half-opacity);
+  width: 126px;
+  height: 29px;
+  border-radius: 29px;
+  padding-top: 3px;
+
+  &:not(:last-child) {
+    margin-right: 20px;
+
+    @media screen and (min-width: 768px) {
+        margin-right: 16px;
+      }
+  }
+
+  &__active {
+    background-color: $primary-white-color
+  }
+}
