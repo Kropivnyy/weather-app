@@ -1,0 +1,139 @@
+.search{
+  padding: 28px 0 48px;
+  .material-icons{
+    display: block;
+  }
+  @media screen and (min-width: 768px) {
+    padding: 62px 0 104px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 79px 0 92px;
+  }
+}
+
+.search__form{
+  width: 100%;
+  position: relative;
+  margin-bottom: 13px;
+  @media screen and (min-width: 768px) {
+    width: 505px;
+    margin: 0 auto 12px;
+  }
+}
+
+.form__icon-gps,
+.form__icon-star{
+  font-size: 22px;
+}
+
+.form__icon-gps{
+  position: absolute;
+  top:50%;
+  left: 25px;
+  transform: translateY(-50%);
+  color: rgba($background-blue-color,.4);
+}
+
+.form__icon--star{
+  padding: 4px;
+}
+
+.form__input{
+  width: 100%;
+  padding: 0 48px 0 59px;
+  font: 400 14px/48px $primary-font-family;
+  background-color: $primary-white-color;
+  border: none;
+  border-radius: 24px;
+  &::placeholder{
+    color: $primary-black-color;
+  }
+  &:focus{
+    outline: none;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+.form__add-to-favorites{
+  @extend %button;
+  position: absolute;
+  top: 50%;
+  right: 19px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: transparent;
+  color:rgba($background-blue-color,$half-opacity);
+  transition: $primary-transition;
+  &:hover{
+    background: $small-buttons-color;
+  }
+  @media screen and (min-width: 768px) {
+    right: 25px;
+  }
+}
+
+.search__favorites{
+  display: flex;
+  @media screen and (min-width: 768px) {
+    width: 505px;
+    margin: 0 auto;
+  }
+}
+
+.favorites__list{
+  display: flex;
+  width: calc(505px - 27px);
+  list-style-type: none;
+  overflow: hidden;
+  padding-left: 24px;
+  @media screen and (min-width: 768px) {
+    width: calc(440px - 27px);
+  }
+}
+
+.favorites__item{
+  display: flex;
+  @include center-flex(ver);
+  background-color: rgba($primary-black-color,.4);
+  border-radius: 14px;
+  padding: 0 9px 0 13px;
+  &:not(:last-child){
+    margin-right: 10px;
+  }
+  @media screen and (min-width: 768px) {
+    padding: 0 7px 0 13px;
+  }
+}
+
+.favorites__link{
+  font: 400 12px/27px $primary-font-family;
+  color: $primary-white-color;
+  padding-right: 18px;
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    padding-right: 7px;
+  }
+}
+
+.favorites__remove{
+  @extend %button;
+  background: none;
+  color:rgba($primary-white-color,$half-opacity);
+  .material-icons{
+    font-size: 20px;
+    line-height: 27px;
+  }
+}
+
+.favorites__arrow-left{
+  @extend %button;
+  background:rgba($small-buttons-color,$light-opacity);
+  border-radius: 50%;
+  .material-icons{
+    font-size: 20px;
+    width: 27px;
+    line-height: 27px;
+  }
+}
