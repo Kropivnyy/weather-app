@@ -1,86 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <title>Weather App</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Weather App</title>
+  </head>
 
-<body>
-  <main class="main-background">
-  <section class="search">
-    <div class="container">
-      <h1 class="visually-hidden">citySearch</h1>
-      <form class="search__form">
-        <i class="material-icons form__icon-gps">gps_not_fixed</i>
-        <input type="text" name="city" placeholder="Enter the city" class="form__input">
-        <button type="button" class="form__add-to-favorites">
-          <i class="material-icons form__icon-star">star_border</i>
-          <span class="visually-hidden">Add to favourites</span>
-        </button>
-      </form>
-      <div class="search__favorites">
-        <ul class="favorites__list">
-          <li class="favorites__item">
-            <a href="#" class="favorites__link">Kyiv</a>
-            <button type="button" class="favorites__remove">
-              <i class="material-icons">close</i>
-              <span class="visually-hidden">Remove from favorites</span>
+  <body>
+    <main class="main-background">
+      <section class="search">
+        <div class="container">
+          <h1 class="visually-hidden">citySearch</h1>
+          <form class="search__form">
+            <i class="material-icons form__icon-gps">gps_not_fixed</i>
+            <input
+              type="text"
+              name="city"
+              placeholder="Enter the city"
+              class="form__input"
+            />
+            <button type="button" class="form__add-to-favorites">
+              <i class="material-icons form__icon-star">star_border</i>
+              <span class="visually-hidden">Add to favourites</span>
             </button>
-          </li>
-          <li class="favorites__item">
-            <a href="#" class="favorites__link">Mariupol</a>
-            <button type="button" class="favorites__remove">
-              <i class="material-icons">close</i>
-              <span class="visually-hidden">Remove from favorites</span>
+          </form>
+          <div class="search__favorites">
+            <ul class="favorites__list">
+              <li class="favorites__item">
+                <a href="#" class="favorites__link">Kyiv</a>
+                <button type="button" class="favorites__remove">
+                  <i class="material-icons">close</i>
+                  <span class="visually-hidden">Remove from favorites</span>
+                </button>
+              </li>
+              <li class="favorites__item">
+                <a href="#" class="favorites__link">Mariupol</a>
+                <button type="button" class="favorites__remove">
+                  <i class="material-icons">close</i>
+                  <span class="visually-hidden">Remove from favorites</span>
+                </button>
+              </li>
+              <li class="favorites__item">
+                <a href="#" class="favorites__link">Mariupol</a>
+                <button type="button" class="favorites__remove">
+                  <i class="material-icons">close</i>
+                  <span class="visually-hidden">Remove from favorites</span>
+                </button>
+              </li>
+            </ul>
+            <button type="button" class="favorites__arrow-left">
+              <i class="material-icons">navigate_next</i>
             </button>
-          </li>
-          <li class="favorites__item">
-            <a href="#" class="favorites__link">Mariupol</a>
-            <button type="button" class="favorites__remove">
-              <i class="material-icons">close</i>
-              <span class="visually-hidden">Remove from favorites</span>
-            </button>
-          </li>
-        </ul>
-        <button type="button" class="favorites__arrow-left">
-          <i class="material-icons">navigate_next</i>
-        </button>
-      </div>
-    </div>
-  </section>
-      <section class="current-weather">
-      <div class="container">
-        <div class="current-weather__widget">
-          <img
-            class="widget__weather-icon"
-            src="./images/icon.png"
-            alt="cloudy"
-            width="42"
-            height="22"
-          />
-          <h2 class="widget__city">Kyiv, UA</h2>
-          <div class="temperature">
-            <p class="temperature__current">-3&#176;</p>
-            <p class="temperature__min">-2 &#176;</p>
-            <p class="temperature__max">-3 &#176;</p>
           </div>
         </div>
-      </div>
-    </section>
-  <section class="buttons container">
-    <a
-      href="#"
-      class="buttons__set-day-btn buttons__set-day-btn--active today-forecast-js"
-      >today</a>
-    <a href="#" class="buttons__set-day-btn five-days-forecast-js">5 days</a>
-  </section>
-  <section class="chart"></section>
-    <div class="form">
-       <input type="text" id="input" required />
-    </div>
-  </main>
-</body>
+      </section>
+      <section class="current-weather">
+        <div class="container">
+          <div class="current-weather__widget">
+            <img
+              class="widget__weather-icon"
+              src="./images/icon.png"
+              alt="cloudy"
+              width="42"
+              height="22"
+            />
+            <h2 class="widget__city">Kyiv, UA</h2>
+            <div class="temperature">
+              <p class="temperature__current">-3&#176;</p>
+              <p class="temperature__min">-2 &#176;</p>
+              <p class="temperature__max">-3 &#176;</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="buttons container">
+        <a
+          href="#"
+          class="buttons__set-day-btn buttons__set-day-btn--active today-forecast-js"
+          >today</a
+        >
+        <a href="#" class="buttons__set-day-btn five-days-forecast-js"
+          >5 days</a
+        >
+      </section>
+      <section class="chart"></section>
+    </main>
+  </body>
 </html>
