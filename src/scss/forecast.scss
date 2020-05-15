@@ -7,18 +7,43 @@
   @include letter-spacing(30);
   font-size: 45px;
   font-weight: 300;
+  line-height: normal;
+  margin-bottom: 6px;
+}
+
+.today__date {
+  margin-right: 14px;
 }
 
 .today__main-info sup {
   @include letter-spacing(30);
   font-size: 14px;
+  top: -22px;
+}
+
+.today__day-of-the-week {
+  display: inline-block;
+  &::first-letter {
+    text-transform: uppercase;
+  }
 }
 
 .today__secondary-info {
   @include letter-spacing(30);
-  font-size: 30px;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .today__month {
-  font-size: 1em;
+  display: inline-block;
+  padding-right: 8px;
+  border-right: 1px solid rgba(231, 232, 235, 0.4);
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.today__time {
+  padding-left: 8px;
 }
