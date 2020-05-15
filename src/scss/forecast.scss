@@ -2,32 +2,54 @@
   text-align: center;
   margin-bottom: 44px;
   padding-bottom: 36px;
-  padding-top: 20px;
+  padding-top: 30px;
   border-radius: 35px;
   box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);
   background-color: rgba($background-blue-color, 0.6);
+
+  @media screen and (min-width: 768px) {
+    width: 490px;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 55px;
+  }
 }
 
 .today__main-info {
   @include letter-spacing(30);
   font-size: 45px;
   font-weight: 300;
-  line-height: normal;
-  margin-bottom: 6px;
+  margin-bottom: 14px;
+  line-height: 45px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 90px;
+    line-height: 90px;
+    margin-bottom: 10px;
+  }
 }
 
-.today__date {
-  margin-right: 14px;
+.today__main-info span {
+  display: inline-block;
 }
 
-.today__main-info sup {
-  @include letter-spacing(30);
-  font-size: 14px;
+.today__main-info .suffix {
+  display: inline;
+  position: relative;
   top: -22px;
+  font-size: 14px;
+  @include letter-spacing(30);
+  line-height: 14px;
+  margin-right: 14px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 23px;
+    line-height: 23px;
+    top: -48px;
+  }
 }
 
 .today__day-of-the-week {
-  display: inline-block;
   &::first-letter {
     text-transform: uppercase;
   }
@@ -36,7 +58,10 @@
 .today__secondary-info {
   @include letter-spacing(30);
   font-size: 14px;
-  line-height: 20px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
 }
 
 .today__secondary-info span {
@@ -68,6 +93,10 @@
 
 .today__month-and-time {
   margin-bottom: 6px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 24px;
+  }
 }
 
 .today__month::first-letter {
