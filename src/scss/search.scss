@@ -129,11 +129,11 @@
 
 .favorites__arrow-left{
   @extend %button;
-  width: 27px;
   background:rgba($small-buttons-color,$light-opacity);
   border-radius: 50%;
   .material-icons{
     font-size: 20px;
+    width: 27px;
     line-height: 27px;
   }
 }
