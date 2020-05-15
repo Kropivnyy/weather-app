@@ -22,14 +22,21 @@ img {
 }
 
 .container {
-  width: 280px;
+  width: 320px;
   margin: 0 auto;
-
+  padding: 0 20px;
   @media screen and (min-width: 768px) {
-    width: 608px;
+    width: 768px;
+    padding: 0 80px;
   }
-
   @media screen and (min-width: 1280px) {
-    width: 1060px;
+    width: 1280px;
+    padding: 0 110px;
   }
 }
+
+body {
+  background-color: gray;
+}
+
+
