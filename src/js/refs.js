@@ -5,4 +5,5 @@ export const refs = {
   favoritesRemove: document.querySelector('.favorites__remove'),
   formIconStar: document.querySelector('.form__icon-star'),
   favoritesArrowLeft: document.querySelector('.favorites__arrow-left'),
+  input: document.querySelector('#input')
 };
