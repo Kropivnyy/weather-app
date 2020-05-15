@@ -13,6 +13,8 @@ body {
   font-size: $primary-font-size;
   line-height: $primary-line-height;
   color: $primary-white-color;
+  background-color: gray;
+  background-size: 120% auto;
 }
 
 img {
@@ -34,9 +36,3 @@ img {
     padding: 0 110px;
   }
 }
-
-body {
-  background-color: gray;
-}
-
-
