@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <main class="main-background">
   <section class="search">
     <div class="container">
       <h1 class="visually-hidden">citySearch</h1>
@@ -50,6 +51,25 @@
       </div>
     </div>
   </section>
+      <section class="current-weather">
+      <div class="container">
+        <div class="current-weather__widget">
+          <img
+            class="widget__weather-icon"
+            src="./images/icon.png"
+            alt="cloudy"
+            width="42"
+            height="22"
+          />
+          <h2 class="widget__city">Kyiv, UA</h2>
+          <div class="temperature">
+            <p class="temperature__current">-3&#176;</p>
+            <p class="temperature__min">-2 &#176;</p>
+            <p class="temperature__max">-3 &#176;</p>
+          </div>
+        </div>
+      </div>
+    </section>
   <section class="buttons container">
     <a
       href="#"
@@ -57,5 +77,6 @@
       >today</a>
     <a href="#" class="buttons__set-day-btn five-days-forecast-js">5 days</a>
   </section>
+  </main>
 </body>
 </html>
