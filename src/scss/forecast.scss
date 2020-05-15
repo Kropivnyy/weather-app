@@ -12,6 +12,18 @@
     margin: 0 auto;
     padding-top: 40px;
     padding-bottom: 55px;
+    margin-bottom: 64px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 0;
+    text-align: left;
+    width: 600px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 0 35px 0 0;
+    padding: 55px 0 100px 110px;
   }
 }
 
@@ -62,16 +74,28 @@
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }
+
+  @media screen and (min-width: 1280px) {
+    display: inline-block;
+  }
 }
 
 .today__secondary-info span {
   display: inline-block;
+  position: relative;
   width: 50%;
+
+  @media screen and (min-width: 1280px) {
+    width: auto;
+  }
 
   &:first-child {
     text-align: right;
-    position: relative;
     padding-right: 8px;
+
+    @media screen and (min-width: 1280px) {
+      padding-right: 16px;
+    }
 
     &::after {
       position: absolute;
@@ -87,15 +111,20 @@
 
   &:last-child {
     text-align: left;
-    padding-left: 8px;
   }
 }
 
 .today__month-and-time {
-  margin-bottom: 6px;
+  margin-bottom: 21px;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 24px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 0;
+    width: 236px;
+    margin-right: 30px;
   }
 }
 
@@ -103,7 +132,43 @@
   text-transform: uppercase;
 }
 
+.today__time {
+  padding-left: 8px;
+
+  @media screen and (min-width: 1280px) {
+    padding-left: 16px;
+  }
+}
+
+.today__dawn img {
+  right: 56px;
+
+  @media screen and (min-width: 768px) {
+    right: 64px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    right: 72px;
+  }
+}
+
 .today__sun-img {
-  display: inline-block;
-  margin-right: 10px;
+  position: absolute;
+  bottom: 4px;
+}
+
+.today__sunset {
+  padding-left: 42px;
+
+  @media screen and (min-width: 1280px) {
+    padding-left: 50px;
+  }
+}
+
+.today__sunset img {
+  left: 8px;
+
+  @media screen and (min-width: 1280px) {
+    left: 16px;
+  }
 }
