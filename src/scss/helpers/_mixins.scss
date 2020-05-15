@@ -8,3 +8,7 @@
     align-items: center;
   }
 }
+
+@mixin letter-spacing($interval) {
+  letter-spacing: ($interval / 1000) + em;
+}
