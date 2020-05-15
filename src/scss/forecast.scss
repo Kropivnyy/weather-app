@@ -1,6 +1,11 @@
 .forecast__today {
   text-align: center;
   margin-bottom: 44px;
+  padding-bottom: 36px;
+  padding-top: 20px;
+  border-radius: 35px;
+  box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);
+  background-color: rgba($background-blue-color, 0.6);
 }
 
 .today__main-info {
@@ -34,16 +39,42 @@
   line-height: 20px;
 }
 
-.today__month {
+.today__secondary-info span {
   display: inline-block;
-  padding-right: 8px;
-  border-right: 1px solid rgba(231, 232, 235, 0.4);
+  width: 50%;
 
-  &::first-letter {
-    text-transform: uppercase;
+  &:first-child {
+    text-align: right;
+    position: relative;
+    padding-right: 8px;
+
+    &::after {
+      position: absolute;
+      display: block;
+      content: '';
+      height: 20px;
+      width: 1px;
+      background-color: rgba(231, 232, 235, 0.4);
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  &:last-child {
+    text-align: left;
+    padding-left: 8px;
   }
 }
 
-.today__time {
-  padding-left: 8px;
+.today__month-and-time {
+  margin-bottom: 6px;
+}
+
+.today__month::first-letter {
+  text-transform: uppercase;
+}
+
+.today__sun-img {
+  display: inline-block;
+  margin-right: 10px;
 }
