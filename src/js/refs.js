@@ -1,4 +1,4 @@
-export const refs = {
+export default {
   searchForm: document.querySelector('.search__form'),
   formInput: document.querySelector('.form__input'),
   formAddToFavorites: document.querySelector('.form__add-to-favorites'),
