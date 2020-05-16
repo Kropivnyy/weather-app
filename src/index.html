@@ -4,16 +4,112 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <title>Weather App</title>
   </head>
 
   <body>
-    <section class="citation">
+    <main class="main-background">
+      <section class="search">
+        <div class="container">
+          <h1 class="visually-hidden">citySearch</h1>
+          <form class="search__form">
+            <i class="material-icons form__icon-gps">gps_not_fixed</i>
+            <input
+              type="text"
+              name="city"
+              placeholder="Enter the city"
+              class="form__input"
+            />
+            <button type="button" class="form__add-to-favorites">
+              <i class="material-icons form__icon-star">star_border</i>
+              <span class="visually-hidden">Add to favourites</span>
+            </button>
+          </form>
+          <div class="search__favorites">
+            <ul class="favorites__list">
+              <li class="favorites__item">
+                <a href="#" class="favorites__link">Kyiv</a>
+                <button type="button" class="favorites__remove">
+                  <i class="material-icons">close</i>
+                  <span class="visually-hidden">Remove from favorites</span>
+                </button>
+              </li>
+              <li class="favorites__item">
+                <a href="#" class="favorites__link">Mariupol</a>
+                <button type="button" class="favorites__remove">
+                  <i class="material-icons">close</i>
+                  <span class="visually-hidden">Remove from favorites</span>
+                </button>
+              </li>
+              <li class="favorites__item">
+                <a href="#" class="favorites__link">Mariupol</a>
+                <button type="button" class="favorites__remove">
+                  <i class="material-icons">close</i>
+                  <span class="visually-hidden">Remove from favorites</span>
+                </button>
+              </li>
+            </ul>
+            <button type="button" class="favorites__arrow-left">
+              <i class="material-icons">navigate_next</i>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="current-weather js-current-weather"></section>
+      <section class="buttons container">
+        <a
+          href="#"
+          class="buttons__set-day-btn buttons__set-day-btn--active today-forecast-js"
+          >today</a
+        >
+        <a href="#" class="buttons__set-day-btn five-days-forecast-js"
+          >5 days</a
+        >
+      </section>
+      <section class="forecast container">
+        <div class="forecast__today">
+          <div class="forecast__today-info-position">
+            <p class="today__main-info">
+              <span class="today__date">8</span><span class="suffix">th</span
+              ><span class="today__day-of-the-week">Sat</span>
+            </p>
+            <p class="today__secondary-info today__month-and-time">
+              <span class="today__month">February</span
+              ><span class="today__time">21:30:56</span>
+            </p>
+            <p class="today__secondary-info">
+              <span class="today__dawn"
+                ><img
+                  class="today__sun-img"
+                  src="./images/dawn.png"
+                  alt="dawn"
+                  width="25"
+                  height="33"
+                />07:04</span
+              ><span class="today__sunset"
+                ><img
+                  class="today__sun-img"
+                  src="./images/sunset.png"
+                  alt="sunset"
+                  width="25"
+                  height="33"
+                />17:05</span
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+          <section class="citation">
       <img class="citation__quotes-img" src="./images/quotes.svg" alt="">
       <div class="citation__wrapp ">
           <p class="citation__text"></p>
           <p class="citation__author"></p>
       </div>
     </section>
+    </main>
   </body>
 </html>
