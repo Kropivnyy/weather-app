@@ -1,0 +1,80 @@
+.forecast__five-days {
+  text-align: center;
+  border-radius: 35px;
+  background-color: rgba($background-blue-color, 0.8);
+  box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);
+  padding-top: 28px;
+  padding-bottom: 62px;
+}
+
+.five-days__city-name {
+  @include letter-spacing(30);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.five-days__list {
+  @include letter-spacing(30);
+  line-height: 12px;
+  font-size: 12px;
+  width: 220px;
+  margin: 0 auto;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.five-days__day-of-week {
+  opacity: $half-opacity;
+  margin-bottom: 14px;
+}
+
+.five-days__date-and-month {
+  @include letter-spacing(30);
+  font-size: 16px;
+  line-height: 16px;
+  margin-bottom: 10px;
+}
+
+.five-days__date-and-month span {
+  display: inline-block;
+}
+
+.five-days__img-of-weather {
+  margin: 0 auto 14px auto;
+}
+
+.five-days__temperature-info-list {
+  list-style: none;
+  display: flex;
+  // justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.five-days__temperature-info-item {
+  text-align: left;
+  &:first-child {
+    padding-right: 8px ;
+    margin-right: 6px;
+    border-right: 1px solid rgba($primary-white-color, $light-opacity);
+  }
+}
+
+.five-days__temperature-info-sign {
+  opacity: $half-opacity;
+  margin-bottom: 4px;
+}
+
+.five-days__temperature-min,
+.five-days__temperature-max {
+  font-size: 16px;
+  @include letter-spacing(30);
+  line-height: 16px;
+  color: rgba($primary-orange-color, 1);
+  font-weight: 700;
+}
+
+.five-days__more-info {
+  display: inline-block;
+  color: rgba($primary-white-color, 0.302);
+}
