@@ -1,16 +1,13 @@
 .citation {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 225px;
     font-family: 'Lato';
     text-align: end;
-    margin-right: 20px;
     margin-bottom: 53px;
+    padding-left: 75px;
+    position: relative;
 
     &__wrapp{
-        padding-top: 10px;
-        padding-left: 20px;
+        width: 205;
+        padding-top: 10px; 
     }
     &__text{
         font-style: Italic;
@@ -32,10 +29,14 @@
 
 @media screen and (min-width: 768px){
     .citation{
-        width: 395px;
         margin-right: 80px;
         margin-bottom: 67px;
+        display: flex;
+        justify-content: flex-end;
+        padding-left: 155px;
+        padding-right: 78px;
         &__wrapp{
+            width: 375px;
             padding-top: 20px;
         }
         &__text{
@@ -46,6 +47,7 @@
         &__quotes-img{
             width: 51px;
             height: 47px;
+            right: 78px;
             
         }
     }
@@ -53,15 +55,17 @@
 
   @media screen and (min-width: 1280px){
     .citation{
-       width: 430px;
-       margin-right: 110px;
        margin-bottom: 100px;
+       padding-left: 630px;
+       padding-right: 0;
         &__wrapp{
+            width: 430px;
             padding-left: 55px;
         }
         &__quotes-img{
             width: 51px;
             height: 47px;
+            right: 0;
         }
     }
 }
