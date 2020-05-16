@@ -1,71 +1,60 @@
 .citation {
-    font-family: 'Lato';
-    text-align: end;
-    margin-bottom: 53px;
-    padding-left: 75px;
-    position: relative;
+  font-family: $primary-font-family;
+  text-align: end;
+  margin-bottom: 53px;
+  position: relative;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 67px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-right: 0;
+    margin-bottom: 0;
+  }
 
-    &__wrapp{
-        width: 205;
-        padding-top: 10px; 
+  &__wrapp {
+    width: 206px;
+    padding-top: 10px;
+    margin-left: auto;
+    @media screen and (min-width: 768px) {
+      width: 374px;
+      padding-top: 20px;
+      margin-right: 74px;
     }
-    &__text{
-        font-style: Italic;
-        font-size: $secondary-font-size;
-        line-height: 21px;
-        padding-bottom: 8px;
+    @media screen and (min-width: 1280px) {
+      width: 430px;
+      margin-right: 0;
     }
-    &__author{
-        font-style: normal;
-        font-size: $primary-font-size;
-        line-height: 32px;
+  }
+  &__text {
+    font-style: Italic;
+    font-size: $secondary-font-size;
+    line-height: 21px;
+    padding-bottom: 8px;
+    @media screen and (min-width: 768px) {
+      font-size: 22px;
+      line-height: 32px;
+      padding-bottom: 18px;
     }
-    &__quotes-img{
-        position: absolute;
-        right: 0;
-        opacity: $light-opacity;
+  }
+  &__author {
+    font-size: $primary-font-size;
+    line-height: 32px;
+  }
+  &__quotes-img {
+    position: absolute;
+    right: 15px;
+    opacity: $light-opacity;
+    @media screen and (min-width: 768px) {
+      width: 51px;
+      height: 47px;
+      right: 150px;
     }
-}
-
-@media screen and (min-width: 768px){
-    .citation{
-        margin-right: 80px;
-        margin-bottom: 67px;
-        display: flex;
-        justify-content: flex-end;
-        padding-left: 155px;
-        padding-right: 78px;
-        &__wrapp{
-            width: 375px;
-            padding-top: 20px;
-        }
-        &__text{
-            font-size: 22px;
-            line-height: 32px;
-            padding-bottom: 18px;
-        }
-        &__quotes-img{
-            width: 51px;
-            height: 47px;
-            right: 78px;
-            
-        }
+    @media screen and (min-width: 1280px) {
+      width: 51px;
+      height: 47px;
+      right: 0;
     }
-}
-
-  @media screen and (min-width: 1280px){
-    .citation{
-       margin-bottom: 100px;
-       padding-left: 630px;
-       padding-right: 0;
-        &__wrapp{
-            width: 430px;
-            padding-left: 55px;
-        }
-        &__quotes-img{
-            width: 51px;
-            height: 47px;
-            right: 0;
-        }
-    }
+  }
 }

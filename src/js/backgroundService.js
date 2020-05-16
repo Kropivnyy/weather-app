@@ -1,14 +1,13 @@
 import refs from './refs';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://pixabay.com/api';
 const apiKey = '16159179-9a5d2f4d64cb4ee75e82dc2d4';
 
 export default {
   background: function (query) {
     axios
       .get(
-        `?key=${apiKey}&q=${query}&image_type=photo&orientation=horizontal&category=places&per_page=3`,
+        `https://pixabay.com/api?key=${apiKey}&q=${query}&image_type=photo&orientation=horizontal&category=places&per_page=3`,
       )
       .then(res => {
         const image = res.data.hits[0].largeImageURL;
