@@ -4,7 +4,7 @@ import apiService from './js/apiService';
 import getCurrentTime from './js/get-current-time';
 import favorites from './js/favoritesService';
 
-favorites.onLoad();// получаем данные при загрузке страницы из localStorage
+favorites.loader();// получаем данные при загрузке страницы из localStorage
 
 refs.searchForm.addEventListener('submit', async event => {
   event.preventDefault();
