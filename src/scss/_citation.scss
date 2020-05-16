@@ -1,0 +1,67 @@
+.citation {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 225px;
+    font-family: 'Lato';
+    text-align: end;
+    margin-right: 20px;
+    margin-bottom: 53px;
+
+    &__wrapp{
+        padding-top: 10px;
+        padding-left: 20px;
+    }
+    &__text{
+        font-style: Italic;
+        font-size: $secondary-font-size;
+        line-height: 21px;
+        padding-bottom: 8px;
+    }
+    &__author{
+        font-style: normal;
+        font-size: $primary-font-size;
+        line-height: 32px;
+    }
+    &__quotes-img{
+        position: absolute;
+        right: 0;
+        opacity: $light-opacity;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .citation{
+        width: 395px;
+        margin-right: 80px;
+        margin-bottom: 67px;
+        &__wrapp{
+            padding-top: 20px;
+        }
+        &__text{
+            font-size: 22px;
+            line-height: 32px;
+            padding-bottom: 18px;
+        }
+        &__quotes-img{
+            width: 51px;
+            height: 47px;
+            
+        }
+    }
+}
+
+  @media screen and (min-width: 1280px){
+    .citation{
+       width: 430px;
+       margin-right: 110px;
+       margin-bottom: 100px;
+        &__wrapp{
+            padding-left: 55px;
+        }
+        &__quotes-img{
+            width: 51px;
+            height: 47px;
+        }
+    }
+}
