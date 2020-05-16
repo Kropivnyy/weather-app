@@ -3,8 +3,9 @@
   border-radius: 35px;
   background-color: rgba($background-blue-color, 0.8);
   box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);
-  padding-top: 28px;
-  padding-bottom: 62px;
+  padding-top: 20px;
+  padding-bottom: 28px;
+  margin-bottom: 14px;
 }
 
 .five-days__city-name {
@@ -47,14 +48,13 @@
 .five-days__temperature-info-list {
   list-style: none;
   display: flex;
-  // justify-content: space-between;
   margin-bottom: 14px;
 }
 
 .five-days__temperature-info-item {
   text-align: left;
   &:first-child {
-    padding-right: 8px ;
+    padding-right: 8px;
     margin-right: 6px;
     border-right: 1px solid rgba($primary-white-color, $light-opacity);
   }
@@ -74,7 +74,25 @@
   font-weight: 700;
 }
 
+.five-days__temperature-degrees {
+  position: relative;
+  font-size: 6px;
+  left: 2px;
+  bottom: 6px;
+}
+
 .five-days__more-info {
   display: inline-block;
   color: rgba($primary-white-color, 0.302);
+  margin-bottom: 16px;
+}
+
+.five-days__prev-day-btn {
+opacity: $half-opacity;
+margin-right: 32px;
+}
+
+.five-days__prev-day-btn,
+.five-days__next-day-btn {
+  font-size: 20px;
 }
