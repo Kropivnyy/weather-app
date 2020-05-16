@@ -22,10 +22,10 @@ export default {
       'https://pixabay.com/get/53e1d04a4d53ad14f6da8c7dda793678143ad7e454586c48702772d1914bcc5dbc_1280.jpg';
 
     if (query.length === 0) {
-      refs.mainBackground.style.backgroundImage = `url('${defaultBgImage}')`;
+      refs.body.style.backgroundImage = `url('${defaultBgImage}')`;
       return;
     }
 
-    refs.mainBackground.style.backgroundImage = source;
+    refs.body.style.backgroundImage = source;
   },
 };

@@ -6,5 +6,5 @@ export default {
   formIconStar: document.querySelector('.form__icon-star'),
   favoritesArrowLeft: document.querySelector('.favorites__arrow-left'),
   currentWeather: document.querySelector('.js-current-weather'),
-  mainBackground: document.querySelector('.main-background'),
+  body: document.querySelector('body'),
 };
