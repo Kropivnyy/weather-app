@@ -1,4 +1,5 @@
 import './styles.scss';
+import './js/randomCitation'
 import refs from './js/refs';
 import apiService from './js/apiService';
 // import getCurrentTime from './js/get-current-time';
