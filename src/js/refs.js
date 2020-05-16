@@ -5,4 +5,6 @@ export default {
   favoritesRemove: document.querySelector('.favorites__remove'),
   formIconStar: document.querySelector('.form__icon-star'),
   favoritesArrowLeft: document.querySelector('.favorites__arrow-left'),
+  favoritesList: document.querySelector('.favorites__list'),
+  searchFavorites: document.querySelector('.search__favorites'),
 };
