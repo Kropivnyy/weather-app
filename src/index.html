@@ -29,156 +29,116 @@
           </button>
         </div>
       </div>
-      </section>
-      <section class="current-weather">
-        <div class="current-weather__widget js-current-weather"></div>
-      </section>
-      <section class="switch-days-btn container">
-        <a
-          href="#"
-          class="switch-days-btn__set-day-btn switch-days-btn__set-day-btn--active today-forecast-js"
-          >today</a
-        >
-        <a href="#" class="switch-days-btn__set-day-btn five-days-forecast-js"
-          >5 days</a
-        >
-      </section>
-      <section class="forecast container">
-        <div class="forecast__today">
-          <div class="forecast__today-info-position">
-            <p class="today__main-info">
-              <span class="today__date">8</span><span class="suffix">th</span
-              ><span class="today__day-of-the-week">Sat</span>
-            </p>
-            <p class="today__secondary-info today__month-and-time">
-              <span class="today__month">February</span
-              ><span class="today__time">21:30:56</span>
-            </p>
-            <p class="today__secondary-info">
-              <span class="today__dawn"
-                ><img
-                  class="today__sun-img"
-                  src="./images/dawn.png"
-                  alt="dawn"
-                  width="25"
-                  height="33"
-                />07:04</span
-              ><span class="today__sunset"
-                ><img
-                  class="today__sun-img"
-                  src="./images/sunset.png"
-                  alt="sunset"
-                  width="25"
-                  height="33"
-                />17:05</span
-              >
-            </p>
-          </div>
+    </section>
+    <section class="current-weather">
+      <div class="current-weather__widget js-current-weather"></div>
+    </section>
+    <section class="switch-days-btn container">
+      <a href="#" class="switch-days-btn__set-day-btn switch-days-btn__set-day-btn--active today-forecast-js"
+        data-days="one">today</a>
+      <a href="#" class="switch-days-btn__set-day-btn five-days-forecast-js" data-days="five">5 days</a>
+    </section>
+    <section class="forecast container">
+      <div class="forecast__today">
+        <div class="forecast__today-info-position">
+          <p class="today__main-info">
+            <span class="today__date">8</span><span class="suffix">th</span><span
+              class="today__day-of-the-week">Sat</span>
+          </p>
+          <p class="today__secondary-info today__month-and-time">
+            <span class="today__month">February</span><span class="today__time">21:30:56</span>
+          </p>
+          <p class="today__secondary-info">
+            <span class="today__dawn"><img class="today__sun-img" src="./images/dawn.png" alt="dawn" width="25"
+                height="33" />07:04</span><span class="today__sunset"><img class="today__sun-img"
+                src="./images/sunset.png" alt="sunset" width="25" height="33" />17:05</span>
+          </p>
         </div>
-        <div class="forecast__five-days">
-          <h2 class="five-days__city-name">
-            Kyiv, <span class="five-days__country-name">UA</span>
-          </h2>
-          <ul class="five-days__list">
-            <li class="five-days__one-day-item">
-              <p class="five-days__day-of-week">Sunday</p>
-              <p class="five-days__date-and-month">
-                <span class="five-days__date">09</span
-                ><span class="five-days__month">Feb</span>
-              </p>
-              <img
-                class="five-days__img-of-weather"
-                src="./images/icon.png"
-                height="22px"
-                width="44px"
-                alt=""
-              />
-              <ul class="five-days__temperature-info-list">
-                <li class="five-days__temperature-info-item">
-                  <p class="five-days__temperature-info-sign">min</p>
-                  <p class="five-days__temperature-min">
-                    -2°
-                  </p>
-                </li>
-                <li class="five-days__temperature-info-item">
-                  <p class="five-days__temperature-info-sign">max</p>
-                  <p class="five-days__temperature-max">
-                    -3°
-                  </p>
-                </li>
-              </ul>
-              <a class="five-days__more-info" href="">more info</a>
-            </li>
-            <li class="five-days__one-day-item">
-              <p class="five-days__day-of-week">Sunday</p>
-              <p class="five-days__date-and-month">
-                <span class="five-days__date">09</span
-                ><span class="five-days__month">Feb</span>
-              </p>
-              <img
-                class="five-days__img-of-weather"
-                src="./images/icon.png"
-                height="22px"
-                width="44px"
-                alt=""
-              />
-              <ul class="five-days__temperature-info-list">
-                <li class="five-days__temperature-info-item">
-                  <p class="five-days__temperature-info-sign">min</p>
-                  <p class="five-days__temperature-min">
-                    -2°
-                  </p>
-                </li>
-                <li class="five-days__temperature-info-item">
-                  <p class="five-days__temperature-info-sign">max</p>
-                  <p class="five-days__temperature-max">
-                    -3°
-                  </p>
-                </li>
-              </ul>
-              <a class="five-days__more-info" href="">more info</a>
-            </li>
-            <li class="five-days__one-day-item">
-              <p class="five-days__day-of-week">Sunday</p>
-              <p class="five-days__date-and-month">
-                <span class="five-days__date">09</span
-                ><span class="five-days__month">Feb</span>
-              </p>
-              <img
-                class="five-days__img-of-weather"
-                src="./images/icon.png"
-                height="22px"
-                width="44px"
-                alt=""
-              />
-              <ul class="five-days__temperature-info-list">
-                <li class="five-days__temperature-info-item">
-                  <p class="five-days__temperature-info-sign">min</p>
-                  <p class="five-days__temperature-min">
-                    -2°
-                  </p>
-                </li>
-                <li class="five-days__temperature-info-item">
-                  <p class="five-days__temperature-info-sign">max</p>
-                  <p class="five-days__temperature-max">
-                    -3°
-                  </p>
-                </li>
-              </ul>
-              <a class="five-days__more-info" href="#">more info</a>
-            </li>
-          </ul>
-          <i class="material-icons five-days__prev-day-btn">navigate_before</i>
-          <i class="material-icons five-days__next-day-btn">navigate_next</i>
-        </div>
-      </section>
-      <section class="citation container">
-        <div class="citation__wrapp">
-          <p class="citation__text"></p>
-          <p class="citation__author"></p>
-        </div>
-      </section>
-      <div class="geolocation"></div>
-    </main>
-  </body>
+      </div>
+      <div class="forecast__five-days">
+        <h2 class="five-days__city-name">
+          Kyiv, <span class="five-days__country-name">UA</span>
+        </h2>
+        <ul class="five-days__list">
+          <li class="five-days__one-day-item">
+            <p class="five-days__day-of-week">Sunday</p>
+            <p class="five-days__date-and-month">
+              <span class="five-days__date">09</span><span class="five-days__month">Feb</span>
+            </p>
+            <img class="five-days__img-of-weather" src="./images/icon.png" height="22px" width="44px" alt="" />
+            <ul class="five-days__temperature-info-list">
+              <li class="five-days__temperature-info-item">
+                <p class="five-days__temperature-info-sign">min</p>
+                <p class="five-days__temperature-min">
+                  -2°
+                </p>
+              </li>
+              <li class="five-days__temperature-info-item">
+                <p class="five-days__temperature-info-sign">max</p>
+                <p class="five-days__temperature-max">
+                  -3°
+                </p>
+              </li>
+            </ul>
+            <a class="five-days__more-info" href="">more info</a>
+          </li>
+          <li class="five-days__one-day-item">
+            <p class="five-days__day-of-week">Sunday</p>
+            <p class="five-days__date-and-month">
+              <span class="five-days__date">09</span><span class="five-days__month">Feb</span>
+            </p>
+            <img class="five-days__img-of-weather" src="./images/icon.png" height="22px" width="44px" alt="" />
+            <ul class="five-days__temperature-info-list">
+              <li class="five-days__temperature-info-item">
+                <p class="five-days__temperature-info-sign">min</p>
+                <p class="five-days__temperature-min">
+                  -2°
+                </p>
+              </li>
+              <li class="five-days__temperature-info-item">
+                <p class="five-days__temperature-info-sign">max</p>
+                <p class="five-days__temperature-max">
+                  -3°
+                </p>
+              </li>
+            </ul>
+            <a class="five-days__more-info" href="">more info</a>
+          </li>
+          <li class="five-days__one-day-item">
+            <p class="five-days__day-of-week">Sunday</p>
+            <p class="five-days__date-and-month">
+              <span class="five-days__date">09</span><span class="five-days__month">Feb</span>
+            </p>
+            <img class="five-days__img-of-weather" src="./images/icon.png" height="22px" width="44px" alt="" />
+            <ul class="five-days__temperature-info-list">
+              <li class="five-days__temperature-info-item">
+                <p class="five-days__temperature-info-sign">min</p>
+                <p class="five-days__temperature-min">
+                  -2°
+                </p>
+              </li>
+              <li class="five-days__temperature-info-item">
+                <p class="five-days__temperature-info-sign">max</p>
+                <p class="five-days__temperature-max">
+                  -3°
+                </p>
+              </li>
+            </ul>
+            <a class="five-days__more-info" href="#">more info</a>
+          </li>
+        </ul>
+        <i class="material-icons five-days__prev-day-btn">navigate_before</i>
+        <i class="material-icons five-days__next-day-btn">navigate_next</i>
+      </div>
+    </section>
+    <section class="citation container">
+      <div class="citation__wrapp">
+        <p class="citation__text"></p>
+        <p class="citation__author"></p>
+      </div>
+    </section>
+    <div class="geolocation"></div>
+  </main>
+</body>
+
 </html>
