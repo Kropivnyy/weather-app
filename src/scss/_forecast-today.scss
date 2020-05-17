@@ -28,17 +28,17 @@
     position: absolute;
     min-height: 276px;
     left: 0;
+    bottom: 0;
     right: 53.2%;
     top: 674px;
     width: auto;
     text-align: left;
     border-radius: 0 35px 0 0;
     padding: 0;
-    min-height: 180px;
   }
 }
 
-.forecast__today-disabled{
+.forecast__today-disabled {
   display: none;
 }
 

@@ -20,10 +20,10 @@
   color: $primary-black-color;
   text-align: center;
   background-color: rgba($primary-white-color, $half-opacity);
-  width: 126px;
+  min-width: 126px;
   height: 29px;
   border-radius: 29px;
-  padding-top: 5px;
+  padding-top: 6px;
 
   &:not(:last-child) {
     margin-right: 20px;
