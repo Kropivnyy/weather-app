@@ -1,0 +1,214 @@
+.forecast__five-days {
+  position: relative;
+  text-align: center;
+  border-radius: 35px;
+  background-color: rgba($background-blue-color, 0.8);
+  box-shadow: $background-shadow;
+  padding-top: 20px;
+  padding-bottom: 28px;
+  margin-bottom: 14px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 46px;
+    padding-bottom: 45px;
+    margin-bottom: 36px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 28px;
+    padding-top: 36px;
+    padding-bottom: 30px;
+  }
+}
+
+.five-days__city-name {
+  @include letter-spacing(30);
+  font-weight: 700;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 28px;
+    position: absolute;
+    left: 243px;
+    top: -57px;
+    margin-bottom: 0;
+    line-height: 28px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    left: 470px;
+    top: -60px;
+  }
+}
+
+.five-days__list {
+  @include letter-spacing(30);
+  line-height: 12px;
+  font-size: 12px;
+  width: 220px;
+  margin: 0 auto;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    width: 534px;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 880px;
+    font-size: 18px;
+    line-height: 18px;
+  }
+}
+
+.five-days__day-of-week {
+  opacity: $half-opacity;
+  margin-bottom: 14px;
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 16px;
+  }
+}
+
+.five-days__date-and-month {
+  @include letter-spacing(30);
+  font-size: 16px;
+  line-height: 16px;
+  margin-bottom: 10px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 25px;
+    line-height: 25px;
+    margin-bottom: 30px;
+  }
+}
+
+.five-days__date-and-month span {
+  display: inline-block;
+}
+
+.five-days__img-of-weather {
+  margin: 0 auto 14px auto;
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 34px;
+  }
+}
+
+.five-days__temperature-info-list {
+  list-style: none;
+  display: flex;
+  margin-bottom: 14px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 26px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 20px;
+  }
+}
+
+.five-days__temperature-info-item {
+  text-align: left;
+  &:first-child {
+    position: relative;
+    padding-right: 7px;
+    margin-right: 6px;
+
+    @media screen and (min-width: 768px) {
+      padding-right: 11px;
+      margin-right: 10px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      padding-right: 21px;
+      margin-right: 20px;
+    }
+
+    &::after {
+      position: absolute;
+      display: block;
+      content: '';
+      height: 29px;
+      width: 1px;
+      background-color: rgba($primary-white-color, $light-opacity);
+      right: 0;
+      bottom: 0;
+
+      @media screen and (min-width: 768px) {
+        height: 40px;
+        bottom: -2px;
+      }
+    }
+  }
+}
+
+.five-days__temperature-info-sign {
+  opacity: $half-opacity;
+  margin-bottom: 4px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 8px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 10px;
+  }
+}
+
+.five-days__temperature-min,
+.five-days__temperature-max {
+  @include letter-spacing(30);
+  font-size: 16px;
+  line-height: 16px;
+  color: rgba($primary-orange-color, 1);
+  font-weight: 700;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 25px;
+    line-height: 25px;
+  }
+}
+
+.five-days__more-info {
+  display: inline-block;
+  color: rgba($primary-white-color, 0.302);
+  margin-bottom: 16px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+
+.five-days__prev-day-btn {
+  opacity: $half-opacity;
+  margin-right: 32px;
+}
+
+.five-days__prev-day-btn,
+.five-days__next-day-btn {
+  font-size: 20px;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
