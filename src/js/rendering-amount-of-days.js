@@ -18,10 +18,11 @@ const amountDays = {
     },
 
     renderingAmount(action = 'add') {
-        refs.currentWeather.classList[action]('current-weather-disabled');
+        refs.currentWeather.classList[action]('current-weather-disabled')
         refs.forecastToday.classList[action]('forecast__today-disabled');
         refs.forecastFiveDays.classList[action]('forecast__five-days-enabled');
         refs.citation.classList[action]('citation-disabled');
+        refs.search.classList[action]('search-mb-js');
     },
 
     activeAmount(add, remove) {

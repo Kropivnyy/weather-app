@@ -14,9 +14,11 @@
     margin-bottom: 28px;
   }
 }
+
 .current-weather-disabled{
-  opacity: 0;
+  display: none;
 }
+
 .current-weather__widget {
   width: 100%;
   min-height: 190px;

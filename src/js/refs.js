@@ -1,4 +1,5 @@
 export default {
+  search: document.querySelector('.search'),
   searchForm: document.querySelector('.search__form'),
   formInput: document.querySelector('.form__input'),
   formAddToFavorites: document.querySelector('.form__add-to-favorites'),
