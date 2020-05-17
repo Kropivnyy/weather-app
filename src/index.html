@@ -71,8 +71,42 @@
         >
       </section>
       <section class="forecast container">
-        <div class="forecast__today">
-          <div class="forecast__today-info-position js-forecast__today-info-position">
+        <div id="timer-1" class="forecast__today">
+          <div
+            class="forecast__today-info-position js-forecast__today-info-position"
+          >
+            <p class="today__main-info">
+              <span class="today__date" data-value="date">date</span
+              ><span class="suffix" data-value="suffix">th</span
+              ><span class="today__day-of-the-week" data-value="day">day</span>
+            </p>
+            <p class="today__secondary-info today__month-and-time">
+              <span class="today__month" data-value="month">month</span
+              ><span class="today__time"
+                ><span data-value="hours">hours</span>:<span data-value="mins"
+                  >mins</span
+                >:<span data-value="secs">secs</span></span
+              >
+            </p>
+            <p class="today__secondary-info">
+              <span class="today__dawn"
+                ><img
+                  class="today__sun-img"
+                  src="./images/dawn.png"
+                  alt="dawn"
+                  width="25"
+                  height="33"
+                />07:04</span
+              ><span class="today__sunset"
+                ><img
+                  class="today__sun-img"
+                  src="./images/sunset.png"
+                  alt="sunset"
+                  width="25"
+                  height="33"
+                />17:05</span
+              >
+            </p>
           </div>
         </div>
       </section>

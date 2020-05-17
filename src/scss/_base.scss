@@ -13,6 +13,7 @@ body {
   font-size: $primary-font-size;
   line-height: $primary-line-height;
   color: $primary-white-color;
+  overflow-x: hidden;
 }
 
 img {

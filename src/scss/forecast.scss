@@ -31,9 +31,9 @@
 
 .forecast__today-info-position {
   @media screen and (min-width: 1280px) {
-  width: 490px;
-  margin-right: 0;
-  margin-left: auto;
+    width: 490px;
+    margin-right: 0;
+    margin-left: auto;
   }
 }
 
@@ -84,39 +84,70 @@
   }
 }
 
-.today__secondary-info span {
+.today__month {
   display: inline-block;
   position: relative;
   width: 50%;
-
+  text-align: right;
+  padding-right: 8px;
+  &::after {
+    position: absolute;
+    display: block;
+    content: '';
+    height: 20px;
+    width: 1px;
+    background-color: rgba(231, 232, 235, 0.4);
+    right: 0;
+    bottom: 0;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-right: 16px;
+    width: auto;
+  }
+}
+.today__time {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+  text-align: left;
   @media screen and (min-width: 1280px) {
     width: auto;
   }
-
-  &:first-child {
-    text-align: right;
-    padding-right: 8px;
-
-    @media screen and (min-width: 1280px) {
-      padding-right: 16px;
-    }
-
-    &::after {
-      position: absolute;
-      display: block;
-      content: '';
-      height: 20px;
-      width: 1px;
-      background-color: rgba(231, 232, 235, 0.4);
-      right: 0;
-      bottom: 0;
-    }
-  }
-
-  &:last-child {
-    text-align: left;
-  }
 }
+
+// .today__secondary-info span {
+//   display: inline-block;
+//   position: relative;
+//   width: 50%;
+
+//   @media screen and (min-width: 1280px) {
+//     width: auto;
+//   }
+
+//   &:first-child {
+//     text-align: right;
+//     padding-right: 8px;
+
+//     @media screen and (min-width: 1280px) {
+//       padding-right: 16px;
+//     }
+
+//     &::after {
+//       position: absolute;
+//       display: block;
+//       content: '';
+//       height: 20px;
+//       width: 1px;
+//       background-color: rgba(231, 232, 235, 0.4);
+//       right: 0;
+//       bottom: 0;
+//     }
+//   }
+
+//   &:last-child {
+//     text-align: left;
+//   }
+// }
 
 .today__month-and-time {
   margin-bottom: 21px;
@@ -132,14 +163,35 @@
   }
 }
 
-.today__time {
-  padding-left: 8px;
+// .today__time {
+//   padding-left: 8px;
 
+//   @media screen and (min-width: 1280px) {
+//     padding-left: 16px;
+//   }
+// }
+
+.today__dawn {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+  text-align: right;
+  padding-right: 8px;
+  &::after {
+    position: absolute;
+    display: block;
+    content: '';
+    height: 20px;
+    width: 1px;
+    background-color: rgba(231, 232, 235, 0.4);
+    right: 0;
+    bottom: 0;
+  }
   @media screen and (min-width: 1280px) {
-    padding-left: 16px;
+    padding-right: 16px;
+    width: auto;
   }
 }
-
 .today__dawn img {
   right: 56px;
 
@@ -159,9 +211,13 @@
 
 .today__sunset {
   padding-left: 42px;
-
+  display: inline-block;
+  position: relative;
+  width: 50%;
+  text-align: left;
   @media screen and (min-width: 1280px) {
     padding-left: 50px;
+    width: auto;
   }
 }
 
