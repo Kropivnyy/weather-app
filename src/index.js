@@ -19,17 +19,21 @@ apiService.fetchCurrentWeather().then(() => {
 favorites.loader(); // получаем данные при загрузке страницы из localStorage
 
 refs.searchForm.addEventListener('submit', async event => {
-  event.preventDefault();
+  try {
+    event.preventDefault();
 
-  apiService.query = refs.formInput.value.toLowerCase();
-  await apiService.fetchCurrentWeather();
+    apiService.query = refs.formInput.value.toLowerCase();
+    await apiService.fetchCurrentWeather();
 
-  ///if in favorites-section all OK
-  favorites.formSubmitted(true);
+    ///if in favorites-section all OK
+    favorites.formSubmitted(true);
 
-  const widgetMarkup = widgetTemplate(apiService.apiResponse);
-  refs.currentWeather.innerHTML = widgetMarkup;
-  createClock('#timer-1');
-  renderSunsetTime(apiService.apiResponse);
-  backgroundImageService.background(refs.formInput.value);
+    const widgetMarkup = widgetTemplate(apiService.apiResponse);
+    refs.currentWeather.innerHTML = widgetMarkup;
+    createClock('#timer-1');
+    renderSunsetTime(apiService.apiResponse);
+    backgroundImageService.background(refs.formInput.value);
+  } catch (error) {
+    console.log(error);
+  }
 });
