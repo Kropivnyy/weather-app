@@ -35,7 +35,7 @@
   color: rgba($background-blue-color, 0.4);
 }
 
-.form__icon--star {
+.form__icon-star {
   padding: 4px;
 }
 
@@ -43,6 +43,7 @@
   width: 100%;
   padding: 0 48px 0 59px;
   font: 400 14px/48px $primary-font-family;
+  text-transform: capitalize;
   background-color: $primary-white-color;
   border: none;
   border-radius: 24px;
@@ -65,9 +66,16 @@
   transform: translateY(-50%);
   border-radius: 50%;
   background: transparent;
-  color: rgba($background-blue-color, $half-opacity);
-  transition: $primary-transition;
-  &:hover {
+  color:rgba($background-blue-color, $half-opacity);
+  transition: background 200ms ease-in-out;
+  cursor: not-allowed;
+  .active{
+    cursor: pointer;
+  }
+  .in-favorites{
+    color: $primary-orange-color;
+  }
+  &:hover{
     background: $small-buttons-color;
   }
   @media screen and (min-width: 768px) {
@@ -77,10 +85,15 @@
 
 .search__favorites {
   display: flex;
+  opacity: 0;  
   @media screen and (min-width: 768px) {
     width: 505px;
     margin: 0 auto;
   }
+}
+
+.isset-favorites{
+  opacity: 1;
 }
 
 .favorites__list {
@@ -110,6 +123,7 @@
 
 .favorites__link {
   font: 400 12px/27px $primary-font-family;
+  text-transform: capitalize;
   color: $primary-white-color;
   padding-right: 18px;
   @media screen and (min-width: 768px) {
