@@ -1,20 +1,24 @@
 import refs from './refs';
 
 const amountDays = {
-    currentDays: 'one',
+    currentDays: 'oneDay',
     changeOnClick(event) {
-        if (event.target.nodeName !== 'A') return;
         event.preventDefault();
+        if (event.target.nodeName !== 'A') return;
         this.currentDays = event.target.dataset.days;
-        this[this.currentDays];
-        console.dir(event.target.dataset.days);
+        this[this.currentDays]();
     },
-    one() {
-        console.log('one');
+    oneDay() {
+        this.activeAmount('firstElementChild', 'lastElementChild');
     },
-    five() {
-        console.log('five');
+    fiveDays() {
+        this.activeAmount('lastElementChild', 'firstElementChild');
     },
-};
 
+    activeAmount(add, remove) {
+        const className = 'switch-days-btn__set-day-btn--active';
+        refs.switchDaysBtn[add].classList.add(className);
+        refs.switchDaysBtn[remove].classList.remove(className);
+    }
+};
 refs.switchDaysBtn.addEventListener('click', amountDays.changeOnClick.bind(amountDays));
