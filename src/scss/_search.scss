@@ -124,6 +124,8 @@
 .favorites__link {
   font: 400 12px/27px $primary-font-family;
   text-transform: capitalize;
+  white-space: nowrap;
+  max-height: 27px;
   color: $primary-white-color;
   padding-right: 18px;
   @media screen and (min-width: 768px) {
