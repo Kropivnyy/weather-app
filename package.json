@@ -58,7 +58,8 @@
     "jquery": "^3.5.0",
     "lodash.debounce": "^4.0.8",
     "masonry-layout": "^4.2.2",
-    "pnotify": "^5.0.1",
+    "material-design-icons": "^3.0.1",
+    "pnotify": "^5.1.2",
     "randomcolor": "^0.5.4",
     "tiny-slider": "^2.9.2"
   }

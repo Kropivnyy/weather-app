@@ -8,7 +8,7 @@ export default {
   background: function (query) {
     axios
       .get(
-        `?key=${apiKey}&q=${query}&image_type=photo&orientation=horizontal&category=places&per_page=3`,
+        `?key=${apiKey}&q=${query}&image_type=photo&orientation=horizontal&category=places+travel&per_page=3`,
       )
       .then(res => {
         const image = res.data.hits[0].largeImageURL;

@@ -7,4 +7,5 @@ export default {
   favoritesArrowLeft: document.querySelector('.favorites__arrow-left'),
   currentWeather: document.querySelector('.js-current-weather'),
   body: document.querySelector('body'),
+  geoModal: document.querySelector('.geolocation'),
 };

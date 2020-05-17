@@ -1,0 +1,61 @@
+// Geolocation modal
+
+.pnotify {
+  position: absolute;
+  left: 1%;
+
+  &-shadow {
+    background-color: $background-blue-opacity-color;
+    height: 115px;
+    border-radius: 20px;
+  }
+
+  // Title
+
+  &-pre-line {
+    display: block;
+    font: normal $primary-font-size $primary-font-family;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  // Input
+
+  &-prompt-bar {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  &-prompt-input {
+    border-style: none;
+    border-radius: 5px;
+    outline: none;
+    padding: 0 10px;
+  }
+
+  // buttons
+
+  &-action-bar {
+    text-align: center;
+  }
+
+  &-action-button {
+    background: transparent;
+    border-style: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: $small-buttons-color;
+    transition: 0.2s linear;
+  }
+
+  &-action-button:not(:last-child) {
+    margin-right: 40px;
+  }
+
+  &-action-button:hover {
+    color: $background-blue-color;
+    border-color: $background-blue-color;
+    transition: 0.2s linear;
+  }
+}
