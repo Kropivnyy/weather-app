@@ -7,6 +7,9 @@ export default {
   favoritesList: document.querySelector('.favorites__list'),
   searchFavorites: document.querySelector('.search__favorites'),
   currentWeather: document.querySelector('.js-current-weather'),
+  forecastToday: document.querySelector('.js-forecast__today-info-position'),
+  sunriseToday: document.querySelector('.today__dawn'),
+  sunsetToday: document.querySelector('.today__sunset'),
   body: document.querySelector('body'),
   geoModal: document.querySelector('.geolocation'),
 };
