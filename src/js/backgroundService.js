@@ -13,15 +13,12 @@ export default {
         const image = res.data.hits[0].largeImageURL;
         this.backgroundImage(query, `url('${image}')`);
       })
-      .catch(error => console.log(error));
+      .catch(error => console.log('not have image('));
   },
 
   backgroundImage: function (query, source) {
-    const defaultBgImage =
-      'https://pixabay.com/get/53e1d04a4d53ad14f6da8c7dda793678143ad7e454586c48702772d1914bcc5dbc_1280.jpg';
-
     if (query.length === 0) {
-      refs.body.style.backgroundImage = `url('${defaultBgImage}')`;
+      refs.body.style.backgroundImage = "url('/images/primery_bg.jpg')";
       return;
     }
 

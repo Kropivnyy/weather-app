@@ -13,8 +13,8 @@ body {
   font-size: $primary-font-size;
   line-height: $primary-line-height;
   color: $primary-white-color;
-  background: url(https://pixabay.com/get/53e1d04a4d53ad14f6da8c7dda793678143ad7e454586c48702772d1914bcc5dbc_1280.jpg)
-    no-repeat center / cover fixed;
+  background: linear-gradient(rgba(245, 245, 245, 0.5), rgba(10, 5, 5, 0.9)),
+    url('./images/primery_bg.jpg') no-repeat center / cover fixed;
 }
 
 img {
