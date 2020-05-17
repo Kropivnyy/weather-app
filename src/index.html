@@ -24,49 +24,29 @@
               placeholder="Enter the city"
               class="form__input"
             />
-            <button type="button" class="form__add-to-favorites">
+            <button type="button" class="form__add-to-favorites" disabled>
               <i class="material-icons form__icon-star">star_border</i>
               <span class="visually-hidden">Add to favourites</span>
             </button>
           </form>
           <div class="search__favorites">
-            <ul class="favorites__list">
-              <li class="favorites__item">
-                <a href="#" class="favorites__link">Kyiv</a>
-                <button type="button" class="favorites__remove">
-                  <i class="material-icons">close</i>
-                  <span class="visually-hidden">Remove from favorites</span>
-                </button>
-              </li>
-              <li class="favorites__item">
-                <a href="#" class="favorites__link">Mariupol</a>
-                <button type="button" class="favorites__remove">
-                  <i class="material-icons">close</i>
-                  <span class="visually-hidden">Remove from favorites</span>
-                </button>
-              </li>
-              <li class="favorites__item">
-                <a href="#" class="favorites__link">Mariupol</a>
-                <button type="button" class="favorites__remove">
-                  <i class="material-icons">close</i>
-                  <span class="visually-hidden">Remove from favorites</span>
-                </button>
-              </li>
-            </ul>
-            <button type="button" class="favorites__arrow-left">
+            <ul class="favorites__list"></ul>
+            <button type="button" class="favorites__arrow-left" disabled>
               <i class="material-icons">navigate_next</i>
             </button>
           </div>
         </div>
       </section>
-      <section class="current-weather js-current-weather"></section>
-      <section class="buttons container">
+      <section class="current-weather">
+        <div class="current-weather__widget js-current-weather"></div>
+      </section>
+      <section class="switch-days-btn container">
         <a
           href="#"
-          class="buttons__set-day-btn buttons__set-day-btn--active today-forecast-js"
+          class="switch-days-btn__set-day-btn switch-days-btn__set-day-btn--active today-forecast-js"
           >today</a
         >
-        <a href="#" class="buttons__set-day-btn five-days-forecast-js"
+        <a href="#" class="switch-days-btn__set-day-btn five-days-forecast-js"
           >5 days</a
         >
       </section>
@@ -103,7 +83,110 @@
             </p>
           </div>
         </div>
+        <div class="forecast__five-days">
+          <h2 class="five-days__city-name">
+            Kyiv, <span class="five-days__country-name">UA</span>
+          </h2>
+          <ul class="five-days__list">
+            <li class="five-days__one-day-item">
+              <p class="five-days__day-of-week">Sunday</p>
+              <p class="five-days__date-and-month">
+                <span class="five-days__date">09</span
+                ><span class="five-days__month">Feb</span>
+              </p>
+              <img
+                class="five-days__img-of-weather"
+                src="./images/icon.png"
+                height="22px"
+                width="44px"
+                alt=""
+              />
+              <ul class="five-days__temperature-info-list">
+                <li class="five-days__temperature-info-item">
+                  <p class="five-days__temperature-info-sign">min</p>
+                  <p class="five-days__temperature-min">
+                    -2°
+                  </p>
+                </li>
+                <li class="five-days__temperature-info-item">
+                  <p class="five-days__temperature-info-sign">max</p>
+                  <p class="five-days__temperature-max">
+                    -3°
+                  </p>
+                </li>
+              </ul>
+              <a class="five-days__more-info" href="">more info</a>
+            </li>
+            <li class="five-days__one-day-item">
+              <p class="five-days__day-of-week">Sunday</p>
+              <p class="five-days__date-and-month">
+                <span class="five-days__date">09</span
+                ><span class="five-days__month">Feb</span>
+              </p>
+              <img
+                class="five-days__img-of-weather"
+                src="./images/icon.png"
+                height="22px"
+                width="44px"
+                alt=""
+              />
+              <ul class="five-days__temperature-info-list">
+                <li class="five-days__temperature-info-item">
+                  <p class="five-days__temperature-info-sign">min</p>
+                  <p class="five-days__temperature-min">
+                    -2°
+                  </p>
+                </li>
+                <li class="five-days__temperature-info-item">
+                  <p class="five-days__temperature-info-sign">max</p>
+                  <p class="five-days__temperature-max">
+                    -3°
+                  </p>
+                </li>
+              </ul>
+              <a class="five-days__more-info" href="">more info</a>
+            </li>
+            <li class="five-days__one-day-item">
+              <p class="five-days__day-of-week">Sunday</p>
+              <p class="five-days__date-and-month">
+                <span class="five-days__date">09</span
+                ><span class="five-days__month">Feb</span>
+              </p>
+              <img
+                class="five-days__img-of-weather"
+                src="./images/icon.png"
+                height="22px"
+                width="44px"
+                alt=""
+              />
+              <ul class="five-days__temperature-info-list">
+                <li class="five-days__temperature-info-item">
+                  <p class="five-days__temperature-info-sign">min</p>
+                  <p class="five-days__temperature-min">
+                    -2°
+                  </p>
+                </li>
+                <li class="five-days__temperature-info-item">
+                  <p class="five-days__temperature-info-sign">max</p>
+                  <p class="five-days__temperature-max">
+                    -3°
+                  </p>
+                </li>
+              </ul>
+              <a class="five-days__more-info" href="#">more info</a>
+            </li>
+          </ul>
+          <i class="material-icons five-days__prev-day-btn">navigate_before</i>
+          <i class="material-icons five-days__next-day-btn">navigate_next</i>
+        </div>
       </section>
+      <section class="citation container">
+        <div class="citation__wrapp">
+          <p class="citation__text"></p>
+          <p class="citation__author"></p>
+        </div>
+      </section>
+      <div class="geolocation"></div>
     </main>
   </body>
 </html>
