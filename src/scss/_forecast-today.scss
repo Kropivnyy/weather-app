@@ -1,40 +1,51 @@
+.forecast {
+  margin-bottom: 44px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 64px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 0;
+  }
+}
+
 .forecast__today {
+  display: none;
   text-align: center;
   width: 280px;
   margin: 0 auto;
-  margin-bottom: 44px;
   padding-bottom: 36px;
   padding-top: 30px;
   border-radius: 35px;
-  box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);
+  box-shadow: $background-shadow;
   background-color: rgba($background-blue-color, 0.6);
 
   @media screen and (min-width: 768px) {
     width: 490px;
     padding-top: 40px;
     padding-bottom: 55px;
-    margin-bottom: 64px;
   }
 
   @media screen and (min-width: 1280px) {
     position: absolute;
+    min-height: 276px;
     left: 0;
     right: 53.2%;
     bottom: 0;
     top: 674px;
     width: auto;
-    margin-bottom: 0;
     text-align: left;
     border-radius: 0 35px 0 0;
-    padding: 55px 0 100px 110px;
+    padding: 0;
+    min-height: 180px;
   }
 }
 
 .forecast__today-info-position {
   @media screen and (min-width: 1280px) {
-  width: 490px;
-  margin-right: 0;
-  margin-left: auto;
+    width: 490px;
+    margin-right: 0;
+    margin-left: auto;
+    padding-top: 55px;
   }
 }
 
