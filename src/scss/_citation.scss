@@ -2,7 +2,7 @@
   font-family: $primary-font-family;
   text-align: end;
   margin-bottom: 53px;
-  position: relative;
+
   @media screen and (min-width: 768px) {
     margin-bottom: 67px;
     display: flex;
@@ -17,6 +17,7 @@
     width: 206px;
     padding-top: 10px;
     margin-left: auto;
+
     @media screen and (min-width: 768px) {
       width: 374px;
       padding-top: 20px;
@@ -32,6 +33,23 @@
     font-size: $secondary-font-size;
     line-height: 21px;
     padding-bottom: 8px;
+    position: relative;
+
+    &:before {
+      content: '\201D';
+      font-family: 'Arial';
+      font-size: 90px;
+      opacity: $light-opacity;
+      font-style: normal;
+      position: absolute;
+      right: -4px;
+      top: 13px;
+      @media screen and (min-width: 768px) {
+        font-size: 195px;
+        right: -10px;
+        top: 36px;
+      }
+    }
     @media screen and (min-width: 768px) {
       font-size: 22px;
       line-height: 32px;
@@ -41,20 +59,5 @@
   &__author {
     font-size: $primary-font-size;
     line-height: 32px;
-  }
-  &__quotes-img {
-    position: absolute;
-    right: 15px;
-    opacity: $light-opacity;
-    @media screen and (min-width: 768px) {
-      width: 51px;
-      height: 47px;
-      right: 150px;
-    }
-    @media screen and (min-width: 1280px) {
-      width: 51px;
-      height: 47px;
-      right: 0;
-    }
   }
 }
