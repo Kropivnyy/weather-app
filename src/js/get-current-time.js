@@ -26,7 +26,7 @@ export default function (timezone, time = null) {
     month,
     day,
     date,
-    hours,
+    hours: hours === '24' ? '0' : hours,
     mins,
     secs,
   };

@@ -7,4 +7,6 @@ export default {
   favoritesArrowLeft: document.querySelector('.favorites__arrow-left'),
   currentWeather: document.querySelector('.js-current-weather'),
   forecastToday: document.querySelector('.js-forecast__today-info-position'),
+  sunriseToday: document.querySelector('.today__dawn'),
+  sunsetToday: document.querySelector('.today__sunset'),
 };
