@@ -1,113 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Weather App</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <title>Weather App</title>
-</head>
-
-<body>
-  <main class="main-background">
-    <section class="search">
-      <div class="container">
-        <h1 class="visually-hidden">citySearch</h1>
-        <form class="search__form">
-          <i class="material-icons form__icon-gps">gps_not_fixed</i>
-          <input type="text" name="city" placeholder="Enter the city" class="form__input" />
-          <button type="button" class="form__add-to-favorites" disabled>
-            <i class="material-icons form__icon-star">star_border</i>
-            <span class="visually-hidden">Add to favourites</span>
-          </button>
-        </form>
-        <div class="search__favorites">
-          <ul class="favorites__list"></ul>
-          <button type="button" class="favorites__arrow-left" disabled>
-            <i class="material-icons">navigate_next</i>
-          </button>
+  <body>
+    <main class="main-background">
+      <section class="search">
+        <div class="container">
+          <h1 class="visually-hidden">citySearch</h1>
+          <form class="search__form">
+            <i class="material-icons form__icon-gps">gps_not_fixed</i>
+            <input
+              type="text"
+              name="city"
+              placeholder="Enter the city"
+              class="form__input"
+            />
+            <button type="button" class="form__add-to-favorites" disabled>
+              <i class="material-icons form__icon-star">star_border</i>
+              <span class="visually-hidden">Add to favourites</span>
+            </button>
+          </form>
+          <div class="search__favorites">
+            <ul class="favorites__list"></ul>
+            <button type="button" class="favorites__arrow-left" disabled>
+              <i class="material-icons">navigate_next</i>
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="current-weather">
-      <div class="current-weather__widget js-current-weather"></div>
-    </section>
+      </section>
+      <section class="current-weather">
+        <div class="current-weather__widget js-current-weather"></div>
+      </section>
     <section class="switch-days-btn container">
       <a href="#" class="switch-days-btn__set-day-btn switch-days-btn__set-day-btn--active today-forecast-js"
         data-days="oneDay">today</a>
       <a href="#" class="switch-days-btn__set-day-btn five-days-forecast-js" data-days="fiveDays">5 days</a>
     </section>
-    <section class="forecast container">
-      <div class="forecast__today">
-        <div class="forecast__today-info-position">
-          <p class="today__main-info">
-            <span class="today__date">8</span><span class="suffix">th</span><span
-              class="today__day-of-the-week">Sat</span>
-          </p>
-          <p class="today__secondary-info today__month-and-time">
-            <span class="today__month">February</span><span class="today__time">21:30:56</span>
-          </p>
-          <p class="today__secondary-info">
-            <span class="today__dawn"><img class="today__sun-img" src="./images/dawn.png" alt="dawn" width="25"
-                height="33" />07:04</span><span class="today__sunset"><img class="today__sun-img"
-                src="./images/sunset.png" alt="sunset" width="25" height="33" />17:05</span>
-          </p>
-        </div>
-      </div>
-      <div class="forecast__five-days">
-        <h2 class="five-days__city-name">
-          Kyiv, <span class="five-days__country-name">UA</span>
-        </h2>
-        <ul class="five-days__list">
-          <li class="five-days__one-day-item">
-            <p class="five-days__day-of-week">Sunday</p>
-            <p class="five-days__date-and-month">
-              <span class="five-days__date">09</span><span class="five-days__month">Feb</span>
+      <section class="forecast container">
+        <div class="forecast__today" id="timer-1">
+          <div
+            class="forecast__today-info-position js-forecast__today-info-position"
+          >
+            <p class="today__main-info">
+              <span class="today__date" data-value="date"></span
+              ><span class="suffix" data-value="suffix"></span
+              ><span class="today__day-of-the-week" data-value="day"></span>
             </p>
-            <img class="five-days__img-of-weather" src="./images/icon.png" height="22px" width="44px" alt="" />
-            <ul class="five-days__temperature-info-list">
-              <li class="five-days__temperature-info-item">
-                <p class="five-days__temperature-info-sign">min</p>
-                <p class="five-days__temperature-min">
-                  -2°
-                </p>
-              </li>
-              <li class="five-days__temperature-info-item">
-                <p class="five-days__temperature-info-sign">max</p>
-                <p class="five-days__temperature-max">
-                  -3°
-                </p>
-              </li>
-            </ul>
-            <a class="five-days__more-info" href="">more info</a>
-          </li>
-          <li class="five-days__one-day-item">
-            <p class="five-days__day-of-week">Sunday</p>
-            <p class="five-days__date-and-month">
-              <span class="five-days__date">09</span><span class="five-days__month">Feb</span>
+            <p class="today__secondary-info today__month-and-time">
+              <span class="today__month" data-value="month"></span
+              ><span class="today__time" data-value="hours"></span>
             </p>
-            <img class="five-days__img-of-weather" src="./images/icon.png" height="22px" width="44px" alt="" />
-            <ul class="five-days__temperature-info-list">
-              <li class="five-days__temperature-info-item">
-                <p class="five-days__temperature-info-sign">min</p>
-                <p class="five-days__temperature-min">
-                  -2°
-                </p>
-              </li>
-              <li class="five-days__temperature-info-item">
-                <p class="five-days__temperature-info-sign">max</p>
-                <p class="five-days__temperature-max">
-                  -3°
-                </p>
-              </li>
-            </ul>
-            <a class="five-days__more-info" href="">more info</a>
-          </li>
-          <li class="five-days__one-day-item">
-            <p class="five-days__day-of-week">Sunday</p>
-            <p class="five-days__date-and-month">
-              <span class="five-days__date">09</span><span class="five-days__month">Feb</span>
+            <p class="today__secondary-info">
+              <span class="today__dawn"
+                ><img
+                  class="today__sun-img"
+                  src="./images/dawn.png"
+                  alt="dawn"
+                  width="25"
+                  height="33" /></span
+              ><span class="today__sunset"
+                ><img
+                  class="today__sun-img"
+                  src="./images/sunset.png"
+                  alt="sunset"
+                  width="25"
+                  height="33"
+              /></span>
             </p>
             <img class="five-days__img-of-weather" src="./images/icon.png" height="22px" width="44px" alt="" />
             <ul class="five-days__temperature-info-list">
