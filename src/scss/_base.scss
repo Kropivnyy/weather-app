@@ -13,6 +13,7 @@ body {
   font-size: $primary-font-size;
   line-height: $primary-line-height;
   color: $primary-white-color;
+  overflow-x: hidden;
   background: $background-linear-gradient,
     url('./images/primery_bg.jpg') no-repeat center/cover fixed;
 }

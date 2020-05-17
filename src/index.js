@@ -1,28 +1,41 @@
 import './styles.scss';
 import './js/randomCitation';
+import './js/rendering-amount-of-days';
 import refs from './js/refs';
 import apiService from './js/apiService';
-import getCurrentTime from './js/get-current-time';
 import favorites from './js/favoritesService';
-// import getCurrentTime from './js/get-current-time';
 import widgetTemplate from './templates/current-weather.hbs';
+import createClock from './js/timerService';
+import renderSunsetTime from './js/render-sunset-time';
 import backgroundImageService from './js/backgroundService';
 import geolocation from './js/geolocationService';
 
 favorites.loader(); // получаем данные при загрузке страницы из localStorage
 
+apiService.fetchCurrentWeather().then(() => {
+  const widgetMarkup = widgetTemplate(apiService.apiResponse);
+  refs.currentWeather.innerHTML = widgetMarkup;
+  createClock('#timer-1');
+  renderSunsetTime(apiService.apiResponse);
+});
+
+
 refs.searchForm.addEventListener('submit', async event => {
-  event.preventDefault();
+  try {
+    event.preventDefault();
 
-  apiService.query = refs.formInput.value.toLowerCase();
-  await apiService.fetchCurrentWeather();
+    apiService.query = refs.formInput.value.toLowerCase();
+    await apiService.fetchCurrentWeather();
+    
+    ///if in favorites-section all OK
+    favorites.formSubmitted(true);
 
-  ///if in favorites-section all OK
-  favorites.formSubmitted(true);
-
-  console.log(apiService.apiResponse);
-  const markup = widgetTemplate(apiService.apiResponse);
-  refs.currentWeather.innerHTML = markup;
-
-  backgroundImageService.background(refs.formInput.value);
+    const widgetMarkup = widgetTemplate(apiService.apiResponse);
+    refs.currentWeather.innerHTML = widgetMarkup;
+    createClock('#timer-1');
+    renderSunsetTime(apiService.apiResponse);
+    backgroundImageService.background(refs.formInput.value);
+  } catch (error) {
+    console.log(error);
+  }
 });

@@ -4,12 +4,25 @@ axios.defaults.baseURL = 'http://api.openweathermap.org/data/2.5/';
 const apiKey = 'c112c800340c3f1ee2fad83b32fe690c';
 
 export default {
-  searchQuery: '',
+  searchQuery: 'Kyiv',
   apiResponse: {},
   fetchCurrentWeather: async function () {
     try {
       const { data } = await axios.get(
         `weather?q=${this.query}&units=metric&appid=${apiKey}`,
+      );
+      this.apiResponse = data;
+      this.roundTemperature();
+      this.createIconLink();
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  fetchFiveDaysWeather: async function () {
+    try {
+      const { data } = await axios.get(
+        `forecast?q=${this.query}&units=metric&appid=${apiKey}`,
       );
       this.apiResponse = data;
       this.roundTemperature();

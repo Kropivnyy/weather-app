@@ -1,4 +1,5 @@
 .forecast__five-days {
+  display: none;
   position: relative;
   text-align: center;
   border-radius: 35px;
@@ -19,6 +20,10 @@
     padding-top: 36px;
     padding-bottom: 30px;
   }
+}
+
+.forecast__five-days-enabled{
+  display: block;
 }
 
 .five-days__city-name {

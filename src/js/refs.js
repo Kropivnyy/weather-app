@@ -1,4 +1,5 @@
 export default {
+  search: document.querySelector('.search'),
   searchForm: document.querySelector('.search__form'),
   formInput: document.querySelector('.form__input'),
   formAddToFavorites: document.querySelector('.form__add-to-favorites'),
@@ -7,6 +8,14 @@ export default {
   favoritesList: document.querySelector('.favorites__list'),
   searchFavorites: document.querySelector('.search__favorites'),
   currentWeather: document.querySelector('.js-current-weather'),
+  forecastToday: document.querySelector('.js-forecast__today-info-position'),
+  sunriseToday: document.querySelector('.today__dawn'),
+  sunsetToday: document.querySelector('.today__sunset'),
   body: document.querySelector('body'),
   geoModal: document.querySelector('.geolocation'),
+  forecastToday: document.querySelector('.forecast__today'),
+  forecastFiveDays: document.querySelector('.forecast__five-days'),
+  switchDaysBtn: document.querySelector('.switch-days-btn'),
+  currentWeather: document.querySelector('.current-weather'),
+  citation: document.querySelector('.citation'),
 };
