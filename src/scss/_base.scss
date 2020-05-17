@@ -13,8 +13,14 @@ body {
   font-size: $primary-font-size;
   line-height: $primary-line-height;
   color: $primary-white-color;
-  background: linear-gradient(rgba(245, 245, 245, 0.5), rgba(10, 5, 5, 0.9)),
-    url('./images/primery_bg.jpg') no-repeat center / cover fixed;
+  background: $background-linear-gradient,
+    url('./images/primery_bg.jpg') no-repeat center/cover fixed;
+  // background: linear-gradient(#f5f5f580, #0a0505e6);
+  // background-image: url('./images/primery_bg.jpg');
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // background-size: cover;
+  // background-attachment: fixed;
 }
 
 img {
@@ -37,7 +43,7 @@ img {
   }
 }
 
-body {
-  background-color: gray;
-  height: 100%;
-}
+// body {
+//   background-color: gray;
+//   height: 100%;
+// }

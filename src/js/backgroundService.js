@@ -18,10 +18,11 @@ export default {
 
   backgroundImage: function (query, source) {
     if (query.length === 0) {
-      refs.body.style.backgroundImage = "url('/images/primery_bg.jpg')";
+      refs.body.style.background =
+        "linear-gradient(#f5f5f500, #0a0505b3), url('/images/primery_bg.jpg') no-repeat center/cover fixed";
       return;
     }
 
-    refs.body.style.backgroundImage = source;
+    refs.body.style.background = `linear-gradient(#f5f5f500, #0a0505b3), ${source} no-repeat center/cover fixed`;
   },
 };

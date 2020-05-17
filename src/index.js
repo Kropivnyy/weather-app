@@ -24,5 +24,5 @@ refs.searchForm.addEventListener('submit', async event => {
   const markup = widgetTemplate(apiService.apiResponse);
   refs.currentWeather.innerHTML = markup;
 
-  await backgroundImageService.background(refs.formInput.value);
+  backgroundImageService.background(refs.formInput.value);
 });
