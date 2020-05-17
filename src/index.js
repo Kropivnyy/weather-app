@@ -1,5 +1,6 @@
 import './styles.scss';
 import './js/randomCitation';
+import './js/rendering-amount-of-days';
 import refs from './js/refs';
 import apiService from './js/apiService';
 import favorites from './js/favoritesService';
@@ -9,6 +10,8 @@ import renderSunsetTime from './js/render-sunset-time';
 import backgroundImageService from './js/backgroundService';
 import geolocation from './js/geolocationService';
 
+favorites.loader();// получаем данные при загрузке страницы из localStorage
+
 apiService.fetchCurrentWeather().then(() => {
   const widgetMarkup = widgetTemplate(apiService.apiResponse);
   refs.currentWeather.innerHTML = widgetMarkup;
@@ -16,7 +19,6 @@ apiService.fetchCurrentWeather().then(() => {
   renderSunsetTime(apiService.apiResponse);
 });
 
-favorites.loader(); // получаем данные при загрузке страницы из localStorage
 
 refs.searchForm.addEventListener('submit', async event => {
   event.preventDefault();
