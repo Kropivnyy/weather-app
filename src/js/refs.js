@@ -9,7 +9,9 @@ export default {
   currentWeather: document.querySelector('.js-current-weather'),
   body: document.querySelector('body'),
   geoModal: document.querySelector('.geolocation'),
-  forecastToday: document.querySelector('.forecast'),
+  forecastToday: document.querySelector('.forecast__today'),
   forecastFiveDays: document.querySelector('.forecast__five-days'),
   switchDaysBtn: document.querySelector('.switch-days-btn'),
+  currentWeather: document.querySelector('.current-weather'),
+  citation: document.querySelector('.citation'),
 };
