@@ -1,7 +1,7 @@
-import { alert, defaultModules } from '@pnotify/core';
+import { alert } from '@pnotify/core';
 import * as PNotifyConfirm from '@pnotify/confirm';
 import { defaults } from '@pnotify/core';
-// import '@pnotify/core/dist/BrightTheme.css';
+import backgroundImageService from './backgroundService';
 
 defaults.width = '300px';
 
@@ -22,11 +22,10 @@ const notice = alert({
   ]),
 });
 notice.on('pnotify:confirm', e => {
-  console.log(e.detail.value);
+  backgroundImageService.background(e.detail.value);
 });
 notice.on('pnotify:cancel', () => {
-  console.log('cancel');
-  console.log(defaults);
+  backgroundImageService.background('kyiv');
 });
 
 export default notice;

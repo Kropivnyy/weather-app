@@ -7,8 +7,6 @@ import widgetTemplate from './templates/current-weather.hbs';
 import backgroundImageService from './js/backgroundService';
 import geolocation from './js/geolocationService';
 
-// geolocation;
-
 refs.searchForm.addEventListener('submit', async event => {
   event.preventDefault();
 
