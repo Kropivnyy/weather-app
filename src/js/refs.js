@@ -6,4 +6,6 @@ export default {
   favoritesArrowLeft: document.querySelector('.favorites__arrow-left'),
   favoritesList: document.querySelector('.favorites__list'),
   searchFavorites: document.querySelector('.search__favorites'),
+  currentWeather: document.querySelector('.js-current-weather'),
+  body: document.querySelector('body'),
 };

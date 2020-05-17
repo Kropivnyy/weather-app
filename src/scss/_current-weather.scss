@@ -1,15 +1,35 @@
+.current-weather {
+  width: 320px;
+  margin: 0 auto;
+  margin-bottom: 32px;
+  padding: 0 20px;
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding: 0 80px;
+    margin-bottom: 46px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    padding-right: 0;
+    margin-bottom: 28px;
+  }
+}
 .current-weather__widget {
   width: 100%;
-  background-color: #102136;
+  min-height: 190px;
+  background-color: $background-blue-color;
   padding: 38px 0;
-  box-shadow: 0px 8px 43px 0px rgba($background-blue-color, $half-opacity);
+  margin: 0 auto;
+  box-shadow: $background-shadow;
   border-radius: 30px;
   text-align: center;
   @media screen and (min-width: 768px) {
     width: 490px;
+    min-height: 300px;
   }
   @media screen and (min-width: 1280px) {
     border-radius: 30px 0 0 30px;
+    margin-right: 0;
   }
 }
 

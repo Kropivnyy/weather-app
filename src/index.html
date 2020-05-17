@@ -29,26 +29,59 @@
           </button>
         </div>
       </div>
-    </section>
-    <section class="current-weather">
-      <div class="container">
-        <div class="current-weather__widget">
-          <img class="widget__weather-icon" src="./images/icon.png" alt="cloudy" width="42" height="22" />
-          <h2 class="widget__city">Kyiv, UA</h2>
-          <div class="temperature">
-            <p class="temperature__current">-3&#176;</p>
-            <p class="temperature__min">-2 &#176;</p>
-            <p class="temperature__max">-3 &#176;</p>
+      </section>
+      <section class="current-weather">
+        <div class="current-weather__widget js-current-weather"></div>
+      </section>
+      <section class="buttons container">
+        <a
+          href="#"
+          class="buttons__set-day-btn buttons__set-day-btn--active today-forecast-js"
+          >today</a
+        >
+        <a href="#" class="buttons__set-day-btn five-days-forecast-js"
+          >5 days</a
+        >
+      </section>
+      <section class="forecast container">
+        <div class="forecast__today">
+          <div class="forecast__today-info-position">
+            <p class="today__main-info">
+              <span class="today__date">8</span><span class="suffix">th</span
+              ><span class="today__day-of-the-week">Sat</span>
+            </p>
+            <p class="today__secondary-info today__month-and-time">
+              <span class="today__month">February</span
+              ><span class="today__time">21:30:56</span>
+            </p>
+            <p class="today__secondary-info">
+              <span class="today__dawn"
+                ><img
+                  class="today__sun-img"
+                  src="./images/dawn.png"
+                  alt="dawn"
+                  width="25"
+                  height="33"
+                />07:04</span
+              ><span class="today__sunset"
+                ><img
+                  class="today__sun-img"
+                  src="./images/sunset.png"
+                  alt="sunset"
+                  width="25"
+                  height="33"
+                />17:05</span
+              >
+            </p>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="buttons container">
-      <a href="#" class="buttons__set-day-btn buttons__set-day-btn--active today-forecast-js">today</a>
-      <a href="#" class="buttons__set-day-btn five-days-forecast-js">5 days</a>
-    </section>
-    <section class="chart"></section>
-  </main>
-</body>
-
+      </section>
+      <section class="citation container">
+        <div class="citation__wrapp">
+          <p class="citation__text"></p>
+          <p class="citation__author"></p>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
