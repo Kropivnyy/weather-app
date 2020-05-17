@@ -8,4 +8,5 @@ export default {
   searchFavorites: document.querySelector('.search__favorites'),
   currentWeather: document.querySelector('.js-current-weather'),
   body: document.querySelector('body'),
+  geoModal: document.querySelector('.geolocation'),
 };
