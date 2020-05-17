@@ -1,9 +1,9 @@
-.buttons {
+.switch-days-btn {
   margin-bottom: 32px;
   text-align: center;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 48px;
+    margin-bottom: 90px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -12,7 +12,7 @@
   }
 }
 
-.buttons__set-day-btn {
+.switch-days-btn__set-day-btn {
   @extend %link;
   @include letter-spacing(30);
   text-transform: uppercase;
@@ -23,7 +23,7 @@
   width: 126px;
   height: 29px;
   border-radius: 29px;
-  padding-top: 4px;
+  padding-top: 5px;
 
   &:not(:last-child) {
     margin-right: 20px;
