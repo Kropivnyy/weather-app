@@ -19,6 +19,19 @@ export default {
       console.log(error);
     }
   },
+  fetchFiveDaysWeather: async function () {
+    try {
+      const { data } = await axios.get(
+        `forecast?q=${this.query}&units=metric&appid=${apiKey}`,
+      );
+      this.apiResponse = data;
+      this.roundTemperature();
+      this.createIconLink();
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
   roundTemperature() {
     this.apiResponse.main.temp = Math.round(this.apiResponse.main.temp);
     this.apiResponse.main.temp_min = Math.round(this.apiResponse.main.temp_min);

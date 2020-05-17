@@ -1,7 +1,9 @@
-<img class="widget__weather-icon" src="{{weather}}" alt="cloudy" width="42" height="22" />
-<h2 class="widget__city">{{name}}, {{sys.country}}</h2>
-<div class="temperature">
-	<p class="temperature__current">{{main.temp}}&#176;</p>
-	<p class="temperature__min">{{main.temp_min}} &#176;</p>
-	<p class="temperature__max">{{main.temp_max}} &#176;</p>
+<div class="current-weather__widget js-current-weather">
+	<img class="widget__weather-icon" src="{{weather}}" alt="cloudy" width="42" height="22" />
+	<h2 class="widget__city">{{name}}, {{sys.country}}</h2>
+	<div class="temperature">
+		<p class="temperature__current">{{main.temp}}&#176;</p>
+		<p class="temperature__min">{{main.temp_min}} &#176;</p>
+		<p class="temperature__max">{{main.temp_max}} &#176;</p>
+	</div>
 </div>
