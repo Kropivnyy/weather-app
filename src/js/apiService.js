@@ -51,7 +51,14 @@ export default {
         this.fourthDayForecast,
         this.fifthDayForecast,
       ]);
-      console.log(this);
+      console.log(this.forecastFiveDays);
+      console.log(
+        this.firstDayForecast,
+        this.secondDayForecast,
+        this.thirdDayForecast,
+        this.fourthDayForecast,
+        this.fifthDayForecast,
+      );
     } catch (error) {
       console.log(error);
     }

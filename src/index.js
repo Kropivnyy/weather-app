@@ -19,11 +19,11 @@ apiService.fetchTodayWeather().then(() => {
   renderSunsetTime(apiService.todayResponse);
 });
 
-// refs.switchDaysBtn.addEventListener('click', async event => {
-//   event.preventDefault();
-//   apiService.query = refs.formInput.value.toLowerCase();
-//   await apiService.fetchFiveDaysWeather();
-// });
+refs.switchDaysBtn.addEventListener('click', async event => {
+  event.preventDefault();
+  apiService.query = refs.formInput.value.toLowerCase();
+  await apiService.fetchFiveDaysWeather();
+});
 
 refs.searchForm.addEventListener('submit', async event => {
   try {
