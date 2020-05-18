@@ -33,12 +33,7 @@ notice.on('pnotify:confirm', () => {
   navigator.geolocation.getCurrentPosition(success, error);
 });
 notice.on('pnotify:cancel', () => {
-  apiService.fetchTodayWeather().then(() => {
-    const widgetMarkup = widgetTemplate(apiService.todayResponse);
-    refs.currentWeather.innerHTML = widgetMarkup;
-    createClock('#timer-1');
-    renderSunsetTime(apiService.todayResponse);
-  });
+  apiWidget(geolocation);
 
   backgroundImageService.background(geolocation);
 });
