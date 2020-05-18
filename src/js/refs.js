@@ -18,4 +18,5 @@ export default {
   switchDaysBtn: document.querySelector('.switch-days-btn'),
   currentWeather: document.querySelector('.current-weather'),
   citation: document.querySelector('.citation'),
+  chartShow: document.querySelector('.chart__show'),
 };
