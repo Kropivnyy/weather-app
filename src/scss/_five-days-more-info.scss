@@ -33,12 +33,14 @@
 .weather-parameters__list{
     list-style-type: none;
 }
+
 .more-information__list{
     display: flex;
     @media screen and (min-width: 768px) {
         margin-bottom: 23px;
     }
 }
+
 .more-information__item{
     max-width: 120px;
     padding: 13px 0;
@@ -53,16 +55,20 @@
         border: 1px solid transparent;
     }
 }
+
 .more-information__time,
 .weather-parameters__list{
     color: rgba($primary-white-color , $half-opacity);
 }
+
 .more-information__weather-icon{
     margin: 0 auto;
 }
+
 .more-information__time{
     font: 400 12px/22px $primary-font-family;
 }
+
 .weather-parameters__list{
     font: 400 14px/22px $primary-font-family;
 }

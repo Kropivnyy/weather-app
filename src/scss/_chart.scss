@@ -1,4 +1,4 @@
-.chart__show{
+.chart__show, .chart__hide{
     display: none;
     @extend %button;
     background: transparent;    
