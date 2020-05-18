@@ -1,5 +1,3 @@
-/* Проблема с отображением 24го часа */
-
 export default function (timezone, time = null) {
   let timeInstance;
   if (time === null) {

@@ -14,8 +14,9 @@ body {
   line-height: $primary-line-height;
   color: $primary-white-color;
   overflow-x: hidden;
+  min-height: 100vh;
   background: $background-linear-gradient,
-    url('./images/primery_bg.jpg') no-repeat center/cover fixed;
+    url('./images/primary_bg.jpg') no-repeat center/cover fixed;
 }
 
 img {
