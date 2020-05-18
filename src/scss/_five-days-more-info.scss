@@ -1,4 +1,5 @@
 .five-days__more-information{
+    display: none;
     width: 250px;
     margin: 0 auto 7px;
     padding: 6px 0 19px 0;
@@ -23,6 +24,11 @@
         padding: 23px 0 0 0;
     }
 }
+
+.five-days__more-information-enabled{
+    display: block;
+}
+
 .more-information__list,
 .weather-parameters__list{
     list-style-type: none;
