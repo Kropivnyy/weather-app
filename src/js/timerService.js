@@ -10,7 +10,7 @@ export default function (clock) {
   const hoursRef = idRef.querySelector('[data-value="hours"]');
 
   function updateTime() {
-    const t = getCurrentTime(apiService.apiResponse.timezone);
+    const t = getCurrentTime(apiService.todayResponse.timezone);
     dateRef.textContent = t.date;
     if (t.date === '1' || t.date === '21' || t.date === '31') {
       suffixRef.textContent = 'st';
@@ -23,9 +23,9 @@ export default function (clock) {
     }
     dayRef.textContent = t.day;
     monthRef.textContent = t.month;
-    hoursRef.textContent = `${t.hours < 10 ? '0' + t.hours : t.hours}:${
-      t.mins < 10 ? '0' + t.mins : t.mins
-    }:${t.secs < 10 ? '0' + t.secs : t.secs}`;
+    hoursRef.textContent = `${('0' + t.hours).slice(-2)}:${('0' + t.mins).slice(
+      -2,
+    )}:${('0' + t.secs).slice(-2)}`;
   }
   updateTime();
   const timerId = setInterval(updateTime, 1000);

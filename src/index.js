@@ -12,28 +12,33 @@ import geolocation from './js/geolocationService';
 
 favorites.loader(); // получаем данные при загрузке страницы из localStorage
 
-apiService.fetchCurrentWeather().then(() => {
-  const widgetMarkup = widgetTemplate(apiService.apiResponse);
+apiService.fetchTodayWeather().then(() => {
+  const widgetMarkup = widgetTemplate(apiService.todayResponse);
   refs.currentWeather.innerHTML = widgetMarkup;
   createClock('#timer-1');
-  renderSunsetTime(apiService.apiResponse);
+  renderSunsetTime(apiService.todayResponse);
 });
 
+// refs.switchDaysBtn.addEventListener('click', async event => {
+//   event.preventDefault();
+//   apiService.query = refs.formInput.value.toLowerCase();
+//   await apiService.fetchFiveDaysWeather();
+// });
 
 refs.searchForm.addEventListener('submit', async event => {
   try {
     event.preventDefault();
 
     apiService.query = refs.formInput.value.toLowerCase();
-    await apiService.fetchCurrentWeather();
-    
+    await apiService.fetchTodayWeather();
+
     ///if in favorites-section all OK
     favorites.formSubmitted(true);
 
-    const widgetMarkup = widgetTemplate(apiService.apiResponse);
+    const widgetMarkup = widgetTemplate(apiService.todayResponse);
     refs.currentWeather.innerHTML = widgetMarkup;
     createClock('#timer-1');
-    renderSunsetTime(apiService.apiResponse);
+    renderSunsetTime(apiService.todayResponse);
     backgroundImageService.background(refs.formInput.value);
   } catch (error) {
     console.log(error);

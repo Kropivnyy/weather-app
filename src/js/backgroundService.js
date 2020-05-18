@@ -19,7 +19,7 @@ export default {
   backgroundImage: function (query, source) {
     if (query.length === 0) {
       refs.body.style.background =
-        "linear-gradient(#f5f5f500, #0a0505b3), url('/images/primery_bg.jpg') no-repeat center/cover fixed";
+        "linear-gradient(#f5f5f500, #0a0505b3), url('/images/primary_bg.jpg') no-repeat center/cover fixed";
       return;
     }
 
