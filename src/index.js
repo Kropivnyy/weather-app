@@ -1,6 +1,6 @@
 import './styles.scss';
 import './js/randomCitation';
-import './js/rendering-amount-of-days';
+// import './js/rendering-amount-of-days';
 import refs from './js/refs';
 import apiService from './js/apiService';
 import favorites from './js/favoritesService';
@@ -9,6 +9,7 @@ import createClock from './js/timerService';
 import renderSunsetTime from './js/render-sunset-time';
 import backgroundImageService from './js/backgroundService';
 import geolocation from './js/geolocationService';
+import forecastFiveDays from './js/forecastFiveDays';
 
 favorites.loader(); // получаем данные при загрузке страницы из localStorage
 
@@ -48,4 +49,9 @@ refs.searchForm.addEventListener('submit', async event => {
   } catch (error) {
     console.log(error);
   }
+
+  console.log(apiService.fiveDaysResponseCity);
 });
+
+// ================= еще не закончил
+// forecastFiveDays();
