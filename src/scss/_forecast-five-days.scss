@@ -169,6 +169,7 @@
 .five-days__temperature-info-sign {
   opacity: $half-opacity;
   margin-bottom: 4px;
+  text-align: center;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 8px;

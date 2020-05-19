@@ -1,0 +1,12 @@
+{{#each this}}
+<li class="more-information__item">
+	<p class="more-information__time">{{dt_txt}}</p>
+	<img src="https://openweathermap.org/img/w/04d.png" alt="weather-icon" class="more-information__weather-icon" />
+	<p class="more-information__temperature">{{main.temp}}</p>
+	<ul class="weather-parameters__list">
+		<li class="weather-parameters__item item-pressure">{{main.pressure}} mm</li>
+		<li class="weather-parameters__item item-humidity">{{main.humidity}}%</li>
+		<li class="weather-parameters__item item-wind">{{wind.speed}} m/s</li>
+	</ul>
+</li>
+{{/each}}

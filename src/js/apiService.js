@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://api.openweathermap.org/data/2.5/';
+axios.defaults.baseURL = 'https://api.openweathermap.org/data/2.5/';
 const apiKey = 'c112c800340c3f1ee2fad83b32fe690c';
 
 export default {
@@ -51,7 +51,16 @@ export default {
         this.fourthDayForecast,
         this.fifthDayForecast,
       ]);
-      console.log(this);
+      console.log('Для шаблона на пять дней');
+      console.log(this.forecastFiveDays);
+      console.log('Для шаблона на more info');
+      console.log(
+        this.firstDayForecast,
+        this.secondDayForecast,
+        this.thirdDayForecast,
+        this.fourthDayForecast,
+        this.fifthDayForecast,
+      );
     } catch (error) {
       console.log(error);
     }
@@ -66,7 +75,7 @@ export default {
     );
   },
   createIconLink() {
-    this.todayResponse.weather = `http://openweathermap.org/img/w/${this.todayResponse.weather[0].icon}.png`;
+    this.todayResponse.weather = `https://openweathermap.org/img/w/${this.todayResponse.weather[0].icon}.png`;
   },
   sortResponseOnArrays() {
     const dayOne = this.fiveDaysResponse[0].dt_txt.slice(0, 10);
@@ -145,33 +154,33 @@ export default {
     this.forecastFiveDays = {
       firstDay: {
         date: this.calcDate(one),
-        icon: `http://openweathermap.org/img/w/${one[0].weather[0].icon}.png`,
+        icon: `https://openweathermap.org/img/w/${one[0].weather[0].icon}.png`,
         temp: this.calcMinMaxTemp(one),
       },
       secondDay: {
         date: this.calcDate(two),
-        icon: `http://openweathermap.org/img/w/${
+        icon: `https://openweathermap.org/img/w/${
           two[8 - one.length].weather[0].icon
         }.png`,
         temp: this.calcMinMaxTemp(two),
       },
       thirdDay: {
         date: this.calcDate(three),
-        icon: `http://openweathermap.org/img/w/${
+        icon: `https://openweathermap.org/img/w/${
           three[8 - one.length].weather[0].icon
         }.png`,
         temp: this.calcMinMaxTemp(three),
       },
       fourthDay: {
         date: this.calcDate(four),
-        icon: `http://openweathermap.org/img/w/${
+        icon: `https://openweathermap.org/img/w/${
           four[8 - one.length].weather[0].icon
         }.png`,
         temp: this.calcMinMaxTemp(four),
       },
       fifthDay: {
         date: this.calcDate(five),
-        icon: `http://openweathermap.org/img/w/${
+        icon: `https://openweathermap.org/img/w/${
           five[8 - one.length].weather[0].icon
         }.png`,
         temp: this.calcMinMaxTemp(five),

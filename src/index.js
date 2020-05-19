@@ -1,6 +1,6 @@
 import './styles.scss';
 import './js/randomCitation';
-import './js/rendering-amount-of-days';
+// import './js/rendering-amount-of-days';
 import refs from './js/refs';
 import apiService from './js/apiService';
 import favorites from './js/favoritesService';
@@ -9,6 +9,7 @@ import createClock from './js/timerService';
 import renderSunsetTime from './js/render-sunset-time';
 import backgroundImageService from './js/backgroundService';
 import geolocation from './js/geolocationService';
+import renderFiveDays from './js/render-five-days';
 
 favorites.loader(); // получаем данные при загрузке страницы из localStorage
 
@@ -19,11 +20,12 @@ apiService.fetchTodayWeather().then(() => {
   renderSunsetTime(apiService.todayResponse);
 });
 
-// refs.switchDaysBtn.addEventListener('click', async event => {
-//   event.preventDefault();
-//   apiService.query = refs.formInput.value.toLowerCase();
-//   await apiService.fetchFiveDaysWeather();
-// });
+refs.switchDaysBtn.addEventListener('click', async event => {
+  event.preventDefault();
+  apiService.query = refs.formInput.value.toLowerCase();
+  await apiService.fetchFiveDaysWeather();
+  renderFiveDays();
+});
 
 refs.searchForm.addEventListener('submit', async event => {
   try {
@@ -39,8 +41,11 @@ refs.searchForm.addEventListener('submit', async event => {
     refs.currentWeather.innerHTML = widgetMarkup;
     createClock('#timer-1');
     renderSunsetTime(apiService.todayResponse);
+
     backgroundImageService.background(refs.formInput.value);
   } catch (error) {
     console.log(error);
   }
+
+  console.log(apiService.fiveDaysResponseCity);
 });
