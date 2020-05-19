@@ -167,6 +167,7 @@ export default {
         icon: `https://openweathermap.org/img/w/${one[0].weather[0].icon}.png`,
         description: one[0].weather[0].description,
         temp: this.calcMinMaxTemp(one),
+        index: 1,
       },
       secondDay: {
         date: this.calcDate(two),
@@ -175,6 +176,7 @@ export default {
         }.png`,
         description: two[8 - one.length].weather[0].description,
         temp: this.calcMinMaxTemp(two),
+        index: 2,
       },
       thirdDay: {
         date: this.calcDate(three),
@@ -183,6 +185,7 @@ export default {
         }.png`,
         description: three[8 - one.length].weather[0].description,
         temp: this.calcMinMaxTemp(three),
+        index: 3,
       },
       fourthDay: {
         date: this.calcDate(four),
@@ -191,6 +194,7 @@ export default {
         }.png`,
         description: four[8 - one.length].weather[0].description,
         temp: this.calcMinMaxTemp(four),
+        index: 4,
       },
       fifthDay: {
         date: this.calcDate(five),
@@ -199,6 +203,7 @@ export default {
         }.png`,
         description: five[8 - one.length].weather[0].descrition,
         temp: this.calcMinMaxTemp(five),
+        index: 5,
       },
     };
   },
