@@ -10,6 +10,7 @@ import renderSunsetTime from './js/render-sunset-time';
 import backgroundImageService from './js/backgroundService';
 import geolocation from './js/geolocationService';
 import renderFiveDays from './js/render-five-days';
+import './js/forecast-five-day-info';
 
 favorites.loader(); // получаем данные при загрузке страницы из localStorage
 
@@ -31,22 +32,22 @@ refs.searchForm.addEventListener('submit', async event => {
   try {
     event.preventDefault();
     apiService.query = refs.formInput.value.toLowerCase();
-    if (amountDays.currentDays === 'oneDay') {
-      await apiService.fetchTodayWeather();
-      await apiService.fetchFiveDaysWeather();
 
-      const widgetMarkup = widgetTemplate(apiService.todayResponse);
-      refs.currentWeather.innerHTML = widgetMarkup;
-      createClock('#timer-1');
-      renderSunsetTime(apiService.todayResponse);
-    }
+    await apiService.fetchTodayWeather();
+    await apiService.fetchFiveDaysWeather();
+
+    const widgetMarkup = widgetTemplate(apiService.todayResponse);
+    refs.currentWeather.innerHTML = widgetMarkup;
+    renderFiveDays();
+    createClock('#timer-1');
+    renderSunsetTime(apiService.todayResponse);
 
     if (apiService.apiResponse) {
       ///if in favorites-section all OK
       favorites.formSubmitted(true);
-
-      backgroundImageService.background(refs.formInput.value);
     }
+
+    backgroundImageService.background(refs.formInput.value);
   } catch (error) {
     console.log(error);
   }
@@ -65,14 +66,7 @@ function onClick(e) {
   }
 
   if (e.target.dataset.days === 'fiveDays') {
-    console.log(e.target.dataset.days);
-    console.log(
-      e.target.classList.contains('switch-days-btn__set-day-btn--active'),
-    );
     if (e.target.classList.contains('switch-days-btn__set-day-btn--active')) {
-      console.log(
-        e.target.classList.contains('switch-days-btn__set-day-btn--active'),
-      );
       renderFiveDays();
     }
   }
