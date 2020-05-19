@@ -16,7 +16,9 @@ export default function () {
     const markupOneDay = fiveDaysItemTemplate(apiService.forecastFiveDays);
     refs.forecastFiveDaysList.innerHTML = markupOneDay;
 
-    const markupMoreInfo = moreInfoTemplate(apiService.secondDayForecast);
+    const markupMoreInfo = moreInfoTemplate(apiService.fiveDaysResponse);
     refs.forecastMoreInfo.innerHTML = markupMoreInfo;
   }
+
+  console.log(apiService.fiveDaysResponse);
 }
