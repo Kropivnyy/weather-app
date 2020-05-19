@@ -23,6 +23,7 @@ const amountDays = {
     refs.forecastFiveDays.classList[action]('forecast__five-days-enabled');
     refs.citation.classList[action]('citation-disabled');
     refs.search.classList[action]('search-mb-js');
+    refs.chartShow.classList[action]('chart__show-enabled');
   },
 
   activeAmount(add, remove) {
