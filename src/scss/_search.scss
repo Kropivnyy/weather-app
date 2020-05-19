@@ -12,6 +12,15 @@
   }
 }
 
+.search-mb-js {
+  @media screen and (min-width: 768px) {
+    margin-bottom: 275px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 220px;
+  }
+}
+
 .search__form {
   width: 100%;
   position: relative;
@@ -114,8 +123,8 @@
   }
 }
 
-.slick-slide{
-  margin-right:10px;
+.slick-slide {
+  margin-right: 10px;
 }
 
 .favorites__link {
