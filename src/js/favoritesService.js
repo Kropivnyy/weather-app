@@ -12,8 +12,17 @@ setTimeout(() => {
     speed: 300,
     slidesToShow: 2,
     variableWidth: true,
+    mobileFirst: true,
     nextArrow: $('.favorites__arrow-left'),
     prevArrow: $('.favorites__arrow-right'),
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+    ],
   });
 }, 0);
 
@@ -63,7 +72,8 @@ export default {
       this.rewritingLocalStorage();
       this.iconClass('active', 'remove');
       $('.favorites__list')
-        .slick('slickAdd', item(this.currentCity), true).slick('slickGoTo', 0, false);
+        .slick('slickGoTo', 0)
+        .slick('slickAdd', item(this.currentCity), true);
     }
   },
 
@@ -72,17 +82,9 @@ export default {
       const city = event.target.dataset.name;
       const index = this.favorites.indexOf(city);
       const indexItemForDelete = this.favorites.length - 1 - index;
-
-      console.log(city, ' - city');
-      console.log(this.favorites, ' - favorites before del');
-      console.log(this.favorites.length - 1, ' - favorites lenght index');
-      console.log(indexItemForDelete, ' - reverse index');
-      console.log(index, ' - original index');
-
       $('.favorites__list').slick('slickRemove', indexItemForDelete);
       this.favorites.splice(index, 1);
       this.rewritingLocalStorage();
-      console.log(this.favorites, ' - favorites after del');
       if (refs.formInput.value === city) this.changeIconDefault();
     }
 
