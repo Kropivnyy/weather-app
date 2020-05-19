@@ -1,8 +1,9 @@
 {{#each this}}
 <li class="more-information__item">
 	<p class="more-information__time">{{dt_txt}}</p>
-	<img src="https://openweathermap.org/img/w/04d.png" alt="weather-icon" class="more-information__weather-icon" />
-	<p class="more-information__temperature">{{main.temp}}</p>
+	<img src="{{weather.icon}}" title="{{weather.description}}" alt="weather-icon"
+		class="more-information__weather-icon" />
+	<p class="more-information__temperature">{{main.temp}}°</p>
 	<ul class="weather-parameters__list">
 		<li class="weather-parameters__item item-pressure">{{main.pressure}} mm</li>
 		<li class="weather-parameters__item item-humidity">{{main.humidity}}%</li>

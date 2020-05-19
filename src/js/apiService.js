@@ -25,8 +25,8 @@ export default {
       );
       this.apiResponse = true;
       this.todayResponse = data;
-      this.roundTodayTemperature();
-      this.createIconLink();
+      this.roundTodayTemperature(this.todayResponse);
+      this.createIconLink(this.todayResponse);
       return data;
     } catch (error) {
       this.apiResponse = false;
@@ -43,8 +43,6 @@ export default {
       this.fiveDaysResponseCity = data.city;
       this.changeForecastTime(this.fiveDaysResponse);
       this.sortResponseOnArrays(this.fiveDaysResponse);
-      console.log(this.fiveDaysResponse);
-      console.log(this.secondDayForecast);
       this.getForecastFiveDays(
         this.firstDayForecast,
         this.secondDayForecast,
@@ -52,37 +50,43 @@ export default {
         this.fourthDayForecast,
         this.fifthDayForecast,
       );
-      // this.changeMoreInfo([
-      //   this.firstDayForecast,
-      //   this.secondDayForecast,
-      //   this.thirdDayForecast,
-      //   this.fourthDayForecast,
-      //   this.fifthDayForecast,
-      // ]);
+      this.changeMoreInfo([
+        this.firstDayForecast,
+        this.secondDayForecast,
+        this.thirdDayForecast,
+        this.fourthDayForecast,
+        this.fifthDayForecast,
+      ]);
     } catch (error) {
-      this.apiResponse = true;
+      this.apiResponse = false;
       console.log(error);
     }
   },
-  roundTodayTemperature() {
-    this.todayResponse.main.temp = Math.round(this.todayResponse.main.temp);
-    this.todayResponse.main.temp_min = Math.round(
-      this.todayResponse.main.temp_min,
-    );
-    this.todayResponse.main.temp_max = Math.round(
-      this.todayResponse.main.temp_max,
-    );
+  roundTodayTemperature(array) {
+    array.main.temp = Math.round(array.main.temp);
+    array.main.temp_min = Math.round(array.main.temp_min);
+    array.main.temp_max = Math.round(array.main.temp_max);
   },
-  createIconLink() {
-    this.todayResponse.weather = `https://openweathermap.org/img/w/${this.todayResponse.weather[0].icon}.png`;
+  createIconLink(array) {
+    array.weather = {
+      description: array.weather[0].description,
+      icon: `https://openweathermap.org/img/w/${array.weather[0].icon}.png`,
+    };
   },
   changeForecastTime(array) {
     array.forEach(el => {
-      const { total } = getCurrentTime(
+      const { total, time } = getCurrentTime(
         this.fiveDaysResponseCity.timezone,
         el.dt,
       );
       el.dt = total;
+      el.dt_txt = `${time.getFullYear()}-${('0' + (time.getMonth() + 1)).slice(
+        -2,
+      )}-${('0' + time.getDate()).slice(-2)} ${('0' + time.getHours()).slice(
+        -2,
+      )}:${('0' + time.getMinutes()).slice(-2)}:${(
+        '0' + time.getSeconds()
+      ).slice(-2)}`;
     });
   },
   sortResponseOnArrays(array) {
@@ -145,9 +149,7 @@ export default {
     return { temp_min, temp_max };
   },
   calcDate(array) {
-    const time = new Date(array[0].dt * 1000);
-    // time.setTime(time.getTime() +
-    // (time.getTimezoneOffset() * 60 + this.fiveDaysResponseCity.timezone) * 1000,)
+    const time = new Date(array[0].dt);
     const locales = 'en-US';
     const month = time.toLocaleString(locales, { month: 'short' });
     const day = time.toLocaleString(locales, { weekday: 'long' });
@@ -163,7 +165,7 @@ export default {
       firstDay: {
         date: this.calcDate(one),
         icon: `https://openweathermap.org/img/w/${one[0].weather[0].icon}.png`,
-        description: one[0].weather[0].descrition,
+        description: one[0].weather[0].description,
         temp: this.calcMinMaxTemp(one),
       },
       secondDay: {
@@ -171,7 +173,7 @@ export default {
         icon: `https://openweathermap.org/img/w/${
           two[8 - one.length].weather[0].icon
         }.png`,
-        description: two[8 - one.length].weather[0].descrition,
+        description: two[8 - one.length].weather[0].description,
         temp: this.calcMinMaxTemp(two),
       },
       thirdDay: {
@@ -179,7 +181,7 @@ export default {
         icon: `https://openweathermap.org/img/w/${
           three[8 - one.length].weather[0].icon
         }.png`,
-        description: three[8 - one.length].weather[0].descrition,
+        description: three[8 - one.length].weather[0].description,
         temp: this.calcMinMaxTemp(three),
       },
       fourthDay: {
@@ -187,7 +189,7 @@ export default {
         icon: `https://openweathermap.org/img/w/${
           four[8 - one.length].weather[0].icon
         }.png`,
-        description: four[8 - one.length].weather[0].descrition,
+        description: four[8 - one.length].weather[0].description,
         temp: this.calcMinMaxTemp(four),
       },
       fifthDay: {
@@ -204,6 +206,12 @@ export default {
     array.forEach(i => {
       i.forEach(j => {
         j.dt_txt = j.dt_txt.slice(11, 16);
+        j.weather = {
+          description: j.weather[0].description,
+          icon: `https://openweathermap.org/img/w/${j.weather[0].icon}.png`,
+        };
+        j.main.temp = Math.round(j.main.temp);
+        j.main.pressure = Math.round((j.main.pressure * 1000) / 1.333 / 1000);
       });
     });
   },
