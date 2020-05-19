@@ -55,7 +55,7 @@
   list-style: none;
   display: flex;
   justify-content: space-between;
-
+  overflow: hidden;
   @media screen and (min-width: 768px) {
     width: 534px;
     font-size: 14px;
@@ -66,6 +66,15 @@
     width: 880px;
     font-size: 18px;
     line-height: 18px;
+  }
+}
+
+.five-days__one-day-item{
+  min-width: 65px;
+  @media screen and (max-width: 767px) {
+    &:not(:last-child){
+      margin-right: 13px;
+    }
   }
 }
 
@@ -160,6 +169,7 @@
 .five-days__temperature-info-sign {
   opacity: $half-opacity;
   margin-bottom: 4px;
+  text-align: center;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 8px;
@@ -212,7 +222,7 @@
 .five-days__prev-day-btn,
 .five-days__next-day-btn {
   font-size: 20px;
-
+  cursor: pointer;
   @media screen and (min-width: 768px) {
     display: none;
   }

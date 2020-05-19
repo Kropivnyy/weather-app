@@ -9,13 +9,28 @@
     margin-bottom: 46px;
   }
   @media screen and (min-width: 1280px) {
-    width: 1280px;
-    padding-right: 0;
-    margin-bottom: 28px;
+    width: 45vw;
+    padding: 0;
+    box-shadow: $background-shadow;
+    margin: 0 0 28px auto;
+    border-radius: 30px 0 0 30px;
+    background: linear-gradient(
+      to right,
+      $background-blue-color 75%,
+      #102136e7
+    );
+  }
+  @media screen and (min-width: 1440px) {
+    background: linear-gradient(
+      to right,
+      $background-blue-color 50%,
+      #102136f1 80%,
+      #102136ce
+    );
   }
 }
 
-.current-weather-disabled{
+.current-weather-disabled {
   display: none;
 }
 
@@ -33,17 +48,18 @@
     min-height: 300px;
   }
   @media screen and (min-width: 1280px) {
-    border-radius: 30px 0 0 30px;
-    margin-right: 0;
+    box-shadow: none;
+    background: none;
+    margin: 0;
   }
 }
 
 .widget__city {
-  font: 300 16px/22px $primary-font-family;
+  font: 400 18px/22px $primary-font-family;
   padding: 20px 0 5px;
   color: rgba($primary-white-color, 0.3);
   @media screen and (min-width: 768px) {
-    padding: 14px 0 16px;
+    padding: 4px 0 5px;
   }
 }
 .temperature {
@@ -60,6 +76,7 @@
     width: 100%;
     font: 300 90px/90px $primary-font-family;
     padding-right: 0;
+    margin-bottom: 14px;
   }
 }
 .temperature__min,
@@ -79,7 +96,7 @@
     }
   }
   @media screen and (min-width: 768px) {
-    padding: 14px 22px 0 0;
+    padding: 0 20px 0 0;
   }
 }
 .temperature__max {
@@ -94,7 +111,7 @@
     }
   }
   @media screen and (min-width: 768px) {
-    padding: 0 22px 0 14px;
+    padding: 0 0 0 20px;
   }
 }
 .widget__weather-icon {

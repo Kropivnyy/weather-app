@@ -13,8 +13,12 @@ export default {
   sunsetToday: document.querySelector('.today__sunset'),
   body: document.querySelector('body'),
   geoModal: document.querySelector('.geolocation'),
+  /* Одинаковые переменные. Надо разобраться */
   forecastToday: document.querySelector('.forecast__today'),
   forecastFiveDays: document.querySelector('.forecast__five-days'),
+  forecastFiveDaysCity: document.querySelector('.five-days__city-name'),
+  forecastFiveDaysList: document.querySelector('.five-days__list'),
+  forecastMoreInfo: document.querySelector('.more-information__list'),
   switchDaysBtn: document.querySelector('.switch-days-btn'),
   currentWeather: document.querySelector('.current-weather'),
   citation: document.querySelector('.citation'),

@@ -14,13 +14,13 @@
         }
     }   
     @media screen and (min-width: 768px) {
-        width: 512px;
+        width: 520px;
         overflow: hidden;
         margin: 0 auto;
         padding: 40px 0 0 0;
     }
     @media screen and (min-width: 1280px) {
-        width: 900px;
+        width: 1040px;
         padding: 23px 0 0 0;
     }
 }
@@ -36,13 +36,16 @@
 
 .more-information__list{
     display: flex;
+    @include center-flex(hor);
+    width: fit-content;
+    margin: 0 auto;
     @media screen and (min-width: 768px) {
         margin-bottom: 23px;
     }
 }
 
 .more-information__item{
-    max-width: 120px;
+    min-width: 120px;
     padding: 13px 0;
     border: 1px solid rgba($primary-white-color , $half-opacity);
     border-radius: 25px;
@@ -50,6 +53,7 @@
     &:not(:last-child){
         margin-right: 10px;
     }
+
     &:hover{
         background: rgba($primary-white-color , .1);
         border: 1px solid transparent;
