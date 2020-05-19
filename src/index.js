@@ -1,6 +1,6 @@
 import './styles.scss';
 import './js/randomCitation';
-import './js/rendering-amount-of-days';
+import amountDays from './js/rendering-amount-of-days';
 import refs from './js/refs';
 import apiService from './js/apiService';
 import favorites from './js/favoritesService';
@@ -9,6 +9,7 @@ import createClock from './js/timerService';
 import renderSunsetTime from './js/render-sunset-time';
 import backgroundImageService from './js/backgroundService';
 import geolocation from './js/geolocationService';
+import renderFiveDays from './js/render-five-days';
 
 favorites.loader(); // получаем данные при загрузке страницы из localStorage
 
@@ -23,24 +24,49 @@ apiService.fetchTodayWeather().then(() => {
 //   event.preventDefault();
 //   apiService.query = refs.formInput.value.toLowerCase();
 //   await apiService.fetchFiveDaysWeather();
+//   renderFiveDays();
 // });
 
 refs.searchForm.addEventListener('submit', async event => {
   try {
     event.preventDefault();
-
     apiService.query = refs.formInput.value.toLowerCase();
-    await apiService.fetchTodayWeather();
+    if (amountDays.currentDays === 'oneDay') {
+      await apiService.fetchTodayWeather();
+      await apiService.fetchFiveDaysWeather();
 
-    ///if in favorites-section all OK
-    favorites.formSubmitted(true);
+      const widgetMarkup = widgetTemplate(apiService.todayResponse);
+      refs.currentWeather.innerHTML = widgetMarkup;
+      createClock('#timer-1');
+      renderSunsetTime(apiService.todayResponse);
+    }
 
-    const widgetMarkup = widgetTemplate(apiService.todayResponse);
-    refs.currentWeather.innerHTML = widgetMarkup;
-    createClock('#timer-1');
-    renderSunsetTime(apiService.todayResponse);
-    backgroundImageService.background(refs.formInput.value);
+    if (apiService.apiResponse) {
+      ///if in favorites-section all OK
+      favorites.formSubmitted(true);
+
+      backgroundImageService.background(refs.formInput.value);
+    }
   } catch (error) {
     console.log(error);
   }
 });
+
+refs.switchDaysBtn.addEventListener('click', onClick);
+
+function onClick(e) {
+  if (e.target.dataset.days === 'oneDay') {
+    if (e.target.classList.contains('switch-days-btn__set-day-btn--active')) {
+      const widgetMarkup = widgetTemplate(apiService.todayResponse);
+      refs.currentWeather.innerHTML = widgetMarkup;
+      createClock('#timer-1');
+      renderSunsetTime(apiService.todayResponse);
+    }
+  }
+
+  if (e.target.dataset.days === 'fiveDays') {
+    if (e.target.classList.contains('switch-days-btn__set-day-btn--active')) {
+      renderFiveDays();
+    }
+  }
+}

@@ -20,6 +20,7 @@ export default function (timezone, time = null) {
   const mins = timeInstance.toLocaleString(locales, { minute: '2-digit' });
   const secs = timeInstance.toLocaleString(locales, { second: '2-digit' });
   return {
+    time: timeInstance,
     total: timeInstance.getTime(),
     month,
     day,
