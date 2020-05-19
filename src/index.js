@@ -33,14 +33,14 @@ refs.searchForm.addEventListener('submit', async event => {
     apiService.query = refs.formInput.value.toLowerCase();
     if (amountDays.currentDays === 'oneDay') {
       await apiService.fetchTodayWeather();
+      await apiService.fetchFiveDaysWeather();
+
       const widgetMarkup = widgetTemplate(apiService.todayResponse);
       refs.currentWeather.innerHTML = widgetMarkup;
       createClock('#timer-1');
       renderSunsetTime(apiService.todayResponse);
-    } else {
-      await apiService.fetchFiveDaysWeather();
-      renderFiveDays();
     }
+
     if (apiService.apiResponse) {
       ///if in favorites-section all OK
       favorites.formSubmitted(true);
@@ -51,3 +51,29 @@ refs.searchForm.addEventListener('submit', async event => {
     console.log(error);
   }
 });
+
+refs.switchDaysBtn.addEventListener('click', onClick);
+
+function onClick(e) {
+  if (e.target.dataset.days === 'oneDay') {
+    if (e.target.classList.contains('switch-days-btn__set-day-btn--active')) {
+      const widgetMarkup = widgetTemplate(apiService.todayResponse);
+      refs.currentWeather.innerHTML = widgetMarkup;
+      createClock('#timer-1');
+      renderSunsetTime(apiService.todayResponse);
+    }
+  }
+
+  if (e.target.dataset.days === 'fiveDays') {
+    console.log(e.target.dataset.days);
+    console.log(
+      e.target.classList.contains('switch-days-btn__set-day-btn--active'),
+    );
+    if (e.target.classList.contains('switch-days-btn__set-day-btn--active')) {
+      console.log(
+        e.target.classList.contains('switch-days-btn__set-day-btn--active'),
+      );
+      renderFiveDays();
+    }
+  }
+}
