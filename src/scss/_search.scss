@@ -12,6 +12,15 @@
   }
 }
 
+.search-mb-js {
+  @media screen and (min-width: 768px) {
+    margin-bottom: 275px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 220px;
+  }
+}
+
 .search__form {
   width: 100%;
   position: relative;
@@ -66,16 +75,16 @@
   transform: translateY(-50%);
   border-radius: 50%;
   background: transparent;
-  color:rgba($background-blue-color, $half-opacity);
+  color: rgba($background-blue-color, $half-opacity);
   transition: background 200ms ease-in-out;
   cursor: not-allowed;
-  .active{
+  .active {
     cursor: pointer;
   }
-  .in-favorites{
+  .in-favorites {
     color: $primary-orange-color;
   }
-  &:hover{
+  &:hover {
     background: $small-buttons-color;
   }
   @media screen and (min-width: 768px) {
@@ -85,26 +94,19 @@
 
 .search__favorites {
   display: flex;
-  opacity: 0;  
-  @media screen and (min-width: 768px) {
-    width: 505px;
-    margin: 0 auto;
-  }
-}
+  height: 26px;
+  position: relative;
 
-.isset-favorites{
-  opacity: 1;
+  @media screen and (min-width: 768px) {
+    margin: 0 auto;
+    height: 28px;
+    width: 451px;
+  }
 }
 
 .favorites__list {
-  display: flex;
-  width: calc(505px - 27px);
-  list-style-type: none;
   overflow: hidden;
-  padding-left: 24px;
-  @media screen and (min-width: 768px) {
-    width: calc(440px - 27px);
-  }
+  padding: 0 27px;
 }
 
 .favorites__item {
@@ -119,6 +121,10 @@
   @media screen and (min-width: 768px) {
     padding: 0 7px 0 13px;
   }
+}
+
+.slick-slide {
+  margin-right: 10px;
 }
 
 .favorites__link {
@@ -144,7 +150,10 @@
   }
 }
 
-.favorites__arrow-left {
+.favorites__arrow-left,
+.favorites__arrow-right {
+  z-index: 1;
+  position: absolute;
   @extend %button;
   background: rgba($small-buttons-color, $light-opacity);
   border-radius: 50%;
@@ -153,4 +162,8 @@
     width: 27px;
     line-height: 27px;
   }
+}
+
+.favorites__arrow-left {
+  right: 0;
 }
