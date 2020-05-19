@@ -1,10 +1,12 @@
 import axios from 'axios';
+import getCurrentTime from './get-current-time';
 
 axios.defaults.baseURL = 'https://api.openweathermap.org/data/2.5/';
 const apiKey = 'c112c800340c3f1ee2fad83b32fe690c';
 
 export default {
   searchQuery: 'Kyiv',
+  apiResponse: false,
   todayResponse: [],
   fiveDaysResponse: [],
   fiveDaysResponseCity: [],
@@ -21,11 +23,13 @@ export default {
       const { data } = await axios.get(
         `weather?q=${this.query}&units=metric&appid=${apiKey}`,
       );
+      this.apiResponse = true;
       this.todayResponse = data;
       this.roundTodayTemperature();
       this.createIconLink();
       return data;
     } catch (error) {
+      this.apiResponse = false;
       console.log(error);
     }
   },
@@ -34,9 +38,13 @@ export default {
       const { data } = await axios.get(
         `forecast?q=${this.query}&units=metric&appid=${apiKey}`,
       );
+      this.apiResponse = true;
       this.fiveDaysResponse = data.list;
       this.fiveDaysResponseCity = data.city;
-      this.sortResponseOnArrays();
+      this.changeForecastTime(this.fiveDaysResponse);
+      this.sortResponseOnArrays(this.fiveDaysResponse);
+      console.log(this.fiveDaysResponse);
+      console.log(this.secondDayForecast);
       this.getForecastFiveDays(
         this.firstDayForecast,
         this.secondDayForecast,
@@ -44,24 +52,15 @@ export default {
         this.fourthDayForecast,
         this.fifthDayForecast,
       );
-      this.changeMoreInfoTime([
-        this.firstDayForecast,
-        this.secondDayForecast,
-        this.thirdDayForecast,
-        this.fourthDayForecast,
-        this.fifthDayForecast,
-      ]);
-      console.log('Для шаблона на пять дней');
-      console.log(this.forecastFiveDays);
-      console.log('Для шаблона на more info');
-      console.log(
-        this.firstDayForecast,
-        this.secondDayForecast,
-        this.thirdDayForecast,
-        this.fourthDayForecast,
-        this.fifthDayForecast,
-      );
+      // this.changeMoreInfo([
+      //   this.firstDayForecast,
+      //   this.secondDayForecast,
+      //   this.thirdDayForecast,
+      //   this.fourthDayForecast,
+      //   this.fifthDayForecast,
+      // ]);
     } catch (error) {
+      this.apiResponse = true;
       console.log(error);
     }
   },
@@ -77,36 +76,45 @@ export default {
   createIconLink() {
     this.todayResponse.weather = `https://openweathermap.org/img/w/${this.todayResponse.weather[0].icon}.png`;
   },
-  sortResponseOnArrays() {
-    const dayOne = this.fiveDaysResponse[0].dt_txt.slice(0, 10);
-    const dayTwo = this.fiveDaysResponse[8].dt_txt.slice(0, 10);
-    const dayThree = this.fiveDaysResponse[16].dt_txt.slice(0, 10);
-    const dayFour = this.fiveDaysResponse[24].dt_txt.slice(0, 10);
-    const dayFive = this.fiveDaysResponse[32].dt_txt.slice(0, 10);
-    this.fiveDaysResponse.forEach(element => {
+  changeForecastTime(array) {
+    array.forEach(el => {
+      const { total } = getCurrentTime(
+        this.fiveDaysResponseCity.timezone,
+        el.dt,
+      );
+      el.dt = total;
+    });
+  },
+  sortResponseOnArrays(array) {
+    const dayOne = array[0].dt_txt.slice(0, 10);
+    const dayTwo = array[8].dt_txt.slice(0, 10);
+    const dayThree = array[16].dt_txt.slice(0, 10);
+    const dayFour = array[24].dt_txt.slice(0, 10);
+    const dayFive = array[32].dt_txt.slice(0, 10);
+    array.forEach(element => {
       switch (element.dt_txt.slice(0, 10)) {
         case dayOne:
-          this.firstDayForecast = this.fiveDaysResponse.filter(
+          this.firstDayForecast = array.filter(
             el => el.dt_txt.slice(0, 10) === dayOne,
           );
           break;
         case dayTwo:
-          this.secondDayForecast = this.fiveDaysResponse.filter(
+          this.secondDayForecast = array.filter(
             el => el.dt_txt.slice(0, 10) === dayTwo,
           );
           break;
         case dayThree:
-          this.thirdDayForecast = this.fiveDaysResponse.filter(
+          this.thirdDayForecast = array.filter(
             el => el.dt_txt.slice(0, 10) === dayThree,
           );
           break;
         case dayFour:
-          this.fourthDayForecast = this.fiveDaysResponse.filter(
+          this.fourthDayForecast = array.filter(
             el => el.dt_txt.slice(0, 10) === dayFour,
           );
           break;
         case dayFive:
-          this.fifthDayForecast = this.fiveDaysResponse.filter(
+          this.fifthDayForecast = array.filter(
             el => el.dt_txt.slice(0, 10) === dayFive,
           );
           break;
@@ -155,6 +163,7 @@ export default {
       firstDay: {
         date: this.calcDate(one),
         icon: `https://openweathermap.org/img/w/${one[0].weather[0].icon}.png`,
+        description: one[0].weather[0].descrition,
         temp: this.calcMinMaxTemp(one),
       },
       secondDay: {
@@ -162,6 +171,7 @@ export default {
         icon: `https://openweathermap.org/img/w/${
           two[8 - one.length].weather[0].icon
         }.png`,
+        description: two[8 - one.length].weather[0].descrition,
         temp: this.calcMinMaxTemp(two),
       },
       thirdDay: {
@@ -169,6 +179,7 @@ export default {
         icon: `https://openweathermap.org/img/w/${
           three[8 - one.length].weather[0].icon
         }.png`,
+        description: three[8 - one.length].weather[0].descrition,
         temp: this.calcMinMaxTemp(three),
       },
       fourthDay: {
@@ -176,6 +187,7 @@ export default {
         icon: `https://openweathermap.org/img/w/${
           four[8 - one.length].weather[0].icon
         }.png`,
+        description: four[8 - one.length].weather[0].descrition,
         temp: this.calcMinMaxTemp(four),
       },
       fifthDay: {
@@ -183,11 +195,12 @@ export default {
         icon: `https://openweathermap.org/img/w/${
           five[8 - one.length].weather[0].icon
         }.png`,
+        description: five[8 - one.length].weather[0].descrition,
         temp: this.calcMinMaxTemp(five),
       },
     };
   },
-  changeMoreInfoTime(array) {
+  changeMoreInfo(array) {
     array.forEach(i => {
       i.forEach(j => {
         j.dt_txt = j.dt_txt.slice(11, 16);

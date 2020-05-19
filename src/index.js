@@ -1,6 +1,6 @@
 import './styles.scss';
 import './js/randomCitation';
-// import './js/rendering-amount-of-days';
+import amountDays from './js/rendering-amount-of-days';
 import refs from './js/refs';
 import apiService from './js/apiService';
 import favorites from './js/favoritesService';
@@ -20,32 +20,34 @@ apiService.fetchTodayWeather().then(() => {
   renderSunsetTime(apiService.todayResponse);
 });
 
-refs.switchDaysBtn.addEventListener('click', async event => {
-  event.preventDefault();
-  apiService.query = refs.formInput.value.toLowerCase();
-  await apiService.fetchFiveDaysWeather();
-  renderFiveDays();
-});
+// refs.switchDaysBtn.addEventListener('click', async event => {
+//   event.preventDefault();
+//   apiService.query = refs.formInput.value.toLowerCase();
+//   await apiService.fetchFiveDaysWeather();
+//   renderFiveDays();
+// });
 
 refs.searchForm.addEventListener('submit', async event => {
   try {
     event.preventDefault();
-
     apiService.query = refs.formInput.value.toLowerCase();
-    await apiService.fetchTodayWeather();
+    if (amountDays.currentDays === 'oneDay') {
+      await apiService.fetchTodayWeather();
+      const widgetMarkup = widgetTemplate(apiService.todayResponse);
+      refs.currentWeather.innerHTML = widgetMarkup;
+      createClock('#timer-1');
+      renderSunsetTime(apiService.todayResponse);
+    } else {
+      await apiService.fetchFiveDaysWeather();
+      renderFiveDays();
+    }
+    if (apiService.apiResponse) {
+      ///if in favorites-section all OK
+      favorites.formSubmitted(true);
 
-    ///if in favorites-section all OK
-    favorites.formSubmitted(true);
-
-    const widgetMarkup = widgetTemplate(apiService.todayResponse);
-    refs.currentWeather.innerHTML = widgetMarkup;
-    createClock('#timer-1');
-    renderSunsetTime(apiService.todayResponse);
-
-    backgroundImageService.background(refs.formInput.value);
+      backgroundImageService.background(refs.formInput.value);
+    }
   } catch (error) {
     console.log(error);
   }
-
-  console.log(apiService.fiveDaysResponseCity);
 });
