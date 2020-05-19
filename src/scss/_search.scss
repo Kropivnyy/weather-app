@@ -96,6 +96,12 @@
   display: flex;
   height: 26px;
   position: relative;
+
+  @media screen and (min-width: 768px) {
+    margin: 0 auto;
+    height: 28px;
+    width: 451px;
+  }
 }
 
 .favorites__list {
