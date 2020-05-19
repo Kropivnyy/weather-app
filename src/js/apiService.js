@@ -51,7 +51,9 @@ export default {
         this.fourthDayForecast,
         this.fifthDayForecast,
       ]);
+      console.log('Для шаблона на пять дней');
       console.log(this.forecastFiveDays);
+      console.log('Для шаблона на more info');
       console.log(
         this.firstDayForecast,
         this.secondDayForecast,
