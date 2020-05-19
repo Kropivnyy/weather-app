@@ -65,14 +65,7 @@ function onClick(e) {
   }
 
   if (e.target.dataset.days === 'fiveDays') {
-    console.log(e.target.dataset.days);
-    console.log(
-      e.target.classList.contains('switch-days-btn__set-day-btn--active'),
-    );
     if (e.target.classList.contains('switch-days-btn__set-day-btn--active')) {
-      console.log(
-        e.target.classList.contains('switch-days-btn__set-day-btn--active'),
-      );
       renderFiveDays();
     }
   }
