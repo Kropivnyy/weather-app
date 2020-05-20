@@ -11,26 +11,6 @@ import $ from 'jquery';
 import 'slick-carousel';
 import 'slick-carousel/slick/slick.css';
 
-setTimeout(() => {
-  $('.favorites__list').slick({
-    infinite: true,
-    speed: 300,
-    slidesToShow: 2,
-    variableWidth: true,
-    mobileFirst: true,
-    nextArrow: $('.favorites__arrow-left'),
-    prevArrow: $('.favorites__arrow-right'),
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 4,
-        },
-      },
-    ],
-  });
-}, 0);
-
 export default {
   favorites: [],
   submit: false,
@@ -49,6 +29,23 @@ export default {
         debounce(this.changeIconDefault.bind(this), 500),
       );
     }
+    $('.favorites__list').slick({
+      infinite: true,
+      speed: 300,
+      slidesToShow: 2,
+      variableWidth: true,
+      mobileFirst: true,
+      nextArrow: $('.favorites__arrow-left'),
+      prevArrow: $('.favorites__arrow-right'),
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 4,
+          },
+        },
+      ],
+    });
   },
 
   formSubmitted(result) {
