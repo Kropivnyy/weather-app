@@ -51,6 +51,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "basiclightbox": "^5.0.3",
+    "chart.js": "^2.9.3",
     "core-js": "^3.6.5",
     "handlebars": "^4.7.6",
     "imagesloaded": "^4.1.4",

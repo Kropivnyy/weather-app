@@ -22,3 +22,40 @@
     text-decoration: underline;
     padding: 0 10px 0 0;
 }
+
+.chart{
+    .wrapper{
+        padding: 30px;
+        overflow-x: auto;
+        @media screen and (max-width:767px) {
+            overflow-x: auto;
+            &::-webkit-scrollbar {
+                height: 2px;
+                background-color: rgba($primary-white-color,$light-opacity)
+            }
+            &::-webkit-scrollbar-thumb {
+                background: $primary-orange-color; 
+            }
+        }   
+    }
+    
+    
+}
+
+.chart__legend{
+    // display: none;
+}
+.chart__legend-enabled{
+    display: block;
+}
+.chart-bg-is-active{
+    border-radius: 35px;
+    box-shadow: $background-shadow;
+    background: rgba($background-blue-color,.8);
+}  
+#schedule{
+    @media screen and (max-width:767px) {
+        width: 545px;
+        height: 440px;
+    }   
+}

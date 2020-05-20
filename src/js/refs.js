@@ -23,4 +23,5 @@ export default {
   currentWeather: document.querySelector('.current-weather'),
   citation: document.querySelector('.citation'),
   chartShow: document.querySelector('.chart__show'),
+  chart: document.querySelector('#schedule'),
 };

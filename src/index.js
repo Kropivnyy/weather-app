@@ -11,6 +11,7 @@ import backgroundImageService from './js/backgroundService';
 import geolocation from './js/geolocationService';
 import renderFiveDays from './js/render-five-days';
 import './js/forecast-five-day-info';
+import './js/chart';
 
 favorites.loader(); // получаем данные при загрузке страницы из localStorage
 
