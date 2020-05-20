@@ -29,6 +29,7 @@
 .five-days__city-name {
   @include letter-spacing(30);
   font-weight: 700;
+  min-height: 22px;
   margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
@@ -53,6 +54,7 @@
   line-height: 12px;
   font-size: 12px;
   width: 220px;
+  height: 184px;
   margin: 0 auto;
   list-style: none;
   display: flex;
@@ -60,12 +62,14 @@
   overflow: hidden;
   @media screen and (min-width: 768px) {
     width: 534px;
+    height: 192px;
     font-size: 14px;
     line-height: 14px;
   }
 
   @media screen and (min-width: 1280px) {
     width: 880px;
+    height: 257px;
     font-size: 18px;
     line-height: 18px;
   }
