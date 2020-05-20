@@ -1,6 +1,11 @@
 import refs from './refs';
 import item from '../templates/favorites-item.hbs';
 import debounce from 'lodash.debounce';
+import apiService from './apiService';
+import amountDays from './rendering-amount-of-days';
+import renderTodayWeather from './render-today-weather';
+import renderFiveDays from './render-five-days';
+import backgroundImageService from './backgroundService';
 
 import $ from 'jquery';
 import 'slick-carousel';
@@ -77,7 +82,7 @@ export default {
     }
   },
 
-  onItemClick(event) {
+  async onItemClick(event) {
     if (event.target.nodeName === 'I') {
       const city = event.target.dataset.name;
       const index = this.favorites.indexOf(city);
@@ -91,8 +96,21 @@ export default {
     if (event.target.nodeName === 'A') {
       event.preventDefault();
       refs.formInput.value = event.target.textContent;
+      apiService.searchQuery = event.target.textContent;
       this.changeIconOnFavorites();
-      //запрос к api ... рендеринг страницы
+      if (amountDays.currentDays === 'oneDay') {
+        await apiService.fetchTodayWeather();
+        renderTodayWeather();
+      } else {
+        await apiService.fetchFiveDaysWeather();
+        renderFiveDays();
+      }
+      if (apiService.apiResponse) {
+        ///if in favorites-section all OK
+        this.formSubmitted(true);
+      }
+
+      backgroundImageService.background(refs.formInput.value);
     }
     return;
   },
