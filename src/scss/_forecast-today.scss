@@ -38,6 +38,7 @@
     text-align: left;
     border-radius: 0 35px 0 0;
     padding: 0;
+    padding-right: 40px;
   }
 }
 
@@ -113,9 +114,9 @@
   &:first-child {
     text-align: right;
     padding-right: 8px;
-
     @media screen and (min-width: 1280px) {
       padding-right: 16px;
+      padding-left: 58px;
     }
 
     &::after {
@@ -181,25 +182,29 @@
   }
 }
 
-.today__dawn img {
-  right: 56px;
-
-  @media screen and (min-width: 768px) {
-    right: 64px;
-  }
-
-  @media screen and (min-width: 1280px) {
+.today__dawn {
+  &::before {
+    content: url(./images/dawn.png);
+    display: block;
+    width: 25px;
+    height: 33px;
+    position: absolute;
+    bottom: 3px;
     right: 72px;
   }
 }
 
-.today__sun-img {
-  position: absolute;
-  bottom: 4px;
-}
-
 .today__sunset {
   padding-left: 42px;
+  &::before {
+    content: url(./images/sunset.png);
+    display: block;
+    width: 25px;
+    height: 33px;
+    position: absolute;
+    bottom: 3px;
+    right: 60px;
+  }
 
   @media screen and (min-width: 1280px) {
     padding-left: 50px;
