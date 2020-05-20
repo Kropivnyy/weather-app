@@ -136,6 +136,30 @@
   }
 }
 
+// Icon of sunset and sundown
+
+.today__dawn::before {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 33px;
+  position: absolute;
+  left: -40px;
+  top: -10px;
+  background: url(./images/dawn.png);
+}
+
+.today__sunset::before {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 33px;
+  position: absolute;
+  left: 10px;
+  top: -10px;
+  background: url(./images/sunset.png);
+}
+
 .today__month-and-time {
   margin-bottom: 21px;
 
