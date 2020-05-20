@@ -8,7 +8,6 @@ import renderTodayWeather from './js/render-today-weather';
 import renderFiveDays from './js/render-five-days';
 import geolocationService from './js/geolocationService';
 import amountDays from './js/rendering-amount-of-days';
-import './js/forecast-five-day-info';
 
 favorites.loader(); // получаем данные при загрузке страницы из localStorage
 

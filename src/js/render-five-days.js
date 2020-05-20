@@ -16,9 +16,45 @@ export default function () {
     const markupOneDay = fiveDaysItemTemplate(apiService.forecastFiveDays);
     refs.forecastFiveDaysList.innerHTML = markupOneDay;
 
-    const markupMoreInfo = moreInfoTemplate(apiService.fiveDaysResponse);
-    refs.forecastMoreInfo.innerHTML = markupMoreInfo;
-  }
+    refs.forecastFiveDaysList.addEventListener('click', e => {
+      e.preventDefault();
+      e.target.getAttribute('data-index');
 
-  // console.log(apiService.fiveDaysResponse);
+      if (e.target.nodeName === 'A') {
+        const indexDay = e.target.getAttribute('data-index');
+        dayNumber(indexDay);
+        return;
+      } else {
+        return;
+      }
+    });
+  }
+}
+
+function dayNumber(number) {
+  if (number === '1') {
+    const markupMoreInfo = moreInfoTemplate(apiService.firstDayForecast);
+    refs.forecastMoreInfo.innerHTML = markupMoreInfo;
+    return;
+  }
+  if (number === '2') {
+    const markupMoreInfo = moreInfoTemplate(apiService.secondDayForecast);
+    refs.forecastMoreInfo.innerHTML = markupMoreInfo;
+    return;
+  }
+  if (number === '3') {
+    const markupMoreInfo = moreInfoTemplate(apiService.thirdDayForecast);
+    refs.forecastMoreInfo.innerHTML = markupMoreInfo;
+    return;
+  }
+  if (number === '4') {
+    const markupMoreInfo = moreInfoTemplate(apiService.fourthDayForecast);
+    refs.forecastMoreInfo.innerHTML = markupMoreInfo;
+    return;
+  }
+  if (number === '5') {
+    const markupMoreInfo = moreInfoTemplate(apiService.fifthDayForecast);
+    refs.forecastMoreInfo.innerHTML = markupMoreInfo;
+    return;
+  }
 }
