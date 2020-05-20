@@ -20,5 +20,5 @@ export default function () {
     refs.forecastMoreInfo.innerHTML = markupMoreInfo;
   }
 
-  console.log(apiService.fiveDaysResponse);
+  // console.log(apiService.fiveDaysResponse);
 }
