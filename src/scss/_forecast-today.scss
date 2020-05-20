@@ -38,7 +38,6 @@
     text-align: left;
     border-radius: 0 35px 0 0;
     padding: 0;
-    padding-right: 40px;
   }
 }
 
@@ -116,7 +115,6 @@
     padding-right: 8px;
     @media screen and (min-width: 1280px) {
       padding-right: 16px;
-      padding-left: 58px;
     }
 
     &::after {
@@ -182,39 +180,9 @@
   }
 }
 
-.today__dawn {
-  &::before {
-    content: url(./images/dawn.png);
-    display: block;
-    width: 25px;
-    height: 33px;
-    position: absolute;
-    bottom: 3px;
-    right: 72px;
-  }
-}
-
 .today__sunset {
   padding-left: 42px;
-  &::before {
-    content: url(./images/sunset.png);
-    display: block;
-    width: 25px;
-    height: 33px;
-    position: absolute;
-    bottom: 3px;
-    right: 60px;
-  }
-
   @media screen and (min-width: 1280px) {
     padding-left: 50px;
-  }
-}
-
-.today__sunset img {
-  left: 8px;
-
-  @media screen and (min-width: 1280px) {
-    left: 16px;
   }
 }
