@@ -11,7 +11,7 @@ export default function () {
   if (amountDays.currentDays === 'oneDay') return;
 
   if (amountDays.currentDays === 'fiveDays') {
-    if ((refs.switchToFiveDaysBtn.dataset.rendered === 'true')) {
+    if (refs.switchToFiveDaysBtn.dataset.rendered === 'true') {
       return;
     }
 
@@ -24,11 +24,8 @@ export default function () {
     const markupMoreInfo = moreInfoTemplate(apiService.fiveDaysResponse);
     refs.forecastMoreInfo.innerHTML = markupMoreInfo;
 
-    slider.createSlider()
-    setTimeout(() => {
-      refs.switchToFiveDaysBtn.dataset.rendered = true
-    }, 1000);
-    console.log("загрузка 5ти дней");
+    slider.createSlider();
+    refs.switchToFiveDaysBtn.dataset.rendered = true;
   }
 
   // console.log(apiService.fiveDaysResponse);

@@ -12,8 +12,5 @@ export default function () {
   refs.currentWeather.innerHTML = widgetMarkup;
   createClock('#timer-1');
   renderSunsetTime(apiService.todayResponse);
-  setTimeout(() => {
     refs.switchToTodayBtn.dataset.rendered = true;
-  }, 1000);
-  console.log('загрузка 1го дня');
 }

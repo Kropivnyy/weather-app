@@ -14,11 +14,13 @@ import resetInfoAboutRendering from './js/reset-info-about-rendering'
 
 favorites.loader(); // получаем данные при загрузке страницы из localStorage
 
-renderGeolocationPosition();
 
 apiService.fetchTodayWeather().then(() => {
   renderTodayWeather();
+  refs.switchToTodayBtn.dataset.rendered = false;
+  renderGeolocationPosition();
 });
+
 
 refs.switchDaysBtn.addEventListener('click', async event => {
   try {

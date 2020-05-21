@@ -3,7 +3,6 @@ import refs from './refs';
 import renderTodayWeather from './render-today-weather';
 
 export default function renderGeolocationPosition() {
-  console.log('geo');
   const getCurrentPosition = () => {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(resolve, reject);
