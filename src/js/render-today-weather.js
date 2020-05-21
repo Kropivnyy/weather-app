@@ -12,5 +12,6 @@ export default function () {
   refs.currentWeather.innerHTML = widgetMarkup;
   createClock('#timer-1');
   renderSunsetTime(apiService.todayResponse);
-    refs.switchToTodayBtn.dataset.rendered = true;
+  refs.switchToTodayBtn.dataset.rendered = true;
+  refs.moreInfoWrapper.classList.remove('five-days__more-information-enabled');
 }

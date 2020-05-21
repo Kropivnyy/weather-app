@@ -105,13 +105,14 @@ export default {
       } else {
         resetInfoAboutRendering()
         slider.deleteSlider();
+        refs.moreInfoWrapper.classList.remove(
+          'five-days__more-information-enabled',
+        );
         await apiService.fetchFiveDaysWeather();
         renderFiveDays();
       }
-      if (apiService.apiResponse) {
-        ///if in favorites-section all OK
-        this.formSubmitted(true);
-      }
+      
+      this.formSubmitted(apiService.apiResponse);
 
       backgroundImageService.background(refs.formInput.value);
     }
