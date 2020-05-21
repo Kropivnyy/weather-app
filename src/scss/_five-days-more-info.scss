@@ -1,9 +1,9 @@
 .five-days__more-information {
   display: none;
   width: 250px;
-  margin: 0 auto 7px;
+  margin: 0 auto;
   padding: 10px 0 19px 0;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1279px) {
     overflow-x: auto;
     &::-webkit-scrollbar {
       height: 2px;
@@ -15,13 +15,11 @@
   }
 
   @media screen and (min-width: 768px) {
-    width: 520px;
-    height: 305px;
-    overflow: hidden;
-    margin: 0 auto;
-    padding: 40px 0 0 0;
+    width: 510px;
+    padding: 34px 0 19px 0;
   }
   @media screen and (min-width: 1280px) {
+    margin: 0 auto;
     width: 1040px;
     height: 262px;
     padding: 23px 0 0 0;
@@ -42,9 +40,6 @@
   @include center-flex(hor);
   width: fit-content;
   margin: 0 auto;
-  @media screen and (min-width: 768px) {
-    margin-bottom: 23px;
-  }
 }
 
 .more-information__item {

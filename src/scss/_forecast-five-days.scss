@@ -5,14 +5,12 @@
   border-radius: 35px;
   background-color: rgba($background-blue-color, 0.8);
   box-shadow: $background-shadow;
-  padding-top: 20px;
-  padding-bottom: 28px;
-  margin-bottom: 14px;
+  padding-top: 30px;
+  padding-bottom: 34px;
 
   @media screen and (min-width: 768px) {
     padding-top: 46px;
     padding-bottom: 45px;
-    margin-bottom: 36px;
   }
 
   @media screen and (min-width: 1280px) {
