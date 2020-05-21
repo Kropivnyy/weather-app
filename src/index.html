@@ -1,71 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Weather App</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <title>Weather App</title>
-</head>
-
-<body>
-  <main class="main-background">
-    <section class="search">
-      <div class="container">
-        <h1 class="visually-hidden">citySearch</h1>
-        <form class="search__form">
-          <i class="material-icons form__icon-gps">gps_not_fixed</i>
-          <input type="text" name="city" placeholder="Enter the city" class="form__input" autocomplete="off" required />
-          <button type="button" class="form__add-to-favorites" disabled>
-            <i class="material-icons form__icon-star">star_border</i>
-            <span class="visually-hidden">Add to favourites</span>
-          </button>
-        </form>
-        <div class="search__favorites">
-          <button type="button" class="favorites__arrow-right">
-            <i class="material-icons">navigate_before</i>
-          </button>
-          <div class="favorites__list"></div>
-          <button type="button" class="favorites__arrow-left">
-            <i class="material-icons">navigate_next</i>
-          </button>
+  <body>
+    <main class="main-background">
+      <section class="search">
+        <div class="container">
+          <h1 class="visually-hidden">
+            Weather forecast application by "Fearless" team
+          </h1>
+          <form class="search__form">
+            <i class="material-icons form__icon-gps">gps_not_fixed</i>
+            <input
+              type="text"
+              name="city"
+              placeholder="Enter the city"
+              class="form__input"
+              autocomplete="off"
+              required
+            />
+            <button type="button" class="form__add-to-favorites" disabled>
+              <i class="material-icons form__icon-star">star_border</i>
+              <span class="visually-hidden">Add to favourites</span>
+            </button>
+          </form>
+          <div class="search__favorites">
+            <button type="button" class="favorites__arrow-right">
+              <i class="material-icons">navigate_before</i>
+            </button>
+            <div class="favorites__list"></div>
+            <button type="button" class="favorites__arrow-left">
+              <i class="material-icons">navigate_next</i>
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="current-weather">
-      <div class="current-weather__widget js-current-weather"></div>
-    </section>
-    <section class="switch-days-btn container">
-      <a href="#" class="switch-days-btn__set-day-btn switch-days-btn__set-day-btn--active today-forecast-js"
-        data-days="oneDay">today</a>
-      <a href="#" class="switch-days-btn__set-day-btn five-days-forecast-js" data-days="fiveDays">5 days</a>
-    </section>
-    <section class="forecast container">
-      <div class="forecast__today" id="timer-1">
-        <div class="forecast__today-info-position js-forecast__today-info-position">
-          <p class="today__main-info">
-            <span class="today__date" data-value="date"></span><span class="suffix" data-value="suffix"></span><span
-              class="today__day-of-the-week" data-value="day"></span>
-          </p>
-          <p class="today__secondary-info today__month-and-time">
-            <span class="today__month" data-value="month"></span><span class="today__time" data-value="hours"></span>
-          </p>
-          <p class="today__secondary-info">
-            <span class="today__dawn"><img class="today__sun-img" src="./images/dawn.png" alt="dawn" width="25"
-                height="33" /></span><span class="today__sunset"><img class="today__sun-img" src="./images/sunset.png"
-                alt="sunset" width="25" height="33" /></span>
-          </p>
+      </section>
+      <section class="current-weather">
+        <div class="current-weather__widget"></div>
+      </section>
+      <section class="switch-days-btn container">
+        <a
+          href="#"
+          class="switch-days-btn__set-day-btn switch-days-btn__set-day-btn--active today-forecast-js"
+          data-days="oneDay"
+          >today</a
+        >
+        <a
+          href="#"
+          class="switch-days-btn__set-day-btn five-days-forecast-js"
+          data-days="fiveDays"
+          >5 days</a
+        >
+      </section>
+      <section class="forecast container">
+        <div class="forecast__today" id="timer-1">
+          <div
+            class="forecast__today-info-position js-forecast__today-info-position"
+          >
+            <p class="today__main-info">
+              <span class="today__date" data-value="date"></span
+              ><span class="suffix" data-value="suffix"></span
+              ><span class="today__day-of-the-week" data-value="day"></span>
+            </p>
+            <p class="today__secondary-info today__month-and-time">
+              <span class="today__month" data-value="month"></span
+              ><span class="today__time" data-value="hours"></span>
+            </p>
+            <p class="today__secondary-info">
+              <span class="today__dawn"></span>
+              <span class="today__sunset"></span>
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="forecast__five-days">
-        <h2 class="five-days__city-name">
-          Kyiv, <span class="five-days__country-name">UA</span>
-        </h2>
-        <ul class="five-days__list"></ul>
-        <div class="five-days__btn">
-          <i class="material-icons five-days__prev-day-btn">navigate_before</i>
-          <i class="material-icons five-days__next-day-btn">navigate_next</i>
+        <div class="forecast__five-days">
+          <h2 class="five-days__city-name">
+            <span class="five-days__country-name"></span>
+          </h2>
+          <div class="five-days__list"></div>
+          <div class="five-days__btn">
+            <button
+              type="button"
+              class="five-days__prev-day-btn not-active-buttons"
+            >
+              <i class="material-icons five-days__prev-day-btn-js"
+                >navigate_before</i
+              ></button
+            ><button type="button" class="five-days__next-day-btn">
+              <i class="material-icons five-days__next-day-btn-js disabled"
+                >navigate_next</i
+              >
+            </button>
+          </div>
+          <div class="five-days__more-information">
+            <ul class="more-information__list"></ul>
+            <button type="button" class="more-information__arrow-left">
+              <i class="material-icons">navigate_next</i>
+            </button>
+          </div>
         </div>
         <div class="five-days__more-information five-days__more-information-enabled">
           <ul class="more-information__list"></ul>
@@ -88,16 +129,13 @@
           </button>
           <canvas id="schedule"></canvas>
         </div>
-      </div>
-    </section>
-    <section class="citation container">
-      <div class="citation__wrapp">
-        <p class="citation__text"></p>
-        <p class="citation__author"></p>
-      </div>
-    </section>
-    <div class="geolocation"></div>
-  </main>
-</body>
-
+      </section>
+      <section class="citation container">
+        <div class="citation__wrapp">
+          <p class="citation__text"></p>
+          <p class="citation__author"></p>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>

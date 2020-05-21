@@ -5,7 +5,7 @@
   }
   @media screen and (min-width: 1280px) {
     margin-bottom: 0;
-    .container{
+    .container {
       width: 1310px;
     }
   }
@@ -113,7 +113,6 @@
   &:first-child {
     text-align: right;
     padding-right: 8px;
-
     @media screen and (min-width: 1280px) {
       padding-right: 16px;
     }
@@ -133,6 +132,30 @@
   &:last-child {
     text-align: left;
   }
+}
+
+// Icon of sunset and sundown
+
+.today__dawn::before {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 33px;
+  position: absolute;
+  left: -40px;
+  top: -10px;
+  background: url(./images/dawn.png);
+}
+
+.today__sunset::before {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 33px;
+  position: absolute;
+  left: 10px;
+  top: -10px;
+  background: url(./images/sunset.png);
 }
 
 .today__month-and-time {
@@ -157,35 +180,9 @@
   }
 }
 
-.today__dawn img {
-  right: 56px;
-
-  @media screen and (min-width: 768px) {
-    right: 64px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    right: 72px;
-  }
-}
-
-.today__sun-img {
-  position: absolute;
-  bottom: 4px;
-}
-
 .today__sunset {
   padding-left: 42px;
-
   @media screen and (min-width: 1280px) {
     padding-left: 50px;
-  }
-}
-
-.today__sunset img {
-  left: 8px;
-
-  @media screen and (min-width: 1280px) {
-    left: 16px;
   }
 }

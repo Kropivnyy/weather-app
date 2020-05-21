@@ -1,30 +1,17 @@
 import refs from './refs';
 import item from '../templates/favorites-item.hbs';
 import debounce from 'lodash.debounce';
+import apiService from './apiService';
+import amountDays from './rendering-amount-of-days';
+import renderTodayWeather from './render-today-weather';
+import renderFiveDays from './render-five-days';
+import backgroundImageService from './backgroundService';
+import slider from './five-days-slider';
+import resetInfoAboutRendering from './reset-info-about-rendering';
 
 import $ from 'jquery';
 import 'slick-carousel';
 import 'slick-carousel/slick/slick.css';
-
-setTimeout(() => {
-  $('.favorites__list').slick({
-    infinite: true,
-    speed: 300,
-    slidesToShow: 2,
-    variableWidth: true,
-    mobileFirst: true,
-    nextArrow: $('.favorites__arrow-left'),
-    prevArrow: $('.favorites__arrow-right'),
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 4,
-        },
-      },
-    ],
-  });
-}, 0);
 
 export default {
   favorites: [],
@@ -44,6 +31,23 @@ export default {
         debounce(this.changeIconDefault.bind(this), 500),
       );
     }
+    $('.favorites__list').slick({
+      infinite: true,
+      speed: 300,
+      slidesToShow: 2,
+      variableWidth: true,
+      mobileFirst: true,
+      nextArrow: $('.favorites__arrow-left'),
+      prevArrow: $('.favorites__arrow-right'),
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 4,
+          },
+        },
+      ],
+    });
   },
 
   formSubmitted(result) {
@@ -77,7 +81,7 @@ export default {
     }
   },
 
-  onItemClick(event) {
+  async onItemClick(event) {
     if (event.target.nodeName === 'I') {
       const city = event.target.dataset.name;
       const index = this.favorites.indexOf(city);
@@ -91,8 +95,26 @@ export default {
     if (event.target.nodeName === 'A') {
       event.preventDefault();
       refs.formInput.value = event.target.textContent;
+      apiService.searchQuery = event.target.textContent;
       this.changeIconOnFavorites();
-      //запрос к api ... рендеринг страницы
+      if (amountDays.currentDays === 'oneDay') {
+        resetInfoAboutRendering();
+        slider.deleteSlider();
+        await apiService.fetchTodayWeather();
+        renderTodayWeather();
+      } else {
+        resetInfoAboutRendering();
+        slider.deleteSlider();
+        refs.moreInfoWrapper.classList.remove(
+          'five-days__more-information-enabled',
+        );
+        await apiService.fetchFiveDaysWeather();
+        renderFiveDays();
+      }
+
+      this.formSubmitted(apiService.apiResponse);
+
+      backgroundImageService.background(refs.formInput.value);
     }
     return;
   },
@@ -110,6 +132,7 @@ export default {
   changeIconDefault() {
     refs.formIconStar.innerHTML = 'star_border';
     this.iconClass('in-favorites', 'remove');
+    this.submit = false;
   },
 
   iconClass(name, action) {

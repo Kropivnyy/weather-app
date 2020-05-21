@@ -18,6 +18,21 @@ export default {
   thirdDayForecast: [],
   fourthDayForecast: [],
   fifthDayForecast: [],
+  fetchByCoordinates: async function (lat, lon) {
+    try {
+      const { data } = await axios.get(
+        `weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`,
+      );
+      this.apiResponse = true;
+      this.todayResponse = data;
+      this.roundTodayTemperature(this.todayResponse);
+      this.createIconLink(this.todayResponse);
+      return data;
+    } catch (error) {
+      this.apiResponse = false;
+      console.log(error);
+    }
+  },
   fetchTodayWeather: async function () {
     try {
       const { data } = await axios.get(
@@ -35,12 +50,14 @@ export default {
   },
   fetchFiveDaysWeather: async function () {
     try {
-      const { data } = await axios.get(
+      const {
+        data: { list, city },
+      } = await axios.get(
         `forecast?q=${this.query}&units=metric&appid=${apiKey}`,
       );
       this.apiResponse = true;
-      this.fiveDaysResponse = data.list;
-      this.fiveDaysResponseCity = data.city;
+      this.fiveDaysResponse = list;
+      this.fiveDaysResponseCity = city;
       this.changeForecastTime(this.fiveDaysResponse);
       this.sortResponseOnArrays(this.fiveDaysResponse);
       this.getForecastFiveDays(
