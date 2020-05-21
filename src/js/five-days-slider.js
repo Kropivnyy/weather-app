@@ -15,7 +15,7 @@ export default {
       prevArrow: $('.five-days__prev-day-btn'),
       responsive: [
         {
-          breakpoint: 768,
+          breakpoint: 767,
           settings: {
             slidesToShow: 5,
           },

@@ -41,7 +41,7 @@ export default {
       prevArrow: $('.favorites__arrow-right'),
       responsive: [
         {
-          breakpoint: 768,
+          breakpoint: 767,
           settings: {
             slidesToShow: 4,
           },
