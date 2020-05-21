@@ -18,6 +18,8 @@ export default {
   thirdDayForecast: [],
   fourthDayForecast: [],
   fifthDayForecast: [],
+  /* Объект для графика */
+  dataForChart: {},
   fetchByCoordinates: async function (lat, lon) {
     try {
       const { data } = await axios.get(
@@ -55,6 +57,22 @@ export default {
       } = await axios.get(
         `forecast?q=${this.query}&units=metric&appid=${apiKey}`,
       );
+
+      // const getDate = data => new Date(data.dt * 1000).getDate();
+      // const dates = data.list
+      //   .map(element => getDate(element))
+      //   .filter((el, idx, arr) => arr.indexOf(el) === idx);
+      // const list = dates
+      //   .map(el => data.list.filter(elem => getDate(elem) === el))
+      //   .map(element => ({
+      //     date: element[0].dt,
+      //     forecast: element,
+      //   }));
+      // const changedData = {
+      //   ...data,
+      //   list,
+      // };
+      // console.log(changedData);
       this.apiResponse = true;
       this.fiveDaysResponse = list;
       this.fiveDaysResponseCity = city;
@@ -74,6 +92,13 @@ export default {
         this.fourthDayForecast,
         this.fifthDayForecast,
       ]);
+      this.getDataForChart(
+        this.firstDayForecast,
+        this.secondDayForecast,
+        this.thirdDayForecast,
+        this.fourthDayForecast,
+        this.fifthDayForecast,
+      );
     } catch (error) {
       this.apiResponse = false;
       console.log(error);
@@ -236,6 +261,25 @@ export default {
         j.main.pressure = Math.round((j.main.pressure * 1000) / 1.333 / 1000);
       });
     });
+  },
+  getDataForChart(one, two, three, four, five) {
+    let date = this.calcDate(two);
+    date = `${date.month} ${date.date}`;
+    const averageTemp = Math.round(
+      two.reduce((acc, el) => acc + el.main.temp, 0) / two.length,
+    );
+    const averageHumidity = Math.round(
+      two.reduce((acc, el) => acc + el.main.humidity, 0) / two.length,
+    );
+    const averageWind = Math.round(
+      two.reduce((acc, el) => acc + el.wind.speed, 0) / two.length,
+    );
+    const averagePressure = Math.round(
+      two.reduce((acc, el) => acc + el.main.pressure, 0) / two.length,
+    );
+
+    console.log(date);
+    this.dataForChart = {};
   },
   get query() {
     return this.searchQuery;
