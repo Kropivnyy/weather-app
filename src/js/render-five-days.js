@@ -20,6 +20,7 @@ export default function () {
   refs.forecastFiveDaysList.innerHTML = markupOneDay;
   slider.createSlider();
   refs.switchToFiveDaysBtn.dataset.rendered = true;
+  let openLoadMore = null;
 
   refs.forecastFiveDaysList.addEventListener('click', e => {
     e.preventDefault();
@@ -29,7 +30,29 @@ export default function () {
     }
     refs.moreInfoWrapper.classList.add('five-days__more-information-enabled');
     const indexDay = e.target.dataset.index;
-    dayNumber(indexDay);
+
+    if (openLoadMore === null) {
+      e.target.classList.add('five-days__more-info--active');
+      openLoadMore = e.target;
+      dayNumber(indexDay);
+      return;
+    }
+    if (openLoadMore === e.target) {
+      e.target.classList.remove('five-days__more-info--active');
+      openLoadMore = null;
+      refs.forecastMoreInfo.innerHTML = '';
+      refs.moreInfoWrapper.classList.remove(
+        'five-days__more-information-enabled',
+      );
+      return;
+    }
+    if (openLoadMore !== e.target) {
+      openLoadMore.classList.remove('five-days__more-info--active');
+      e.target.classList.add('five-days__more-info--active');
+      openLoadMore = e.target;
+      dayNumber(indexDay);
+      return;
+    }
   });
 }
 
