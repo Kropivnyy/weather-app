@@ -31,10 +31,10 @@ export default function () {
     refs.moreInfoWrapper.classList.add('five-days__more-information-enabled');
     const indexDay = e.target.dataset.index;
 
-    dayNumber(indexDay);
     if (openLoadMore === null) {
       e.target.classList.add('five-days__more-info--active');
       openLoadMore = e.target;
+      dayNumber(indexDay);
       return;
     }
     if (openLoadMore === e.target) {
@@ -50,6 +50,7 @@ export default function () {
       openLoadMore.classList.remove('five-days__more-info--active');
       e.target.classList.add('five-days__more-info--active');
       openLoadMore = e.target;
+      dayNumber(indexDay);
       return;
     }
   });
