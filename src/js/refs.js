@@ -23,4 +23,7 @@ export default {
   currentWeather: document.querySelector('.current-weather'),
   citation: document.querySelector('.citation'),
   chartShow: document.querySelector('.chart__show'),
+  fiveDaysBtn: document.querySelector('.five-days__btn'),
+  switchToFiveDaysBtn: document.querySelector('.five-days-forecast-js'),
+  switchToTodayBtn: document.querySelector('.today-forecast-js')
 };

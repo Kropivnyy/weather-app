@@ -6,11 +6,15 @@ import favorites from './js/favoritesService';
 import apiService from './js/apiService';
 import renderTodayWeather from './js/render-today-weather';
 import renderFiveDays from './js/render-five-days';
-import geolocationService from './js/geolocationService';
+import renderGeolocationPosition from './js/geolocationService';
 import amountDays from './js/rendering-amount-of-days';
 import './js/forecast-five-day-info';
+import slider from './js/five-days-slider';
+import resetInfoAboutRendering from './js/reset-info-about-rendering'
 
 favorites.loader(); // получаем данные при загрузке страницы из localStorage
+
+renderGeolocationPosition();
 
 apiService.fetchTodayWeather().then(() => {
   renderTodayWeather();
@@ -37,9 +41,13 @@ refs.searchForm.addEventListener('submit', async event => {
     event.preventDefault();
     apiService.query = refs.formInput.value.toLowerCase();
     if (amountDays.currentDays === 'oneDay') {
+      resetInfoAboutRendering()
+      slider.deleteSlider();
       await apiService.fetchTodayWeather();
       renderTodayWeather();
     } else {
+      resetInfoAboutRendering()
+      slider.deleteSlider();
       await apiService.fetchFiveDaysWeather();
       renderFiveDays();
     }

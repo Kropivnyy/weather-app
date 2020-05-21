@@ -6,6 +6,8 @@ import amountDays from './rendering-amount-of-days';
 import renderTodayWeather from './render-today-weather';
 import renderFiveDays from './render-five-days';
 import backgroundImageService from './backgroundService';
+import slider from './five-days-slider';
+import resetInfoAboutRendering from './reset-info-about-rendering'
 
 import $ from 'jquery';
 import 'slick-carousel';
@@ -96,9 +98,13 @@ export default {
       apiService.searchQuery = event.target.textContent;
       this.changeIconOnFavorites();
       if (amountDays.currentDays === 'oneDay') {
+        resetInfoAboutRendering()
+        slider.deleteSlider();
         await apiService.fetchTodayWeather();
         renderTodayWeather();
       } else {
+        resetInfoAboutRendering()
+        slider.deleteSlider();
         await apiService.fetchFiveDaysWeather();
         renderFiveDays();
       }
