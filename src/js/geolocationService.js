@@ -17,6 +17,7 @@ export default function () {
         refs.formInput.value = data.name;
         renderTodayWeather();
         favorites.formSubmitted(apiService.apiResponse);
+        refs.switchToTodayBtn.dataset.rendered = true;
       });
     })
     .catch(error => {

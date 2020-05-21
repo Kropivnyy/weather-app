@@ -1,28 +1,19 @@
-.five-days__more-information{
-    display: none;
-    width: 250px;
-    margin: 0 auto 7px;
-    padding: 10px 0 19px 0;
-    @media screen and (max-width:767px) {
-        overflow-x: auto;
-        &::-webkit-scrollbar {
-            height: 2px;
-            background-color: rgba($primary-white-color,$light-opacity)
-        }
-        &::-webkit-scrollbar-thumb {
-            background: $primary-orange-color; 
-        }
-    }   
-    @media screen and (min-width: 768px) {
-        width: 520px;
-        overflow: hidden;
-        margin: 0 auto;
-        padding: 40px 0 0 0;
+.five-days__more-information {
+  display: none;
+  width: 250px;
+  margin: 0 auto 7px;
+  padding: 10px 0 19px 0;
+  @media screen and (max-width: 767px) {
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      height: 2px;
+      background-color: rgba($primary-white-color, $light-opacity);
     }
     &::-webkit-scrollbar-thumb {
       background: $primary-orange-color;
     }
   }
+
   @media screen and (min-width: 768px) {
     width: 520px;
     height: 305px;

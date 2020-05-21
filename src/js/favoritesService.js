@@ -7,7 +7,7 @@ import renderTodayWeather from './render-today-weather';
 import renderFiveDays from './render-five-days';
 import backgroundImageService from './backgroundService';
 import slider from './five-days-slider';
-import resetInfoAboutRendering from './reset-info-about-rendering'
+import resetInfoAboutRendering from './reset-info-about-rendering';
 
 import $ from 'jquery';
 import 'slick-carousel';
@@ -98,12 +98,12 @@ export default {
       apiService.searchQuery = event.target.textContent;
       this.changeIconOnFavorites();
       if (amountDays.currentDays === 'oneDay') {
-        resetInfoAboutRendering()
+        resetInfoAboutRendering();
         slider.deleteSlider();
         await apiService.fetchTodayWeather();
         renderTodayWeather();
       } else {
-        resetInfoAboutRendering()
+        resetInfoAboutRendering();
         slider.deleteSlider();
         refs.moreInfoWrapper.classList.remove(
           'five-days__more-information-enabled',
@@ -111,7 +111,7 @@ export default {
         await apiService.fetchFiveDaysWeather();
         renderFiveDays();
       }
-      
+
       this.formSubmitted(apiService.apiResponse);
 
       backgroundImageService.background(refs.formInput.value);
@@ -132,6 +132,7 @@ export default {
   changeIconDefault() {
     refs.formIconStar.innerHTML = 'star_border';
     this.iconClass('in-favorites', 'remove');
+    this.submit = false;
   },
 
   iconClass(name, action) {

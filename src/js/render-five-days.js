@@ -12,9 +12,6 @@ export default function () {
   if (amountDays.currentDays !== 'fiveDays') {
     return;
   }
-  if (refs.switchToFiveDaysBtn.dataset.rendered === 'true') {
-    return;
-  }
 
   const markupCity = fiveDaysCityTemplate(apiService.fiveDaysResponseCity);
   refs.forecastFiveDaysCity.innerHTML = markupCity;
@@ -31,7 +28,7 @@ export default function () {
       return;
     }
     refs.moreInfoWrapper.classList.add('five-days__more-information-enabled');
-    const indexDay = e.target.getAttribute('data-index');
+    const indexDay = e.target.dataset.index;
     dayNumber(indexDay);
   });
 }

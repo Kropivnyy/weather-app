@@ -8,28 +8,31 @@ import renderTodayWeather from './js/render-today-weather';
 import renderFiveDays from './js/render-five-days';
 import renderGeolocationPosition from './js/geolocationService';
 import amountDays from './js/rendering-amount-of-days';
-import './js/forecast-five-day-info';
 import slider from './js/five-days-slider';
-import resetInfoAboutRendering from './js/reset-info-about-rendering'
+import resetInfoAboutRendering from './js/reset-info-about-rendering';
 
 favorites.loader(); // получаем данные при загрузке страницы из localStorage
 
-
 apiService.fetchTodayWeather().then(() => {
   renderTodayWeather();
-  refs.switchToTodayBtn.dataset.rendered = false;
+  refs.switchToTodayBtn.dataset.rendered = true;
   renderGeolocationPosition();
 });
-
 
 refs.switchDaysBtn.addEventListener('click', async event => {
   try {
     event.preventDefault();
     if (event.target.dataset.days === 'oneDay') {
+      if (refs.switchToTodayBtn.dataset.rendered === 'true') {
+        return;
+      }
       await apiService.fetchTodayWeather();
       renderTodayWeather();
     }
     if (event.target.dataset.days === 'fiveDays') {
+      if (refs.switchToFiveDaysBtn.dataset.rendered === 'true') {
+        return;
+      }
       await apiService.fetchFiveDaysWeather();
       renderFiveDays();
     }
@@ -43,12 +46,12 @@ refs.searchForm.addEventListener('submit', async event => {
     event.preventDefault();
     apiService.query = refs.formInput.value.toLowerCase();
     if (amountDays.currentDays === 'oneDay') {
-      resetInfoAboutRendering()
+      resetInfoAboutRendering();
       slider.deleteSlider();
       await apiService.fetchTodayWeather();
       renderTodayWeather();
     } else {
-      resetInfoAboutRendering()
+      resetInfoAboutRendering();
       slider.deleteSlider();
       refs.moreInfoWrapper.classList.remove(
         'five-days__more-information-enabled',
