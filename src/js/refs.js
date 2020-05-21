@@ -20,6 +20,7 @@ export default {
   chartHide: document.querySelector('.chart__hide'),
   chart: document.querySelector('#schedule'),
   chartWrapper: document.querySelector('.chart__wrapper'),
+  scheduleWrapper: document.querySelector('.schedule__wrapper'),
 
   forecastFiveDays: document.querySelector('.forecast__five-days'),
   forecastFiveDaysCity: document.querySelector('.five-days__city-name'),
