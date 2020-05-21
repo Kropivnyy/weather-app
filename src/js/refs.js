@@ -25,5 +25,7 @@ export default {
   chartShow: document.querySelector('.chart__show'),
   fiveDaysBtn: document.querySelector('.five-days__btn'),
   switchToFiveDaysBtn: document.querySelector('.five-days-forecast-js'),
-  switchToTodayBtn: document.querySelector('.today-forecast-js')
+  switchToTodayBtn: document.querySelector('.today-forecast-js'),
+  fiveDaysPrevDayBtn: document.querySelector('.five-days__prev-day-btn'),
+  fiveDaysNextDayBtn: document.querySelector('.five-days__next-day-btn'),
 };
