@@ -17,6 +17,7 @@ body {
   min-height: 100vh;
   background: $background-linear-gradient,
     url('./images/primary_bg.jpg') no-repeat center/cover fixed;
+  cursor: default;
 }
 
 img {
