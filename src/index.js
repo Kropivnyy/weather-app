@@ -10,6 +10,7 @@ import renderGeolocationPosition from './js/geolocationService';
 import amountDays from './js/rendering-amount-of-days';
 import slider from './js/five-days-slider';
 import resetInfoAboutRendering from './js/reset-info-about-rendering';
+import './js/chart';
 
 favorites.loader(); // получаем данные при загрузке страницы из localStorage
 

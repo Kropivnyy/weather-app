@@ -108,17 +108,26 @@
             </button>
           </div>
         </div>
-      </section>
-      <section class="chart">
-        <div class="container">
+        <div class="five-days__more-information five-days__more-information-enabled">
+          <ul class="more-information__list"></ul>
+          <button type="button" class="more-information__arrow-left">
+            <i class="material-icons">navigate_next</i>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="chart">
+      <div class="container">
+        <div class="chart__wrapper">
           <button type="button" class="chart__show">
             <span class="chart__action">Show Chart</span>
             <i class="material-icons">keyboard_arrow_down</i>
           </button>
           <button type="button" class="chart__hide">
             <span class="chart__action">Hide Chart</span>
-            <i class="material-icons">keyboard_arrow_down</i>
+            <i class="material-icons">keyboard_arrow_up</i>
           </button>
+          <canvas id="schedule"></canvas>
         </div>
       </section>
       <section class="citation container">

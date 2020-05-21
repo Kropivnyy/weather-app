@@ -13,12 +13,24 @@
         background: rgba($small-buttons-color, $light-opacity);
     }
 }
+
 .chart__show-enabled{
-    display: flex;
+    display: block;
 }
+
 .chart__action{
     font: 400 15px/22px $primary-font-family;
     color: $primary-orange-color;
     text-decoration: underline;
     padding: 0 10px 0 0;
 }
+
+.chart__wrapper{
+    padding: 30px;    
+}
+
+.chart-bg-is-active{
+    border-radius: 35px;
+    box-shadow: $background-shadow;
+    background: rgba($background-blue-color,.8);
+}  
