@@ -102,7 +102,6 @@
 }
 
 .today__secondary-info span {
-  display: inline-block;
   position: relative;
   width: 50%;
 
@@ -136,23 +135,27 @@
 
 // Icon of sunset and sundown
 
-.today__dawn::before {
-  content: '';
-  display: block;
-  width: 25px;
-  height: 33px;
-  position: absolute;
-  left: -40px;
-  top: -10px;
-  background: url(./images/dawn.png);
-}
-
+.today__dawn::before,
 .today__sunset::before {
   content: '';
   display: block;
   width: 25px;
   height: 33px;
   position: absolute;
+}
+
+.today__dawn::before {
+  left: -30px;
+  top: -10px;
+  background: url(./images/dawn.png);
+
+  @media screen and (min-width: 1280px) {
+    left: -40px;
+    top: -10px;
+  }
+}
+
+.today__sunset::before {
   left: 10px;
   top: -10px;
   background: url(./images/sunset.png);
