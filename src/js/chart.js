@@ -4,6 +4,7 @@ import refs from './refs';
 const chartRender = {
     showOnClick() {
         refs.chartWrapper.classList.add('chart-bg-is-active');
+        refs.scheduleWrapper.classList.add('schedule__wrapper-enabled');
         this.renderBtn();
         refs.chartHide.addEventListener('click', this.hideSchedule.bind(this));
         this.responsive = refs.body.clientWidth < 767 ? false : true;
@@ -18,7 +19,7 @@ const chartRender = {
     hideSchedule() {
         this.renderBtn('add', 'remove');
         refs.chartWrapper.classList.remove('chart-bg-is-active');
-        this.chart.destroy();
+        refs.scheduleWrapper.classList.remove('schedule__wrapper-enabled');
     },
 
     set daysQuery(values) {
@@ -93,7 +94,7 @@ const chartRender = {
                         boxWidth: 15,
                     }
                 },
-                maintainAspectRatio: this.responsive
+                maintainAspectRatio: this.responsive,
             }
         });
         Chart.defaults.global.defaultFontColor = 'rgba(255, 255, 255, 0.541)';
@@ -113,3 +114,5 @@ chartRender.temperatureQuery = ['-3', '10', '8', '-3', '15'];
 chartRender.humidityQuery = ['1', '8', '13', '18', '3', '8'];
 chartRender.windQuery = ['5', '3', '15', '21', '18', '26'];
 chartRender.atmosphereQuery = ['15', '3', '18', '14', '11', '15', '18', '22'];
+
+

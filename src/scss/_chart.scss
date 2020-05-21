@@ -34,3 +34,9 @@
     box-shadow: $background-shadow;
     background: rgba($background-blue-color,.8);
 }  
+.schedule__wrapper{
+    display: none;
+}
+.schedule__wrapper-enabled{
+    display: block;
+}
