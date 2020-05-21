@@ -23,4 +23,11 @@ export default {
   forecastFiveDaysList: document.querySelector('.five-days__list'),
   forecastMoreInfo: document.querySelector('.more-information__list'),
   moreInfoWrapper: document.querySelector('.five-days__more-information'),
+  
+  fiveDaysBtn: document.querySelector('.five-days__btn'),
+  switchToFiveDaysBtn: document.querySelector('.five-days-forecast-js'),
+  switchToTodayBtn: document.querySelector('.today-forecast-js'),
+  fiveDaysPrevDayBtn: document.querySelector('.five-days__prev-day-btn'),
+  fiveDaysNextDayBtn: document.querySelector('.five-days__next-day-btn'),
+
 };
