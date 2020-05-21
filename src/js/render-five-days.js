@@ -18,9 +18,11 @@ export default function () {
 
     refs.forecastFiveDaysList.addEventListener('click', e => {
       e.preventDefault();
-      e.target.getAttribute('data-index');
 
       if (e.target.nodeName === 'A') {
+        refs.moreInfoWrapper.classList.add(
+          'five-days__more-information-enabled',
+        );
         const indexDay = e.target.getAttribute('data-index');
         dayNumber(indexDay);
         return;

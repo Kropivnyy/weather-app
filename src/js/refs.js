@@ -22,4 +22,5 @@ export default {
   forecastFiveDaysCity: document.querySelector('.five-days__city-name'),
   forecastFiveDaysList: document.querySelector('.five-days__list'),
   forecastMoreInfo: document.querySelector('.more-information__list'),
+  moreInfoWrapper: document.querySelector('.five-days__more-information'),
 };

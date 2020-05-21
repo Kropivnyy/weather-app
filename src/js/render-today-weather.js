@@ -9,4 +9,5 @@ export default function () {
   refs.currentWeather.innerHTML = widgetMarkup;
   createClock('#timer-1');
   renderSunsetTime(apiService.todayResponse);
+  refs.moreInfoWrapper.classList.remove('five-days__more-information-enabled');
 }

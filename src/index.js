@@ -39,13 +39,14 @@ refs.searchForm.addEventListener('submit', async event => {
       await apiService.fetchTodayWeather();
       renderTodayWeather();
     } else {
+      refs.moreInfoWrapper.classList.remove(
+        'five-days__more-information-enabled',
+      );
       await apiService.fetchFiveDaysWeather();
       renderFiveDays();
     }
-    if (apiService.apiResponse) {
-      ///if in favorites-section all OK
-      favorites.formSubmitted(true);
-    }
+
+    favorites.formSubmitted(apiService.apiResponse);
 
     backgroundImageService.background(refs.formInput.value);
   } catch (error) {
