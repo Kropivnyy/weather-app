@@ -53,23 +53,16 @@
   @include letter-spacing(30);
   line-height: 12px;
   font-size: 12px;
-  width: 220px;
-  height: 184px;
-  margin: 0 auto;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  overflow: hidden;
+  width: 246px;
+  margin: 0 auto 10px auto;
   @media screen and (min-width: 768px) {
-    width: 534px;
-    height: 192px;
+    width: 544px;
     font-size: 14px;
     line-height: 14px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 880px;
-    height: 257px;
+    width: 901px;
     font-size: 18px;
     line-height: 18px;
   }
@@ -97,7 +90,6 @@
   @include letter-spacing(30);
   font-size: 16px;
   line-height: 16px;
-  margin-bottom: 10px;
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -116,7 +108,7 @@
 }
 
 .five-days__img-of-weather {
-  margin: 0 auto 14px auto;
+  margin: 0 auto 4px auto;
 
   @media screen and (min-width: 1280px) {
     margin-bottom: 34px;
@@ -125,7 +117,7 @@
 
 .five-days__temperature-info-list {
   list-style: none;
-  display: flex;
+  display: inline-flex;
   margin-bottom: 14px;
 
   @media screen and (min-width: 768px) {
@@ -208,7 +200,6 @@
 .five-days__more-info {
   display: inline-block;
   color: rgba($primary-white-color, 0.302);
-  margin-bottom: 16px;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
@@ -221,15 +212,21 @@
 }
 
 .five-days__prev-day-btn {
-  opacity: $half-opacity;
   margin-right: 32px;
 }
 
 .five-days__prev-day-btn,
 .five-days__next-day-btn {
-  font-size: 20px;
-  cursor: pointer;
-  @media screen and (min-width: 768px) {
-    display: none;
+  @extend %button;
+  background: none;
+  .material-icons {
+    font-size: 20px;
+    color: $primary-white-color;
+    width: 27px;
+    line-height: 27px;
   }
+}
+
+.forecast__five-days .slick-list {
+  border-radius: 10px;
 }

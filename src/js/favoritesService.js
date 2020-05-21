@@ -6,30 +6,12 @@ import amountDays from './rendering-amount-of-days';
 import renderTodayWeather from './render-today-weather';
 import renderFiveDays from './render-five-days';
 import backgroundImageService from './backgroundService';
+import slider from './five-days-slider';
+import resetInfoAboutRendering from './reset-info-about-rendering'
 
 import $ from 'jquery';
 import 'slick-carousel';
 import 'slick-carousel/slick/slick.css';
-
-setTimeout(() => {
-  $('.favorites__list').slick({
-    infinite: true,
-    speed: 300,
-    slidesToShow: 2,
-    variableWidth: true,
-    mobileFirst: true,
-    nextArrow: $('.favorites__arrow-left'),
-    prevArrow: $('.favorites__arrow-right'),
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 4,
-        },
-      },
-    ],
-  });
-}, 0);
 
 export default {
   favorites: [],
@@ -49,6 +31,23 @@ export default {
         debounce(this.changeIconDefault.bind(this), 500),
       );
     }
+    $('.favorites__list').slick({
+      infinite: true,
+      speed: 300,
+      slidesToShow: 2,
+      variableWidth: true,
+      mobileFirst: true,
+      nextArrow: $('.favorites__arrow-left'),
+      prevArrow: $('.favorites__arrow-right'),
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 4,
+          },
+        },
+      ],
+    });
   },
 
   formSubmitted(result) {
@@ -99,9 +98,13 @@ export default {
       apiService.searchQuery = event.target.textContent;
       this.changeIconOnFavorites();
       if (amountDays.currentDays === 'oneDay') {
+        resetInfoAboutRendering()
+        slider.deleteSlider();
         await apiService.fetchTodayWeather();
         renderTodayWeather();
       } else {
+        resetInfoAboutRendering()
+        slider.deleteSlider();
         refs.moreInfoWrapper.classList.remove(
           'five-days__more-information-enabled',
         );
