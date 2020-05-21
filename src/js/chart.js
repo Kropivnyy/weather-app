@@ -3,9 +3,22 @@ import refs from './refs';
 
 const chartRender = {
     showOnClick() {
+        refs.chartWrapper.classList.add('chart-bg-is-active');
+        this.renderBtn();
+        refs.chartHide.addEventListener('click', this.hideSchedule.bind(this));
+        this.responsive = refs.body.clientWidth < 767 ? false : true;
         this.makeSchedule();
-        const chartSection = document.querySelector('.chart .wrapper');
-        chartSection.classList.add('chart-bg-is-active');
+    },
+
+    renderBtn(show = 'remove', hide = 'add') {
+        refs.chartShow.classList[show]('chart__show-enabled');
+        refs.chartHide.classList[hide]('chart__show-enabled');
+    },
+
+    hideSchedule() {
+        this.renderBtn('add', 'remove');
+        refs.chartWrapper.classList.remove('chart-bg-is-active');
+        this.chart.destroy();
     },
 
     set daysQuery(values) {
@@ -47,7 +60,7 @@ const chartRender = {
     },
 
     makeSchedule() {
-        new Chart(refs.chart, {
+        this.chart = new Chart(refs.chart, {
             type: 'line',
             data: {
                 labels: this.days,
@@ -68,15 +81,27 @@ const chartRender = {
                     yAxes: [{
                         gridLines: {
                             color: 'rgba(255, 255, 255, 0.541)',
+                        },
+                        ticks: {
+                            beginAtZero: true,
                         }
                     }],
                 },
-
-                //     // responsive: false
+                legend: {
+                    align: 'start',
+                    labels: {
+                        boxWidth: 15,
+                    }
+                },
+                maintainAspectRatio: this.responsive
             }
         });
         Chart.defaults.global.defaultFontColor = 'rgba(255, 255, 255, 0.541)';
         Chart.defaults.global.defaultFontSize = 14;
+        if (!this.responsive) {
+            Chart.defaults.global.responsive = false;
+            refs.chart.style.height = '430px';
+        }
     }
 };
 
