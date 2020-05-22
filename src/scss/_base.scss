@@ -27,9 +27,9 @@ img {
 }
 
 .container {
-  width: 320px;
-  margin: 0 auto;
-  padding: 0 20px;
+  max-width: 320px;
+  display: inline-block;
+  width: 100%;
   @media screen and (min-width: 768px) {
     width: 768px;
     padding: 0 80px;
@@ -40,11 +40,12 @@ img {
   }
 }
 
-// .current-weather,
-// .switch-days-btn,
-// .forecast,
-// .chart,
-// .five-days__more-information,
-// .citation, {
-  // display: none!important
-// }
+// .search,
+.current-weather,
+.switch-days-btn,
+.forecast,
+.chart,
+.five-days__more-information,
+.citation {
+  display: none !important;
+}
