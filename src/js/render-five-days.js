@@ -34,28 +34,38 @@ export default function () {
 }
 
 function dayNumber(number) {
+  if (number === '0') {
+    const markupMoreInfo = moreInfoTemplate(
+      apiService.forecastFiveDays.list[0].byHours,
+    );
+    refs.forecastMoreInfo.innerHTML = markupMoreInfo;
+    return;
+  }
   if (number === '1') {
-    const markupMoreInfo = moreInfoTemplate(apiService.firstDayForecast);
+    const markupMoreInfo = moreInfoTemplate(
+      apiService.forecastFiveDays.list[1].byHours,
+    );
     refs.forecastMoreInfo.innerHTML = markupMoreInfo;
     return;
   }
   if (number === '2') {
-    const markupMoreInfo = moreInfoTemplate(apiService.secondDayForecast);
+    const markupMoreInfo = moreInfoTemplate(
+      apiService.forecastFiveDays.list[2].byHours,
+    );
     refs.forecastMoreInfo.innerHTML = markupMoreInfo;
     return;
   }
   if (number === '3') {
-    const markupMoreInfo = moreInfoTemplate(apiService.thirdDayForecast);
+    const markupMoreInfo = moreInfoTemplate(
+      apiService.forecastFiveDays.list[3].byHours,
+    );
     refs.forecastMoreInfo.innerHTML = markupMoreInfo;
     return;
   }
   if (number === '4') {
-    const markupMoreInfo = moreInfoTemplate(apiService.fourthDayForecast);
-    refs.forecastMoreInfo.innerHTML = markupMoreInfo;
-    return;
-  }
-  if (number === '5') {
-    const markupMoreInfo = moreInfoTemplate(apiService.fifthDayForecast);
+    const markupMoreInfo = moreInfoTemplate(
+      apiService.forecastFiveDays.list[4].byHours,
+    );
     refs.forecastMoreInfo.innerHTML = markupMoreInfo;
     return;
   }
