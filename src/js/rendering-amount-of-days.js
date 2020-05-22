@@ -19,7 +19,7 @@ const amountDays = {
   fiveDays() {
     this.activeAmount('lastElementChild', 'firstElementChild');
     this.renderingAmount();
-    if (!renderChart.chartCreated) return;
+    if (!renderChart.chartCreated || !renderChart.chartShow) return;
     renderChart.showOnSwitchDays();
   },
 

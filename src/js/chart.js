@@ -116,14 +116,16 @@ const createChart = {
 
 export const renderChart = {
     chartCreated: false,
+    chartShow: false,
     showOnClick() {
         if (!dataChart.dataExist()) return;//можно поставить вывод ошибки, нет даннных ....
         refs.chartWrapper.classList.add('chart-bg-is-active');
         refs.scheduleWrapper.classList.add('schedule__wrapper-enabled');
         this.renderBtn();
         refs.chartHide.addEventListener('click', this.hideOnClick.bind(this));
-        createChart.create();
+        if (!this.chartCreated && !this.chartShow) createChart.create();
         this.chartCreated = true;
+        this.chartShow = true;
     },
 
     renderBtn(show = 'remove', hide = 'add') {
@@ -132,10 +134,11 @@ export const renderChart = {
     },
 
     hideOnClick() {
-        this.chartCreated = false;
+        this.chartShow = false;
         this.renderBtn('add', 'remove');
         refs.chartWrapper.classList.remove('chart-bg-is-active');
         refs.scheduleWrapper.classList.remove('schedule__wrapper-enabled');
+
     },
 
     hideOnSwitchDays() {
