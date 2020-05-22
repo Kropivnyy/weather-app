@@ -21,9 +21,8 @@
   text-align: center;
   background-color: rgba($primary-white-color, $half-opacity);
   min-width: 126px;
-  height: 29px;
   border-radius: 29px;
-  padding-top: 6px;
+  line-height: 29px;
 
   &:not(:last-child) {
     margin-right: 20px;
