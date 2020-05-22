@@ -19,7 +19,7 @@ const amountDays = {
   fiveDays() {
     this.activeAmount('lastElementChild', 'firstElementChild');
     this.renderingAmount();
-    if (!renderChart.chartCreated) return;
+    if (!renderChart.chartCreated || !renderChart.chartShow) return;
     renderChart.showOnSwitchDays();
   },
 
@@ -30,6 +30,7 @@ const amountDays = {
     refs.citation.classList[action]('citation-disabled');
     refs.search.classList[action]('search-mb-js');
     refs.chartShow.classList[action]('chart__show-enabled');
+    refs.chart.classList[action]('chart_enabled');
   },
 
   activeAmount(add, remove) {
