@@ -110,21 +110,11 @@
   }
 
   &:first-child {
+    border-right: 1px solid rgba($primary-white-color, $light-opacity);
     text-align: right;
     padding-right: 8px;
     @media screen and (min-width: 1280px) {
       padding-right: 16px;
-    }
-
-    &::after {
-      position: absolute;
-      display: block;
-      content: '';
-      height: 20px;
-      width: 1px;
-      background-color: rgba(231, 232, 235, 0.4);
-      right: 0;
-      bottom: 0;
     }
   }
 
