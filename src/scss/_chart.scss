@@ -1,57 +1,55 @@
-.chart{
-    display: none;
+.chart {
+  display: none;
 }
 
-.chart_enabled{
-    display: block;
+.chart_enabled {
+  display: block;
 }
 
-.chart__show, .chart__hide{
-    display: none;
-    @extend %button;
-    background: transparent;    
-    margin: 0 auto;
-    @include center-flex(ver);
-    .material-icons{
-        font-size: 20px;
-        color: $primary-white-color;
-        width: 27px;
-        line-height: 27px;
-        border-radius: 50%;
-        background: rgba($small-buttons-color, $light-opacity);
-    }
+.chart__show,
+.chart__hide {
+  display: none;
+  @extend %button;
+  background: transparent;
+  margin: 0 auto;
+  @include center-flex(ver);
+  .material-icons {
+    font-size: 20px;
+    color: $primary-white-color;
+    width: 27px;
+    line-height: 27px;
+    border-radius: 50%;
+    background: rgba($small-buttons-color, $light-opacity);
+  }
 }
 
-.chart__show-enabled{
-    display: block;
+.chart__show-enabled {
+  display: block;
 }
 
-.chart__action{
-    font: 400 15px/22px $primary-font-family;
-    color: $primary-orange-color;
-    text-decoration: underline;
-    padding: 0 10px 0 0;
+.chart__action {
+  font: 400 15px/22px $primary-font-family;
+  color: $primary-orange-color;
+  text-decoration: underline;
+  padding: 0 10px 0 0;
 }
 
-.chart__wrapper{
-    padding: 20px  30px;    
+.chart__wrapper {
+  padding: 20px 30px;
 }
 
-.chart-bg-is-active{
-    border-radius: 35px;
-    box-shadow: $background-shadow;
-    background: rgba($background-blue-color,.8);
-    margin-bottom: 35px;
-    @media screen and (min-width: 768px) {
-        margin-bottom: 120px;
-    }    
-    @media screen and (min-width: 1280px) {
-    margin-bottom: 95px;
-    }
-}  
-.schedule__wrapper{
-    display: none;
+.chart-bg-is-active {
+  border-radius: 35px;
+  box-shadow: $background-shadow;
+  background: rgba($background-blue-color, 0.8);
+  margin-bottom: 35px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 90px;
+  }
 }
-.schedule__wrapper-enabled{
-    display: block;
+.schedule__wrapper {
+  display: none;
+}
+.schedule__wrapper-enabled {
+  display: block;
 }
