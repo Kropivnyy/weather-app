@@ -1,3 +1,11 @@
+.chart{
+    display: none;
+}
+
+.chart_enabled{
+    display: block;
+}
+
 .chart__show, .chart__hide{
     display: none;
     @extend %button;

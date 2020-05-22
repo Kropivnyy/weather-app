@@ -92,7 +92,7 @@ const createChart = {
     create() {
         if (!dataChart.dataExist()) return;
         const data = dataChart.data;
-        new Chart(refs.chart, {
+        new Chart(refs.schedule, {
             type: 'line',
             data: {
                 labels: data.days,

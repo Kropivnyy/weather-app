@@ -18,8 +18,9 @@ export default {
   citation: document.querySelector('.citation'),
   chartShow: document.querySelector('.chart__show'),
   chartHide: document.querySelector('.chart__hide'),
-  chart: document.querySelector('#schedule'),
+  chart: document.querySelector('.chart'),
   chartWrapper: document.querySelector('.chart__wrapper'),
+  schedule: document.querySelector('#schedule'),
   scheduleWrapper: document.querySelector('.schedule__wrapper'),
 
   forecastFiveDays: document.querySelector('.forecast__five-days'),
