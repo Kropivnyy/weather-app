@@ -34,13 +34,20 @@
 }
 
 .chart__wrapper{
-    padding: 30px;    
+    padding: 20px;    
 }
 
 .chart-bg-is-active{
     border-radius: 35px;
     box-shadow: $background-shadow;
     background: rgba($background-blue-color,.8);
+    margin-bottom: 35px;
+    @media screen and (min-width: 768px) {
+        margin-bottom: 120px;
+    }    
+    @media screen and (min-width: 1280px) {
+    margin-bottom: 95px;
+    }
 }  
 .schedule__wrapper{
     display: none;

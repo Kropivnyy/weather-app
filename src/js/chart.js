@@ -109,7 +109,7 @@ const createChart = {
         Chart.defaults.global.defaultFontSize = 14;
         if (!this.clientWidth()) {
             Chart.defaults.global.responsive = false;
-            refs.chart.style.height = '430px';
+            refs.schedule.style.height = '430px';
         }
     }
 };
