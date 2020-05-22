@@ -1,24 +1,24 @@
 {{#each this}}
 <div class="five-days__one-day-item">
-    <p class="five-days__day-of-week">{{date.day}}</p>
+    <p class="five-days__day-of-week">{{byDays.date.day}}</p>
     <p class="five-days__date-and-month">
-        <span class="five-days__date">{{date.date}}</span> <span class="five-days__month">{{date.month}}</span>
+        <span class="five-days__date">{{byDays.date.date}}</span> <span class="five-days__month">{{byDays.date.month}}</span>
     </p>
-    <img class="five-days__img-of-weather" src="{{icon}}" title="{{description}} " height="22px" width="44px" alt="" />
+    <img class="five-days__img-of-weather" src="{{byDays.icon}}" title="{{byDays.description}} " height="22px" width="44px" alt="" />
     <ul class="five-days__temperature-info-list">
         <li class="five-days__temperature-info-item">
             <p class="five-days__temperature-info-sign">min</p>
             <p class="five-days__temperature-min">
-                {{temp.temp_min}}&#176
+                {{byDays.temp.temp_min}}&#176
             </p>
         </li>
         <li class="five-days__temperature-info-item">
             <p class="five-days__temperature-info-sign">max</p>
             <p class="five-days__temperature-max">
-                {{temp.temp_max}}&#176
+                {{byDays.temp.temp_max}}&#176
             </p>
         </li>
     </ul>
-    <a href="#" class="five-days__more-info" data-index="{{index}}">more info</a>
+    <a href="#" class="five-days__more-info" data-index="{{byDays.index}}">more info</a>
 </div>
 {{/each}}
