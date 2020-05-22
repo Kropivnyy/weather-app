@@ -128,8 +128,10 @@
 
 .five-days__temperature-info-item {
   text-align: left;
+
   &:first-child {
     padding-right: 6px;
+    border-right: 1px solid rgba($primary-white-color, $light-opacity);
 
     @media screen and (min-width: 768px) {
       padding-right: 10px;
@@ -141,30 +143,14 @@
   }
 
   &:last-child {
-    position: relative;
-    padding-left: 7px;
+    padding-left: 6px;
 
     @media screen and (min-width: 768px) {
-      padding-left: 11px;
+      padding-left: 10px;
     }
 
     @media screen and (min-width: 1280px) {
-      padding-left: 21px;
-    }
-    &::before {
-      position: absolute;
-      display: block;
-      content: '';
-      height: 29px;
-      width: 1px;
-      background-color: rgba($primary-white-color, $light-opacity);
-      left: 0;
-      bottom: 0;
-
-      @media screen and (min-width: 768px) {
-        height: 40px;
-        bottom: -2px;
-      }
+      padding-left: 20px;
     }
   }
 }
@@ -219,7 +205,6 @@
 .five-days__more-info--active {
   color: rgba(255, 255, 255, 1);
 }
-
 
 .five-days__prev-day-btn {
   margin-right: 32px;
