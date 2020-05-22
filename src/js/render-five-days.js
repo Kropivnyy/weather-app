@@ -13,10 +13,10 @@ export default function () {
     return;
   }
 
-  const markupCity = fiveDaysCityTemplate(apiService.fiveDaysResponseCity);
+  const markupCity = fiveDaysCityTemplate(apiService.forecastFiveDays.city);
   refs.forecastFiveDaysCity.innerHTML = markupCity;
 
-  const markupOneDay = fiveDaysItemTemplate(apiService.forecastFiveDays);
+  const markupOneDay = fiveDaysItemTemplate(apiService.forecastFiveDays.list);
   refs.forecastFiveDaysList.innerHTML = markupOneDay;
   slider.createSlider();
   refs.switchToFiveDaysBtn.dataset.rendered = true;
