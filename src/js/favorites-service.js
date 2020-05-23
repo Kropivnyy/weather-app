@@ -8,6 +8,8 @@ import renderFiveDays from './render-five-days';
 import backgroundImageService from './background-service';
 import slider from './five-days-slider';
 import resetInfoAboutRendering from './reset-info-about-rendering';
+import { dataChart } from './chart';
+import { renderChart } from './chart';
 
 import $ from 'jquery';
 import 'slick-carousel';
@@ -55,6 +57,8 @@ export default {
     if (this.submit) {
       const value = refs.formInput.value;
       this.currentCity = value.toLowerCase();
+      dataChart.setDataChart();
+      if (renderChart.chartCreated) renderChart.updateChart();
       if (this.serchInLocalStorage()) {
         this.changeIconOnFavorites();
       } else {

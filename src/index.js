@@ -11,7 +11,7 @@ import amountDays from './js/rendering-amount-of-days';
 import slider from './js/five-days-slider';
 import resetInfoAboutRendering from './js/reset-info-about-rendering';
 import './js/chart';
-import { dataChart } from './js/chart'; // для теста перенести
+import { dataChart } from './js/chart';
 
 favorites.loader();
 
@@ -38,11 +38,7 @@ refs.switchDaysBtn.addEventListener('click', async event => {
       }
       await weatherService.fetchFiveDaysWeather();
       renderFiveDays();
-      dataChart.daysQuery = weatherService.dataForChart.date;
-      dataChart.temperatureQuery = weatherService.dataForChart.temp;
-      dataChart.humidityQuery = weatherService.dataForChart.humidity;
-      dataChart.windQuery = weatherService.dataForChart.wind;
-      dataChart.atmosphereQuery = weatherService.dataForChart.pressure;
+      dataChart.setDataChart();
     }
   } catch (error) {
     console.log(error);
@@ -66,11 +62,6 @@ refs.searchForm.addEventListener('submit', async event => {
       );
       await weatherService.fetchFiveDaysWeather();
       renderFiveDays();
-      dataChart.daysQuery = weatherService.dataForChart.date;
-      dataChart.temperatureQuery = weatherService.dataForChart.temp;
-      dataChart.humidityQuery = weatherService.dataForChart.humidity;
-      dataChart.windQuery = weatherService.dataForChart.wind;
-      dataChart.atmosphereQuery = weatherService.dataForChart.pressure;
     }
 
     favorites.formSubmitted(weatherService.apiResponse);
