@@ -6,6 +6,13 @@
   display: block;
 }
 
+.chart_enabled-schedule {
+  padding-bottom: 35px;
+  @media screen and (min-width: 768px) {
+    padding-bottom: 90px;
+  }
+}
+
 .chart__show,
 .chart__hide {
   display: none;
@@ -42,14 +49,12 @@
   border-radius: 35px;
   box-shadow: $background-shadow;
   background: rgba($background-blue-color, 0.8);
-  margin-bottom: 35px;
-  @media screen and (min-width: 768px) {
-    margin-bottom: 90px;
-  }
 }
+
 .schedule__wrapper {
   display: none;
 }
+
 .schedule__wrapper-enabled {
   display: block;
 }

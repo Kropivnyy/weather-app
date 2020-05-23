@@ -56,6 +56,7 @@
     width: 544px;
     font-size: 14px;
     line-height: 14px;
+    margin-bottom: 0;
   }
 
   @media screen and (min-width: 1280px) {
@@ -189,7 +190,7 @@
 }
 
 .five-days__more-info {
-  display: inline-block;
+  display: block;
   color: rgba($primary-white-color, 0.302);
 
   @media screen and (min-width: 768px) {
@@ -204,6 +205,12 @@
 
 .five-days__more-info--active {
   color: rgba(255, 255, 255, 1);
+}
+
+.five-days__btn {
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 }
 
 .five-days__prev-day-btn {

@@ -11,7 +11,7 @@ import amountDays from './js/rendering-amount-of-days';
 import slider from './js/five-days-slider';
 import resetInfoAboutRendering from './js/reset-info-about-rendering';
 import './js/chart';
-import { dataChart } from './js/chart';// для теста перенести
+import { dataChart } from './js/chart'; // для теста перенести
 
 favorites.loader(); // получаем данные при загрузке страницы из localStorage
 
@@ -70,9 +70,14 @@ refs.searchForm.addEventListener('submit', async event => {
   }
 });
 
-
 //для теста Заполнение данными графика
-dataChart.daysQuery = ['Feb 18, 2020', 'Feb 10, 2020', 'Feb 11, 2020', 'Feb 12, 2020', 'Feb 13, 2020'];
+dataChart.daysQuery = [
+  'Feb 18, 2020',
+  'Feb 10, 2020',
+  'Feb 11, 2020',
+  'Feb 12, 2020',
+  'Feb 13, 2020',
+];
 dataChart.temperatureQuery = ['-3', '10', '8', '-3', '15'];
 dataChart.humidityQuery = ['1', '8', '13', '18', '3', '8'];
 dataChart.windQuery = ['5', '3', '15', '21', '18', '26'];
