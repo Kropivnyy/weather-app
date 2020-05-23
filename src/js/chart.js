@@ -132,6 +132,7 @@ export const renderChart = {
     this.renderBtn();
     refs.chartHide.addEventListener('click', this.hideOnClick.bind(this));
     if (!this.chartCreated && !this.chartShow) createChart.create();
+    if (this.chartCreated && !this.chartShow) this.updateChart();
     this.chartCreated = true;
     this.chartShow = true;
   },
