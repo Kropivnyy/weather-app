@@ -17,7 +17,6 @@ favorites.loader();
 
 weatherService.fetchTodayWeather().then(() => {
   renderTodayWeather();
-  backgroundImageService.background(weatherService.searchQuery);
   refs.switchToTodayBtn.dataset.rendered = true;
   renderGeolocationPosition();
 });
