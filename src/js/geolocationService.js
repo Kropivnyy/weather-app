@@ -2,6 +2,7 @@ import apiService from './apiService';
 import refs from './refs';
 import renderTodayWeather from './render-today-weather';
 import favorites from './favoritesService';
+import backgroundImageService from './backgroundService';
 
 export default function () {
   const getCurrentPosition = () => {
@@ -16,6 +17,7 @@ export default function () {
         apiService.searchQuery = data.name;
         refs.formInput.value = data.name;
         renderTodayWeather();
+        backgroundImageService.background(data.name);
         favorites.formSubmitted(apiService.apiResponse);
         refs.switchToTodayBtn.dataset.rendered = true;
       });
