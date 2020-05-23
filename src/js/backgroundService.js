@@ -16,7 +16,7 @@ export default {
         this.backgroundImage(image);
       })
       .catch(() => {
-        this.background('nature');
+        this.background('sky');
         // refs.body.style.background = `linear-gradient(#f5f5f500, #0a0505b3), url('/images/primary_bg.jpg') no-repeat center/cover fixed`;
       });
   },
