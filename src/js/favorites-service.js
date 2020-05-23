@@ -8,8 +8,7 @@ import renderFiveDays from './render-five-days';
 import backgroundImageService from './background-service';
 import slider from './five-days-slider';
 import resetInfoAboutRendering from './reset-info-about-rendering';
-import { dataChart } from './chart';
-import { renderChart } from './chart';
+import { dataChart, renderChart } from './chart';
 
 import $ from 'jquery';
 import 'slick-carousel';
