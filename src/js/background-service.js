@@ -9,7 +9,7 @@ export default {
     if (weatherService.apiResponse) {
       axios
         .get(
-          `https://pixabay.com/api?key=${pixabayApiKey}&q=${query}&image_type=photo&orientation=horizontal&category=places+travel&per_page=10`,
+          `https://cors-anywhere.herokuapp.com/https://pixabay.com/api?key=${pixabayApiKey}&q=${query}&image_type=photo&orientation=horizontal&category=places+travel&per_page=10`,
         )
         .then(res => {
           const image =
