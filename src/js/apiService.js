@@ -1,27 +1,24 @@
 import axios from 'axios';
 import getCurrentTime from './get-current-time';
 
-axios.defaults.baseURL = 'https://api.openweathermap.org/data/2.5/';
 const apiKey = 'c112c800340c3f1ee2fad83b32fe690c';
 
 export default {
   searchQuery: 'Kyiv',
   apiResponse: false,
   todayResponse: [],
-  fiveDaysResponse: [],
-  fiveDaysResponseCity: [],
-  /* Это в шаблон на пять дней */
   forecastFiveDays: [],
-  /* Это в шаблон для more info */
-  firstDayForecast: [],
-  secondDayForecast: [],
-  thirdDayForecast: [],
-  fourthDayForecast: [],
-  fifthDayForecast: [],
+  dataForChart: {
+    date: [],
+    temp: [],
+    humidity: [],
+    pressure: [],
+    wind: [],
+  },
   fetchByCoordinates: async function (lat, lon) {
     try {
       const { data } = await axios.get(
-        `weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`,
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`,
       );
       this.apiResponse = true;
       this.todayResponse = data;
@@ -36,7 +33,7 @@ export default {
   fetchTodayWeather: async function () {
     try {
       const { data } = await axios.get(
-        `weather?q=${this.query}&units=metric&appid=${apiKey}`,
+        `https://api.openweathermap.org/data/2.5/weather?q=${this.query}&units=metric&appid=${apiKey}`,
       );
       this.apiResponse = true;
       this.todayResponse = data;
@@ -50,30 +47,34 @@ export default {
   },
   fetchFiveDaysWeather: async function () {
     try {
-      const {
-        data: { list, city },
-      } = await axios.get(
-        `forecast?q=${this.query}&units=metric&appid=${apiKey}`,
+      const { data } = await axios.get(
+        `https://api.openweathermap.org/data/2.5/forecast?q=${this.query}&units=metric&appid=${apiKey}`,
       );
       this.apiResponse = true;
-      this.fiveDaysResponse = list;
-      this.fiveDaysResponseCity = city;
-      this.changeForecastTime(this.fiveDaysResponse);
-      this.sortResponseOnArrays(this.fiveDaysResponse);
-      this.getForecastFiveDays(
-        this.firstDayForecast,
-        this.secondDayForecast,
-        this.thirdDayForecast,
-        this.fourthDayForecast,
-        this.fifthDayForecast,
+      const getDate = data => new Date(data).getDate();
+      const dates = data.list
+        .map(el => {
+          const { total, time } = getCurrentTime(data.city.timezone, el.dt);
+          el.dt_txt = `${('0' + time.getHours()).slice(-2)}:${(
+            '0' + time.getMinutes()
+          ).slice(-2)}`;
+          return (el.dt = total);
+        })
+        .map(element => getDate(element))
+        .filter((el, idx, arr) => arr.indexOf(el) === idx);
+      let list = dates.map(el =>
+        data.list.filter(elem => getDate(elem.dt) === el),
       );
-      this.changeMoreInfo([
-        this.firstDayForecast,
-        this.secondDayForecast,
-        this.thirdDayForecast,
-        this.fourthDayForecast,
-        this.fifthDayForecast,
-      ]);
+      list.length = 5;
+      list = list.map((element, index, array) =>
+        this.getForecastByDays(element, index, array),
+      );
+      this.forecastFiveDays = {
+        ...data,
+        list,
+      };
+      this.changeMoreInfo(this.forecastFiveDays);
+      this.getDataForChart(this.forecastFiveDays.list);
     } catch (error) {
       this.apiResponse = false;
       console.log(error);
@@ -89,60 +90,6 @@ export default {
       description: array.weather[0].description,
       icon: `https://openweathermap.org/img/w/${array.weather[0].icon}.png`,
     };
-  },
-  changeForecastTime(array) {
-    array.forEach(el => {
-      const { total, time } = getCurrentTime(
-        this.fiveDaysResponseCity.timezone,
-        el.dt,
-      );
-      el.dt = total;
-      el.dt_txt = `${time.getFullYear()}-${('0' + (time.getMonth() + 1)).slice(
-        -2,
-      )}-${('0' + time.getDate()).slice(-2)} ${('0' + time.getHours()).slice(
-        -2,
-      )}:${('0' + time.getMinutes()).slice(-2)}:${(
-        '0' + time.getSeconds()
-      ).slice(-2)}`;
-    });
-  },
-  sortResponseOnArrays(array) {
-    const dayOne = array[0].dt_txt.slice(0, 10);
-    const dayTwo = array[8].dt_txt.slice(0, 10);
-    const dayThree = array[16].dt_txt.slice(0, 10);
-    const dayFour = array[24].dt_txt.slice(0, 10);
-    const dayFive = array[32].dt_txt.slice(0, 10);
-    array.forEach(element => {
-      switch (element.dt_txt.slice(0, 10)) {
-        case dayOne:
-          this.firstDayForecast = array.filter(
-            el => el.dt_txt.slice(0, 10) === dayOne,
-          );
-          break;
-        case dayTwo:
-          this.secondDayForecast = array.filter(
-            el => el.dt_txt.slice(0, 10) === dayTwo,
-          );
-          break;
-        case dayThree:
-          this.thirdDayForecast = array.filter(
-            el => el.dt_txt.slice(0, 10) === dayThree,
-          );
-          break;
-        case dayFour:
-          this.fourthDayForecast = array.filter(
-            el => el.dt_txt.slice(0, 10) === dayFour,
-          );
-          break;
-        case dayFive:
-          this.fifthDayForecast = array.filter(
-            el => el.dt_txt.slice(0, 10) === dayFive,
-          );
-          break;
-
-        default:
-      }
-    });
   },
   calcMinMaxTemp(array) {
     let minTempArray = [];
@@ -177,57 +124,35 @@ export default {
       date,
     };
   },
-  getForecastFiveDays(one, two, three, four, five) {
-    this.forecastFiveDays = {
-      firstDay: {
-        date: this.calcDate(one),
-        icon: `https://openweathermap.org/img/w/${one[0].weather[0].icon}.png`,
-        description: one[0].weather[0].description,
-        temp: this.calcMinMaxTemp(one),
-        index: 1,
-      },
-      secondDay: {
-        date: this.calcDate(two),
-        icon: `https://openweathermap.org/img/w/${
-          two[8 - one.length].weather[0].icon
-        }.png`,
-        description: two[8 - one.length].weather[0].description,
-        temp: this.calcMinMaxTemp(two),
-        index: 2,
-      },
-      thirdDay: {
-        date: this.calcDate(three),
-        icon: `https://openweathermap.org/img/w/${
-          three[8 - one.length].weather[0].icon
-        }.png`,
-        description: three[8 - one.length].weather[0].description,
-        temp: this.calcMinMaxTemp(three),
-        index: 3,
-      },
-      fourthDay: {
-        date: this.calcDate(four),
-        icon: `https://openweathermap.org/img/w/${
-          four[8 - one.length].weather[0].icon
-        }.png`,
-        description: four[8 - one.length].weather[0].description,
-        temp: this.calcMinMaxTemp(four),
-        index: 4,
-      },
-      fifthDay: {
-        date: this.calcDate(five),
-        icon: `https://openweathermap.org/img/w/${
-          five[8 - one.length].weather[0].icon
-        }.png`,
-        description: five[8 - one.length].weather[0].descrition,
-        temp: this.calcMinMaxTemp(five),
-        index: 5,
-      },
-    };
+  getForecastByDays(element, index, array) {
+    if (index === 0) {
+      return {
+        byHours: element,
+        byDays: {
+          date: this.calcDate(element),
+          icon: `https://openweathermap.org/img/w/${element[0].weather[0].icon}.png`,
+          description: element[0].weather[0].description,
+          temp: this.calcMinMaxTemp(element),
+          index: index,
+        },
+      };
+    } else {
+      const num = 8 - array[0].length;
+      return {
+        byHours: element,
+        byDays: {
+          date: this.calcDate(element),
+          icon: `https://openweathermap.org/img/w/${element[num].weather[0].icon}.png`,
+          description: element[num].weather[0].description,
+          temp: this.calcMinMaxTemp(element),
+          index: index,
+        },
+      };
+    }
   },
   changeMoreInfo(array) {
-    array.forEach(i => {
-      i.forEach(j => {
-        j.dt_txt = j.dt_txt.slice(11, 16);
+    array.list.forEach(i => {
+      i.byHours.forEach(j => {
         j.weather = {
           description: j.weather[0].description,
           icon: `https://openweathermap.org/img/w/${j.weather[0].icon}.png`,
@@ -236,6 +161,44 @@ export default {
         j.main.pressure = Math.round((j.main.pressure * 1000) / 1.333 / 1000);
       });
     });
+  },
+  getDataForChart(array) {
+    this.resetDataForChart();
+    array.forEach(element => {
+      const date = `${element.byDays.date.month} ${element.byDays.date.date}`;
+      const averageTemp = Math.round(
+        element.byHours.reduce((acc, el) => acc + el.main.temp, 0) /
+          element.byHours.length,
+      );
+      const averageHumidity = Math.round(
+        element.byHours.reduce((acc, el) => acc + el.main.humidity, 0) /
+          element.byHours.length,
+      );
+      const averagePressure = Math.round(
+        element.byHours.reduce((acc, el) => acc + el.main.pressure, 0) /
+          element.byHours.length,
+      );
+      const averageWind = Math.round(
+        element.byHours.reduce((acc, el) => acc + el.wind.speed, 0) /
+          element.byHours.length,
+      );
+      this.dataForChart = {
+        date: [...this.dataForChart.date, ...date],
+        temp: [...this.dataForChart.temp, ...averageTemp],
+        humidity: [...this.dataForChart.humidity, ...averageHumidity],
+        pressure: [...this.dataForChart.pressure, ...averagePressure],
+        wind: [...this.dataForChart.wind, ...averageWind],
+      };
+    });
+  },
+  resetDataForChart() {
+    this.dataForChart = {
+      date: [],
+      temp: [],
+      humidity: [],
+      pressure: [],
+      wind: [],
+    };
   },
   get query() {
     return this.searchQuery;

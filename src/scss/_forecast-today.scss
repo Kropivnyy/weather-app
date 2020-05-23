@@ -1,10 +1,7 @@
 .forecast {
-  margin-bottom: 44px;
-  @media screen and (min-width: 768px) {
-    margin-bottom: 64px;
-  }
+  margin-bottom: 25px;
   @media screen and (min-width: 1280px) {
-    margin-bottom: 0;
+    margin-bottom: 15px;
     .container {
       width: 1310px;
     }
@@ -143,6 +140,9 @@
   @media screen and (min-width: 768px) {
     right: 64px;
   }
+  @media screen and (min-width: 1280px) {
+    right: 74px;
+  }
 }
 
 .today__sunset::before {
@@ -176,6 +176,6 @@
 .today__sunset {
   padding-left: 42px;
   @media screen and (min-width: 1280px) {
-    padding-left: 50px;
+    padding-left: 44px;
   }
 }
