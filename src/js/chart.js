@@ -1,25 +1,14 @@
 import 'chart.js';
 import refs from './refs';
+import weatherService from './weather-service';
 
 export const dataChart = {
-  set daysQuery(values) {
-    this.days = values;
-  },
-
-  set temperatureQuery(values) {
-    this.temperature = values;
-  },
-
-  set humidityQuery(values) {
-    this.humidity = values;
-  },
-
-  set windQuery(values) {
-    this.wind = values;
-  },
-
-  set atmosphereQuery(values) {
-    this.atmosphere = values;
+  setDataChart() {
+    this.days = weatherService.dataForChart.date;
+    this.temperature = weatherService.dataForChart.temp;
+    this.humidity = weatherService.dataForChart.humidity;
+    this.wind = weatherService.dataForChart.wind;
+    this.atmosphere = weatherService.dataForChart.pressure;
   },
 
   dataExist() {
@@ -44,6 +33,7 @@ export const dataChart = {
 };
 
 const createChart = {
+  chart: null,
   setData(label, data, color, hidden = false) {
     return {
       label: label,
@@ -100,7 +90,7 @@ const createChart = {
   create() {
     if (!dataChart.dataExist()) return;
     const data = dataChart.data;
-    new Chart(refs.schedule, {
+    this.chart = new Chart(refs.schedule, {
       type: 'line',
       data: {
         labels: data.days,
@@ -125,6 +115,12 @@ const createChart = {
       refs.schedule.style.height = '430px';
     }
   },
+
+  update() {
+    this.chart.destroy();
+    this.create();
+    this.chart.resize();
+  },
 };
 
 export const renderChart = {
@@ -136,8 +132,13 @@ export const renderChart = {
     this.renderBtn();
     refs.chartHide.addEventListener('click', this.hideOnClick.bind(this));
     if (!this.chartCreated && !this.chartShow) createChart.create();
+    if (this.chartCreated && !this.chartShow) this.updateChart();
     this.chartCreated = true;
     this.chartShow = true;
+  },
+
+  updateChart() {
+    createChart.update();
   },
 
   renderBtn(show = 'remove', hide = 'add') {
