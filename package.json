@@ -66,6 +66,7 @@
     "jquery": "^3.5.1",
     "lodash.debounce": "^4.0.8",
     "masonry-layout": "^4.2.2",
+    "particlesjs": "^2.2.3",
     "pnotify": "^5.1.2",
     "randomcolor": "^0.5.4",
     "slick-carousel": "^1.8.1",
