@@ -102,6 +102,7 @@
 }
 
 .today__secondary-info span {
+  display: inline-block;
   position: relative;
   width: 50%;
 
@@ -135,13 +136,12 @@
 }
 
 .today__dawn::before {
-  left: -30px;
+  right: 54px;
   top: -10px;
   background: url(./images/dawn.png);
 
-  @media screen and (min-width: 1280px) {
-    left: -40px;
-    top: -10px;
+  @media screen and (min-width: 768px) {
+    right: 64px;
   }
 }
 

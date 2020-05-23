@@ -1,6 +1,4 @@
 .search {
-  text-align: center;
-  width: 100%;
   padding-top: 28px;
   margin-bottom: 48px;
   min-height: 88px;
@@ -8,10 +6,12 @@
     display: block;
   }
   @media screen and (min-width: 768px) {
-    padding: 62px 0 104px;
+    padding-top: 62px;
+    margin-bottom: 104px;
   }
   @media screen and (min-width: 1280px) {
-    padding: 79px 0 92px;
+    padding-top: 79px;
+    margin-bottom: 92px;
   }
 }
 
