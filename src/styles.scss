@@ -7,12 +7,12 @@
 @import './scss/base.scss';
 
 /* Components */
-@import './scss/search.scss';
-@import './scss/current-weather.scss';
-@import './scss/buttons.scss';
-@import './scss/forecast-today.scss';
-@import './scss/forecast-five-days.scss';
-@import './scss/citation.scss';
-@import './scss/geolocation.scss';
-@import './scss/five-days-more-info.scss';
-@import './scss/chart.scss';
+@import './scss/components/search.scss';
+@import './scss/components/current-weather.scss';
+@import './scss/components/switch-buttons.scss';
+@import './scss/components/forecast-today.scss';
+@import './scss/components/forecast-five-days.scss';
+@import './scss/components/citation.scss';
+@import './scss/components/geolocation.scss';
+@import './scss/components/five-days-more-info.scss';
+@import './scss/components/chart.scss';

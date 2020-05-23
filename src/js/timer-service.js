@@ -1,4 +1,4 @@
-import apiService from './apiService';
+import weatherService from './weather-service';
 import getCurrentTime from './get-current-time';
 
 export default function (clock) {
@@ -10,7 +10,7 @@ export default function (clock) {
   const hoursRef = idRef.querySelector('[data-value="hours"]');
 
   function updateTime() {
-    const t = getCurrentTime(apiService.todayResponse.timezone);
+    const t = getCurrentTime(weatherService.todayResponse.timezone);
     dateRef.textContent = t.date;
     if (t.date === '1' || t.date === '21' || t.date === '31') {
       suffixRef.textContent = 'st';

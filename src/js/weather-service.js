@@ -166,10 +166,10 @@ export default {
     this.resetDataForChart();
     array.forEach(element => {
       const date = `${element.byDays.date.month} ${element.byDays.date.date}`;
-      const averageTemp = Math.round(
+      const averageTemp = (
         element.byHours.reduce((acc, el) => acc + el.main.temp, 0) /
-          element.byHours.length,
-      );
+        element.byHours.length
+      ).toFixed(2);
       const averageHumidity = Math.round(
         element.byHours.reduce((acc, el) => acc + el.main.humidity, 0) /
           element.byHours.length,
@@ -178,10 +178,10 @@ export default {
         element.byHours.reduce((acc, el) => acc + el.main.pressure, 0) /
           element.byHours.length,
       );
-      const averageWind = Math.round(
+      const averageWind = (
         element.byHours.reduce((acc, el) => acc + el.wind.speed, 0) /
-          element.byHours.length,
-      );
+        element.byHours.length
+      ).toFixed(2);
       this.dataForChart = {
         date: [...this.dataForChart.date, ...date],
         temp: [...this.dataForChart.temp, ...averageTemp],

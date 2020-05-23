@@ -192,7 +192,9 @@
 .five-days__more-info {
   display: block;
   color: rgba($primary-white-color, 0.302);
-
+  &:focus {
+    outline: none;
+  }
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
   }

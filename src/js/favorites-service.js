@@ -1,11 +1,11 @@
 import refs from './refs';
 import item from '../templates/favorites-item.hbs';
 import debounce from 'lodash.debounce';
-import apiService from './apiService';
+import weatherService from './weather-service';
 import amountDays from './rendering-amount-of-days';
 import renderTodayWeather from './render-today-weather';
 import renderFiveDays from './render-five-days';
-import backgroundImageService from './backgroundService';
+import backgroundImageService from './background-service';
 import slider from './five-days-slider';
 import resetInfoAboutRendering from './reset-info-about-rendering';
 
@@ -95,12 +95,12 @@ export default {
     if (event.target.nodeName === 'A') {
       event.preventDefault();
       refs.formInput.value = event.target.textContent;
-      apiService.searchQuery = event.target.textContent;
+      weatherService.searchQuery = event.target.textContent;
       this.changeIconOnFavorites();
       if (amountDays.currentDays === 'oneDay') {
         resetInfoAboutRendering();
         slider.deleteSlider();
-        await apiService.fetchTodayWeather();
+        await weatherService.fetchTodayWeather();
         renderTodayWeather();
       } else {
         resetInfoAboutRendering();
@@ -108,11 +108,16 @@ export default {
         refs.moreInfoWrapper.classList.remove(
           'five-days__more-information-enabled',
         );
-        await apiService.fetchFiveDaysWeather();
+        await weatherService.fetchFiveDaysWeather();
         renderFiveDays();
+        dataChart.daysQuery = weatherService.dataForChart.date;
+        dataChart.temperatureQuery = weatherService.dataForChart.temp;
+        dataChart.humidityQuery = weatherService.dataForChart.humidity;
+        dataChart.windQuery = weatherService.dataForChart.wind;
+        dataChart.atmosphereQuery = weatherService.dataForChart.pressure;
       }
 
-      this.formSubmitted(apiService.apiResponse);
+      this.formSubmitted(weatherService.apiResponse);
 
       backgroundImageService.background(refs.formInput.value);
     }
