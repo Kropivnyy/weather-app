@@ -11,7 +11,7 @@ import amountDays from './js/rendering-amount-of-days';
 import slider from './js/five-days-slider';
 import resetInfoAboutRendering from './js/reset-info-about-rendering';
 import './js/chart';
-import { dataChart } from './js/chart';
+import { dataChart, renderChart } from './js/chart';
 
 favorites.loader();
 
@@ -39,6 +39,7 @@ refs.switchDaysBtn.addEventListener('click', async event => {
       await weatherService.fetchFiveDaysWeather();
       renderFiveDays();
       dataChart.setDataChart();
+      if (renderChart.chartCreated) renderChart.updateChart();
     }
   } catch (error) {
     console.log(error);

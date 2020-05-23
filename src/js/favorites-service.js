@@ -114,11 +114,6 @@ export default {
         );
         await weatherService.fetchFiveDaysWeather();
         renderFiveDays();
-        dataChart.daysQuery = weatherService.dataForChart.date;
-        dataChart.temperatureQuery = weatherService.dataForChart.temp;
-        dataChart.humidityQuery = weatherService.dataForChart.humidity;
-        dataChart.windQuery = weatherService.dataForChart.wind;
-        dataChart.atmosphereQuery = weatherService.dataForChart.pressure;
       }
 
       this.formSubmitted(weatherService.apiResponse);
