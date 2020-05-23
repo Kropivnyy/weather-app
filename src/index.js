@@ -12,6 +12,7 @@ import slider from './js/five-days-slider';
 import resetInfoAboutRendering from './js/reset-info-about-rendering';
 import './js/chart';
 import { dataChart, renderChart } from './js/chart';
+import './js/background-particles';
 
 favorites.loader();
 
