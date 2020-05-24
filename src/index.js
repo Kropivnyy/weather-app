@@ -12,7 +12,7 @@ import slider from './js/five-days-slider';
 import resetInfoAboutRendering from './js/reset-info-about-rendering';
 import './js/chart';
 import { dataChart, renderChart } from './js/chart';
-import './js/background-particles';
+import createParticles from './js/background-particles';
 
 favorites.loader();
 
@@ -21,6 +21,7 @@ weatherService.fetchTodayWeather().then(() => {
   backgroundImageService.background(weatherService.searchQuery);
   refs.switchToTodayBtn.dataset.rendered = true;
   renderGeolocationPosition();
+  createParticles();
 });
 
 refs.switchDaysBtn.addEventListener('click', async event => {

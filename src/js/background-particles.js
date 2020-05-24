@@ -1,6 +1,6 @@
 import Particles from 'particlesjs';
 
-window.onload = function () {
+export default function () {
   Particles.init({
     selector: '.background-particles',
     color: '#ffffffaa',
@@ -15,4 +15,4 @@ window.onload = function () {
       },
     ],
   });
-};
+}
