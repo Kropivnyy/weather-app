@@ -1,6 +1,5 @@
 export default {
   body: document.querySelector('body'),
-  parallaxLayer: document.querySelector('.parallax__layer--back'),
   search: document.querySelector('.search'),
   searchForm: document.querySelector('.search__form'),
   formInput: document.querySelector('.form__input'),
