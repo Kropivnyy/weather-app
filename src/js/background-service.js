@@ -14,7 +14,7 @@ export default {
         .then(res => {
           const image =
             res.data.hits[this.randomIndex(0, res.data.hits.length - 1)];
-          if (screen.width <= 1280) {
+          if (screen.width < 1280) {
             this.backgroundImage(image.webformatURL);
             return;
           } else {
