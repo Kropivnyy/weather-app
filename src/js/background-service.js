@@ -24,7 +24,8 @@ export default {
   },
 
   backgroundImage: function (source) {
-    refs.body.style.background = `linear-gradient(#0a05054d, #0a0505bf), url('${source}') no-repeat center/cover fixed`;
+    // refs.body.style.background = `linear-gradient(#0a05054d, #0a0505bf), url('${source}') no-repeat center/cover fixed`;
+    refs.parallaxLayer.style.background = `linear-gradient(#0a05054d, #0a0505bf), url('${source}') no-repeat center/cover `;
   },
 
   randomIndex: function (min, max) {
