@@ -1,8 +1,9 @@
 .main-background {
   position: relative;
+  min-height: 100vh;
 }
 
-.background {
+.background-particles {
   position: absolute;
   display: block;
   top: 0;

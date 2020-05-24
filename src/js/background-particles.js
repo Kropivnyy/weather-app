@@ -1,15 +1,16 @@
 import Particles from 'particlesjs';
+
 window.onload = function () {
   Particles.init({
-    selector: '.background',
-    color: '#ffffff',
-    connectParticles: true,
-    maxParticles: 120,
+    selector: '.background-particles',
+    color: '#ffffffaa',
+    maxParticles: 210,
+    sizeVariations: 6,
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 1279,
         options: {
-          maxParticles: 70,
+          maxParticles: 0,
         },
       },
     ],
