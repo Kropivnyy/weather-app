@@ -58,6 +58,8 @@
     "@popperjs/core": "^2.4.0",
     "axios": "^0.19.2",
     "basiclightbox": "^5.0.3",
+    "browserlist": "^1.0.1",
+    "browserslist": "^4.12.0",
     "chart.js": "^2.9.3",
     "core-js": "^3.6.5",
     "handlebars": "^4.7.6",
