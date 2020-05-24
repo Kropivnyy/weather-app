@@ -13,9 +13,18 @@ export default {
         )
         .then(res => {
           const image =
-            res.data.hits[this.randomIndex(0, res.data.hits.length - 1)]
-              .largeImageURL;
-          this.backgroundImage(image);
+            res.data.hits[this.randomIndex(0, res.data.hits.length - 1)];
+          // .largeImageURL;
+          // .webformatURL;
+          if (screen.width <= 1280) {
+            console.log('web: ' + screen.width);
+            this.backgroundImage(image.webformatURL);
+            return;
+          } else {
+            console.log('large: ' + screen.width);
+            this.backgroundImage(image.largeImageURL);
+            return;
+          }
         })
         .catch(() => {
           this.background('sky');
