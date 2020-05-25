@@ -15,10 +15,7 @@ export default function () {
 
   const markupCity = fiveDaysCityTemplate(weatherService.forecastFiveDays.city);
   refs.forecastFiveDaysCity.innerHTML = markupCity;
-
-  const markupOneDay = fiveDaysItemTemplate(weatherService.forecastFiveDays.list);
-  refs.forecastFiveDaysList.innerHTML = markupOneDay;
-  slider.createSlider();
+  createMarkuAndSlider();
   refs.switchToFiveDaysBtn.dataset.rendered = true;
   let openLoadMore = null;
 
@@ -92,4 +89,12 @@ function dayNumber(number) {
     refs.forecastMoreInfo.innerHTML = markupMoreInfo;
     return;
   }
+}
+
+async function createMarkuAndSlider() {
+  const markupOneDay = await fiveDaysItemTemplate(
+    weatherService.forecastFiveDays.list,
+  );
+  refs.forecastFiveDaysList.innerHTML = markupOneDay;
+  slider.createSlider();
 }
