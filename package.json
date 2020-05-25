@@ -25,11 +25,13 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.9.6",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@popperjs/core": "^2.4.0",
     "animate.css": "^3.7.2",
     "autoprefixer": "^9.8.0",
     "babel-loader": "^8.1.0",
     "bootstrap": "^4.5.0",
     "clean-webpack-plugin": "^3.0.0",
+    "core-js": "^3.6.5",
     "css-loader": "^3.5.3",
     "file-loader": "^6.0.0",
     "font-awesome": "^4.7.0",
@@ -55,21 +57,12 @@
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
-    "@popperjs/core": "^2.4.0",
     "axios": "^0.19.2",
-    "basiclightbox": "^5.0.3",
     "chart.js": "^2.9.3",
-    "core-js": "^3.6.5",
     "handlebars": "^4.7.6",
-    "imagesloaded": "^4.1.4",
-    "infinite-scroll": "^3.0.6",
     "jquery": "^3.5.1",
     "lodash.debounce": "^4.0.8",
-    "masonry-layout": "^4.2.2",
     "particlesjs": "^2.2.3",
-    "pnotify": "^5.1.2",
-    "randomcolor": "^0.5.4",
-    "slick-carousel": "^1.8.1",
-    "tiny-slider": "^2.9.2"
+    "slick-carousel": "^1.8.1"
   }
 }

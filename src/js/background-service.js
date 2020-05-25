@@ -13,9 +13,12 @@ export default {
         )
         .then(res => {
           const image =
-            res.data.hits[this.randomIndex(0, res.data.hits.length - 1)]
-              .largeImageURL;
-          this.backgroundImage(image);
+            res.data.hits[this.randomIndex(0, res.data.hits.length - 1)];
+          if (window.matchMedia('(min-width: 1280px)').matches) {
+            this.backgroundImage(image.largeImageURL);
+          } else {
+            this.backgroundImage(image.webformatURL);
+          }
         })
         .catch(() => {
           this.background('sky');
@@ -24,7 +27,7 @@ export default {
   },
 
   backgroundImage: function (source) {
-    refs.body.style.background = `linear-gradient(#0a05054d, #0a0505bf), url('${source}') no-repeat center/cover fixed`;
+    refs.body.style.backgroundImage = `linear-gradient(#0a05054d, #0a0505bf), url('${source}')`;
   },
 
   randomIndex: function (min, max) {
