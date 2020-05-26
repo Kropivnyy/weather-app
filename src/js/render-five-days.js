@@ -15,7 +15,7 @@ export default function () {
 
   const markupCity = fiveDaysCityTemplate(weatherService.forecastFiveDays.city);
   refs.forecastFiveDaysCity.innerHTML = markupCity;
-  createMarkuAndSlider();
+  createMarkupAndSlider();
   refs.switchToFiveDaysBtn.dataset.rendered = true;
   let openLoadMore = null;
 
@@ -91,7 +91,7 @@ function dayNumber(number) {
   }
 }
 
-async function createMarkuAndSlider() {
+async function createMarkupAndSlider() {
   const markupOneDay = await fiveDaysItemTemplate(
     weatherService.forecastFiveDays.list,
   );

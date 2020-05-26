@@ -3,6 +3,7 @@
   width: 250px;
   margin: 0 auto;
   padding: 10px 0 19px 0;
+
   @media screen and (max-width: 1279px) {
     overflow-x: auto;
     &::-webkit-scrollbar {
@@ -111,7 +112,10 @@
   --bg-icon: url(./images/wind.png);
 }
 
-.more-information__arrow-left {
+.more-information__next-btn,
+.more-information__prev-btn {
+  bottom: 160px;
+  position: absolute;
   display: none;
   @extend %button;
   background: rgba($small-buttons-color, $light-opacity);
@@ -129,4 +133,12 @@
   @media screen and (min-width: 1280px) {
     display: none;
   }
+}
+
+.more-information__prev-btn {
+  left: 12px;
+}
+
+.more-information__next-btn {
+  right: 12px;
 }
