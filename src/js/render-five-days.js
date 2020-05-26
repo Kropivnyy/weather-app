@@ -9,14 +9,14 @@ import slider from './five-days-slider';
 export default function () {
   event.preventDefault();
 
-  if (amountDays.currentDays !== 'fiveDays') {
-    return;
-  }
+  if (amountDays.currentDays !== 'fiveDays') return;
 
   const markupCity = fiveDaysCityTemplate(weatherService.forecastFiveDays.city);
   refs.forecastFiveDaysCity.innerHTML = markupCity;
 
-  const markupOneDay = fiveDaysItemTemplate(weatherService.forecastFiveDays.list);
+  const markupOneDay = fiveDaysItemTemplate(
+    weatherService.forecastFiveDays.list,
+  );
   refs.forecastFiveDaysList.innerHTML = markupOneDay;
   slider.createSlider();
   refs.switchToFiveDaysBtn.dataset.rendered = true;
@@ -25,16 +25,14 @@ export default function () {
   refs.forecastFiveDaysList.addEventListener('click', e => {
     e.preventDefault();
 
-    if (e.target.nodeName !== 'A') {
-      return;
-    }
+    if (e.target.nodeName !== 'A') return;
     refs.moreInfoWrapper.classList.add('five-days__more-information-enabled');
     const indexDay = e.target.dataset.index;
 
     if (openLoadMore === null) {
       e.target.classList.add('five-days__more-info--active');
       openLoadMore = e.target;
-      dayNumber(indexDay);
+      markupMoreInfo(indexDay);
       return;
     }
     if (openLoadMore === e.target) {
@@ -50,46 +48,15 @@ export default function () {
       openLoadMore.classList.remove('five-days__more-info--active');
       e.target.classList.add('five-days__more-info--active');
       openLoadMore = e.target;
-      dayNumber(indexDay);
+      markupMoreInfo(indexDay);
       return;
     }
   });
 }
 
-function dayNumber(number) {
-  if (number === '0') {
-    const markupMoreInfo = moreInfoTemplate(
-      weatherService.forecastFiveDays.list[0].byHours,
-    );
-    refs.forecastMoreInfo.innerHTML = markupMoreInfo;
-    return;
-  }
-  if (number === '1') {
-    const markupMoreInfo = moreInfoTemplate(
-      weatherService.forecastFiveDays.list[1].byHours,
-    );
-    refs.forecastMoreInfo.innerHTML = markupMoreInfo;
-    return;
-  }
-  if (number === '2') {
-    const markupMoreInfo = moreInfoTemplate(
-      weatherService.forecastFiveDays.list[2].byHours,
-    );
-    refs.forecastMoreInfo.innerHTML = markupMoreInfo;
-    return;
-  }
-  if (number === '3') {
-    const markupMoreInfo = moreInfoTemplate(
-      weatherService.forecastFiveDays.list[3].byHours,
-    );
-    refs.forecastMoreInfo.innerHTML = markupMoreInfo;
-    return;
-  }
-  if (number === '4') {
-    const markupMoreInfo = moreInfoTemplate(
-      weatherService.forecastFiveDays.list[4].byHours,
-    );
-    refs.forecastMoreInfo.innerHTML = markupMoreInfo;
-    return;
-  }
-}
+const markupMoreInfo = number => {
+  refs.forecastMoreInfo.innerHTML = moreInfoTemplate(
+    weatherService.forecastFiveDays.list[number].byHours,
+  );
+  return;
+};
