@@ -1,5 +1,8 @@
 import axios from 'axios';
 import getCurrentTime from './get-current-time';
+import { notice } from '@pnotify/core';
+import * as PNotifyAnimate from '@pnotify/animate';
+import 'animate.css/animate.min.css';
 
 const apiKey = 'c112c800340c3f1ee2fad83b32fe690c';
 
@@ -43,6 +46,20 @@ export default {
     } catch (error) {
       this.apiResponse = false;
       console.log(error);
+
+      notice({
+        text: 'Check your city name',
+        width: '300px',
+        modules: new Map([
+          [
+            PNotifyAnimate,
+            {
+              inClass: 'bounceInLeft',
+              outClass: 'bounceOutLeft',
+            },
+          ],
+        ]),
+      });
     }
   },
   fetchFiveDaysWeather: async function () {
