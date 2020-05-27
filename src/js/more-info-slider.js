@@ -6,6 +6,7 @@ export default {
   itemsArray: null,
   swiper: null,
   create() {
+    refs.forecastMoreInfo.addEventListener('transitionstart', this.addedButtonsStile);
     refs.fiveDaysMoreInfoScrollbar.classList.remove(
       'five-days__more-information-scrollbar--hidden',
     );
@@ -35,11 +36,41 @@ export default {
   },
 
   destroy() {
+    refs.forecastMoreInfo.removeEventListener('transitionstart', this.addedButtonsStile)
     this.itemsArray.forEach(e => e.classList.remove('swiper-slide'));
     refs.fiveDaysMoreInfoBtn.classList.add(
       'five-days__more-information-btn--hidden',
     );
     refs.forecastMoreInfo.classList.remove('swiper-wrapper');
     this.swiper.destroy();
+  },
+
+  addedButtonsStile() {
+    if (
+      refs.fiveDaysMoreInfoBtn.firstElementChild.firstElementChild.getAttribute(
+        'tabindex',
+      ) === '0'
+    ) {
+      refs.fiveDaysMoreInfoBtn.firstElementChild.classList.remove(
+        'not-active-buttons',
+      );
+    } else {
+      refs.fiveDaysMoreInfoBtn.firstElementChild.classList.add(
+        'not-active-buttons',
+      );
+    }
+    if (
+      refs.fiveDaysMoreInfoBtn.lastElementChild.firstElementChild.getAttribute(
+        'tabindex',
+      ) === '0'
+    ) {
+      refs.fiveDaysMoreInfoBtn.lastElementChild.classList.remove(
+        'not-active-buttons',
+      );
+    } else {
+      refs.fiveDaysMoreInfoBtn.lastElementChild.classList.add(
+        'not-active-buttons',
+      );
+    }
   },
 };
