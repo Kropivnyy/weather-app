@@ -1,0 +1,21 @@
+// Alarm modal
+
+.pnotify {
+  position: absolute;
+  left: 1%;
+
+  &-shadow {
+    background-color: $background-blue-color;
+    border-radius: 20px;
+    box-shadow: 0 0 5px $background-blue-color;
+  }
+
+  // Title
+
+  &-pre-line {
+    display: block;
+    font: normal $primary-font-size $primary-font-family;
+    padding: 20px 0;
+    text-align: center;
+  }
+}
