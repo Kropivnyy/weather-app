@@ -34,4 +34,8 @@ export default {
   switchToTodayBtn: document.querySelector('.today-forecast-js'),
   fiveDaysPrevDayBtn: document.querySelector('.five-days__prev-day-btn'),
   fiveDaysNextDayBtn: document.querySelector('.five-days__next-day-btn'),
+  fiveDaysMoreInfoBtn: document.querySelector(
+    '.five-days__more-information-btn',
+  ),
+  fiveDaysMoreInfoScrollbar: document.querySelector('.swiper-scrollbar'),
 };
