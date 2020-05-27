@@ -1,8 +1,9 @@
 import axios from 'axios';
 import getCurrentTime from './get-current-time';
-import { notice } from '@pnotify/core';
+import { notice, defaults } from '@pnotify/core';
 import * as PNotifyAnimate from '@pnotify/animate';
 import 'animate.css/animate.min.css';
+defaults.delay = '2000';
 
 const apiKey = 'c112c800340c3f1ee2fad83b32fe690c';
 

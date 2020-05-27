@@ -3,16 +3,8 @@
   width: 250px;
   margin: 0 auto;
   padding: 10px 0 19px 0;
-  @media screen and (max-width: 1279px) {
-    overflow-x: auto;
-    &::-webkit-scrollbar {
-      height: 2px;
-      background-color: rgba($primary-white-color, $light-opacity);
-    }
-    &::-webkit-scrollbar-thumb {
-      background: $primary-orange-color;
-    }
-  }
+  position: relative;
+  overflow-x: hidden;
 
   @media screen and (min-width: 768px) {
     width: 510px;
@@ -40,6 +32,14 @@
   @include center-flex(hor);
   width: fit-content;
   margin: 0 auto;
+
+  @media screen and (max-width: 1279px) {
+    justify-content: start;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-left: 10px;
+  }
 }
 
 .more-information__item {
@@ -111,8 +111,21 @@
   --bg-icon: url(./images/wind.png);
 }
 
-.more-information__arrow-left {
+.five-days__more-information-btn {
   display: none;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    display: block;
+  }
+}
+
+.five-days__more-information-btn--hidden {
+  display: none;
+}
+
+.more-information__next-btn,
+.more-information__prev-btn {
+  bottom: 156px;
+  position: absolute;
   @extend %button;
   background: rgba($small-buttons-color, $light-opacity);
   border-radius: 50%;
@@ -122,11 +135,36 @@
     width: 27px;
     line-height: 27px;
   }
-  @media screen and (min-width: 768px) {
-    display: block;
-    margin-left: auto;
-  }
-  @media screen and (min-width: 1280px) {
-    display: none;
-  }
+}
+
+.more-information__prev-btn {
+  left: 12px;
+}
+
+.more-information__next-btn {
+  right: 12px;
+}
+
+ul.swiper-wrapper {
+  box-sizing: border-box;
+}
+
+div.swiper-scrollbar {
+  height: 2px;
+}
+
+div.five-days__more-information-btn--hidden {
+  display: none;
+}
+
+div.swiper-scrollbar-drag {
+  background: $primary-orange-color;
+}
+
+div.swiper-container-horizontal > .swiper-scrollbar {
+  height: 2px;
+}
+
+.five-days__more-information-scrollbar--hidden {
+  display: none;
 }
