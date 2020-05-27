@@ -63,12 +63,10 @@
     "chart.js": "^2.9.3",
     "handlebars": "^4.7.6",
     "jquery": "^3.5.1",
-    "lodash": "^4.17.15",
     "lodash.debounce": "^4.0.8",
     "particlesjs": "^2.2.3",
-    "pnotify": "^5.1.2",
-    "randomcolor": "^0.5.4",
     "slick-carousel": "^1.8.1",
-    "swiper": "^5.4.1"
+    "swiper": "^5.4.1",
+    "pnotify": "^5.1.2"
   }
 }
