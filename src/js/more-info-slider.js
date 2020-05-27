@@ -5,7 +5,11 @@ import 'swiper/css/swiper.min.css';
 export default {
   itemsArray: null,
   swiper: null,
+  resize: null,
   create() {
+    this.resize = this.onScreenResize.bind(this);
+    window.addEventListener('resize', this.resize);
+
     refs.forecastMoreInfo.addEventListener(
       'transitionstart',
       this.addedButtonsStile,
@@ -33,11 +37,14 @@ export default {
       scrollbar: {
         el: '.swiper-scrollbar',
         hide: false,
-        dragSize: 120,
+        dragSize: 90,
       },
       breakpoints: {
         768: {
           slidesPerView: 4,
+          scrollbar: {
+            dragSize: 120,
+          },
         },
         1280: {
           slidesPerView: 8,
@@ -47,6 +54,7 @@ export default {
   },
 
   destroy() {
+    window.removeEventListener('resize', this.resize);
     refs.forecastMoreInfo.removeEventListener(
       'transitionstart',
       this.addedButtonsStile,
@@ -86,5 +94,8 @@ export default {
         'not-active-buttons',
       );
     }
+  },
+  onScreenResize() {
+    this.swiper.update();
   },
 };
