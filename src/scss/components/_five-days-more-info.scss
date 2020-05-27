@@ -3,21 +3,10 @@
   width: 250px;
   margin: 0 auto;
   padding: 10px 0 19px 0;
-
-  @media screen and (max-width: 767px) {
-    overflow-x: auto;
-    &::-webkit-scrollbar {
-      height: 2px;
-      background-color: rgba($primary-white-color, $light-opacity);
-    }
-    &::-webkit-scrollbar-thumb {
-      background: $primary-orange-color;
-    }
-  }
+  position: relative;
+  overflow-x: hidden;
 
   @media screen and (min-width: 768px) {
-    position: relative;
-    overflow-x: hidden;
     width: 510px;
     padding: 34px 0 19px 0;
   }
@@ -44,8 +33,12 @@
   width: fit-content;
   margin: 0 auto;
 
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
+  @media screen and (max-width: 1279px) {
     justify-content: start;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-left: 10px;
   }
 }
 

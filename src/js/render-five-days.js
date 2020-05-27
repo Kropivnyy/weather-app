@@ -33,15 +33,12 @@ export default function () {
       e.target.classList.add('five-days__more-info--active');
       openLoadMore = e.target;
       dayNumber(indexDay);
-      if (window.innerWidth >= 768 && window.innerWidth < 1280) {
-        moreInfoSlider.create();
-      }
+      moreInfoSlider.create();
       return;
     }
     if (openLoadMore === e.target) {
-      if (window.innerWidth >= 768 && window.innerWidth < 1280) {
-        moreInfoSlider.destroy();
-      }
+      moreInfoSlider.destroy();
+
       e.target.classList.remove('five-days__more-info--active');
       openLoadMore = null;
       refs.forecastMoreInfo.innerHTML = '';
@@ -55,10 +52,9 @@ export default function () {
       e.target.classList.add('five-days__more-info--active');
       openLoadMore = e.target;
       dayNumber(indexDay);
-      if (window.innerWidth >= 768 && window.innerWidth < 1280) {
-        moreInfoSlider.destroy();
-        moreInfoSlider.create();
-      }
+      moreInfoSlider.destroy();
+      moreInfoSlider.create();
+
       return;
     }
   });

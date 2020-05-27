@@ -6,7 +6,10 @@ export default {
   itemsArray: null,
   swiper: null,
   create() {
-    refs.forecastMoreInfo.addEventListener('transitionstart', this.addedButtonsStile);
+    refs.forecastMoreInfo.addEventListener(
+      'transitionstart',
+      this.addedButtonsStile,
+    );
     refs.fiveDaysMoreInfoScrollbar.classList.remove(
       'five-days__more-information-scrollbar--hidden',
     );
@@ -21,7 +24,7 @@ export default {
     }
     refs.forecastMoreInfo.classList.add('swiper-wrapper');
     this.swiper = new Swiper('.five-days__more-information', {
-      slidesPerView: 4,
+      slidesPerView: 2,
       spaceBetween: 10,
       navigation: {
         nextEl: '.more-information__next-btn-js',
@@ -32,11 +35,22 @@ export default {
         hide: false,
         dragSize: 120,
       },
+      breakpoints: {
+        768: {
+          slidesPerView: 4,
+        },
+        1280: {
+          slidesPerView: 8,
+        },
+      },
     });
   },
 
   destroy() {
-    refs.forecastMoreInfo.removeEventListener('transitionstart', this.addedButtonsStile)
+    refs.forecastMoreInfo.removeEventListener(
+      'transitionstart',
+      this.addedButtonsStile,
+    );
     this.itemsArray.forEach(e => e.classList.remove('swiper-slide'));
     refs.fiveDaysMoreInfoBtn.classList.add(
       'five-days__more-information-btn--hidden',
