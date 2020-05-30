@@ -17,6 +17,7 @@
   border-radius: 35px;
   box-shadow: $background-shadow;
   background-color: rgba($background-blue-color, 0.6);
+  animation: onShowAnimation 500ms;
 
   @media screen and (min-width: 768px) {
     width: 490px;
