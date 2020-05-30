@@ -1,5 +1,6 @@
 .chart {
   display: none;
+  animation: onShowAnimation 500ms;
 }
 
 .chart_enabled {
@@ -57,4 +58,5 @@
 
 .schedule__wrapper-enabled {
   display: block;
+  animation: onShowAnimation 500ms;
 }

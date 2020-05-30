@@ -20,6 +20,7 @@
 
 .five-days__more-information-enabled {
   display: block;
+  animation: onShowAnimation 500ms;
 }
 
 .more-information__list,
