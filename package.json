@@ -59,7 +59,7 @@
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "chart.js": "^2.9.3",
     "handlebars": "^4.7.6",
     "jquery": "^3.5.1",
