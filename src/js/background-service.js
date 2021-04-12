@@ -2,25 +2,26 @@ import refs from './refs';
 import axios from 'axios';
 import weatherService from './weather-service';
 
-const pixabayApiKey = '16159179-9a5d2f4d64cb4ee75e82dc2d4';
+const unsplashApiKey = 'x9AhgqdVedkj92knzoynGC04XskWUCMDGAsuL6NaIdM';
 
 export default {
   background: function (query) {
     if (weatherService.apiResponse) {
       axios
         .get(
-          `https://cors-anywhere.herokuapp.com/https://pixabay.com/api?key=${pixabayApiKey}&q=${query}&image_type=photo&orientation=horizontal&category=places+travel&per_page=10`,
+          `https://api.unsplash.com/search/photos?client_id=${unsplashApiKey}&query=${query}&page=1&per_page=10&orientation=landscape`,
         )
         .then(res => {
           const image =
-            res.data.hits[this.randomIndex(0, res.data.hits.length - 1)];
+            res.data.results[this.randomIndex(0, res.data.results.length - 1)];
           if (window.matchMedia('(min-width: 1280px)').matches) {
-            this.backgroundImage(image.largeImageURL);
+            this.backgroundImage(image.urls.regular);
           } else {
-            this.backgroundImage(image.webformatURL);
+            this.backgroundImage(image.urls.small);
           }
         })
-        .catch(() => {
+        .catch(error => {
+          console.warn(error);
           this.background('sky');
         });
     }
